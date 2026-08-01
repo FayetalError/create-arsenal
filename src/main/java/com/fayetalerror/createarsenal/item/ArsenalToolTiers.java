@@ -18,7 +18,7 @@ public final class ArsenalToolTiers {
             7.0F,
             2.0F,
             14,
-            () -> Ingredient.of(AllItems.ANDESITE_ALLOY.get())
+            () -> Ingredient.of(AllItems.IRON_SHEET.get())
     );
 
     private ArsenalToolTiers() {
