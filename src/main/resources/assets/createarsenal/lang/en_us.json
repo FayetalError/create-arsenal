@@ -1,0 +1,13 @@
+{
+  "itemGroup.createarsenal": "Example Mod Tab",
+  "block.createarsenal.example_block": "Example Block",
+  "item.createarsenal.example_item": "Example Item",
+
+  "createarsenal.configuration.title": "Create: Arsenal Configs",
+  "createarsenal.configuration.section.createarsenal.common.toml": "Create: Arsenal Configs",
+  "createarsenal.configuration.section.createarsenal.common.toml.title": "Create: Arsenal Configs",
+  "createarsenal.configuration.items": "Item List",
+  "createarsenal.configuration.logDirtBlock": "Log Dirt Block",
+  "createarsenal.configuration.magicNumberIntroduction": "Magic Number Text",
+  "createarsenal.configuration.magicNumber": "Magic Number"
+}
