@@ -1,6 +1,6 @@
-package com.fayetalerror.createarsenal.item;
+package com.fayetalerror.createarsenal.item.tools;
 
-import com.fayetalerror.createarsenal.client.renderer.item.AndesitePickaxeCoreRenderer;
+import com.fayetalerror.createarsenal.client.renderer.item.tools.AndesitePickaxeCoreRenderer;
 import java.util.function.Consumer;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.world.item.Item;

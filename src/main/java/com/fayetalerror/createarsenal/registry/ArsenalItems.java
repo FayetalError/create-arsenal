@@ -1,9 +1,9 @@
 package com.fayetalerror.createarsenal.registry;
 
 import com.fayetalerror.createarsenal.CreateArsenal;
-import com.fayetalerror.createarsenal.item.AndesitePickaxeCoreItem;
-import com.fayetalerror.createarsenal.item.AndesitePickaxeItem;
-import com.fayetalerror.createarsenal.item.ArsenalToolTiers;
+import com.fayetalerror.createarsenal.item.tools.AndesitePickaxeCoreItem;
+import com.fayetalerror.createarsenal.item.tools.AndesitePickaxeItem;
+import com.fayetalerror.createarsenal.item.tools.ArsenalToolTiers;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.PickaxeItem;
 import net.neoforged.neoforge.registries.DeferredItem;

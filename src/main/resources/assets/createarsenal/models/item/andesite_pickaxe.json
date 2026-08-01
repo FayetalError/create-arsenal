@@ -146,6 +146,6 @@
     }
   },
   "textures": {
-    "particle": "createarsenal:item/andesite_pickaxe"
+    "particle": "createarsenal:item/tools/andesite_pickaxe"
   }
 }
