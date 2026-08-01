@@ -14,8 +14,6 @@ public final class ArsenalRegistries {
      * @param modEventBus bus supplied to the main mod entry point by NeoForge
      */
     public static void register(IEventBus modEventBus) {
-        // Registration order keeps blocks available before their corresponding block items.
-        ArsenalBlocks.BLOCKS.register(modEventBus);
         ArsenalItems.ITEMS.register(modEventBus);
 
         // Creative tabs resolve their item suppliers after the item registry has been attached.

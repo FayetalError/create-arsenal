@@ -1,14 +1,5 @@
 {
   "itemGroup.createarsenal": "Create: Arsenal",
-  "block.createarsenal.example_block": "Example Block",
-  "item.createarsenal.example_item": "Example Item",
-  "item.createarsenal.andesite_pickaxe": "Andesite Pickaxe",
-
-  "createarsenal.configuration.title": "Create: Arsenal Configs",
-  "createarsenal.configuration.section.createarsenal.common.toml": "Create: Arsenal Configs",
-  "createarsenal.configuration.section.createarsenal.common.toml.title": "Create: Arsenal Configs",
-  "createarsenal.configuration.items": "Item List",
-  "createarsenal.configuration.logDirtBlock": "Log Dirt Block",
-  "createarsenal.configuration.magicNumberIntroduction": "Magic Number Text",
-  "createarsenal.configuration.magicNumber": "Magic Number"
+  "item.createarsenal.andesite_pickaxe_core": "Andesite Pickaxe Core",
+  "item.createarsenal.andesite_pickaxe": "Andesite Pickaxe"
 }

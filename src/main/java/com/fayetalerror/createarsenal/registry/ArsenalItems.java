@@ -1,10 +1,9 @@
 package com.fayetalerror.createarsenal.registry;
 
 import com.fayetalerror.createarsenal.CreateArsenal;
+import com.fayetalerror.createarsenal.item.AndesitePickaxeCoreItem;
 import com.fayetalerror.createarsenal.item.AndesitePickaxeItem;
 import com.fayetalerror.createarsenal.item.ArsenalToolTiers;
-import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.PickaxeItem;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -14,6 +13,12 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 public final class ArsenalItems {
     /** Deferred item registry scoped to the {@code createarsenal} namespace. */
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(CreateArsenal.MODID);
+
+    /** Static GeckoLib component registered as {@code createarsenal:andesite_pickaxe_core}. */
+    public static final DeferredItem<AndesitePickaxeCoreItem> ANDESITE_PICKAXE_CORE = ITEMS.register(
+            "andesite_pickaxe_core",
+            () -> new AndesitePickaxeCoreItem(new Item.Properties().stacksTo(1))
+    );
 
     /** GeckoLib-rendered pickaxe registered as {@code createarsenal:andesite_pickaxe}. */
     public static final DeferredItem<AndesitePickaxeItem> ANDESITE_PICKAXE = ITEMS.register(
@@ -26,26 +31,6 @@ public final class ArsenalItems {
                             -2.8F
                     ))
             )
-    );
-
-    /** Inventory representation of {@link ArsenalBlocks#EXAMPLE_BLOCK}. */
-    public static final DeferredItem<BlockItem> EXAMPLE_BLOCK_ITEM = ITEMS.registerSimpleBlockItem(
-            "example_block",
-            ArsenalBlocks.EXAMPLE_BLOCK
-    );
-
-    /**
-     * Starter food item registered as {@code createarsenal:example_item}.
-     * It restores one nutrition point, uses a 2.0 saturation modifier, and may be eaten at full hunger.
-     */
-    public static final DeferredItem<Item> EXAMPLE_ITEM = ITEMS.registerSimpleItem(
-            "example_item",
-            new Item.Properties().food(new FoodProperties.Builder()
-                    // Allow eating the item even when the player is not hungry.
-                    .alwaysEdible()
-                    .nutrition(1)
-                    .saturationModifier(2.0F)
-                    .build())
     );
 
     /** Utility class; registered items are exposed as static deferred holders. */

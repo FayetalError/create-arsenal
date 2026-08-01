@@ -1,13 +1,10 @@
 package com.fayetalerror.createarsenal;
 
-import com.fayetalerror.createarsenal.config.ArsenalConfig;
-import com.fayetalerror.createarsenal.event.CommonEvents;
 import com.fayetalerror.createarsenal.registry.ArsenalRegistries;
 import com.mojang.logging.LogUtils;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
-import net.neoforged.fml.config.ModConfig;
 import org.slf4j.Logger;
 
 /**
@@ -16,14 +13,14 @@ import org.slf4j.Logger;
  */
 @Mod(CreateArsenal.MODID)
 public final class CreateArsenal {
-    /** Namespace used by registrations, resources, configuration, and event subscribers. */
+    /** Namespace used by registrations and resources. */
     public static final String MODID = "createarsenal";
 
-    /** Shared logger used by common and client initialization code. */
+    /** Shared logger for Create: Arsenal. */
     public static final Logger LOGGER = LogUtils.getLogger();
 
     /**
-     * Connects the mod's registries, event listeners, and common configuration to NeoForge.
+     * Connects the mod's registries to NeoForge and reports the loaded version.
      *
      * @param modEventBus bus used for mod lifecycle and registry events
      * @param modContainer container representing this loaded mod
@@ -32,10 +29,6 @@ public final class CreateArsenal {
         // Attach every deferred registry before NeoForge begins registering content.
         ArsenalRegistries.register(modEventBus);
 
-        // Attach lifecycle and gameplay listeners to their corresponding event buses.
-        CommonEvents.register(modEventBus);
-
-        // Make the common configuration specification available to NeoForge's config system.
-        modContainer.registerConfig(ModConfig.Type.COMMON, ArsenalConfig.SPEC);
+        LOGGER.info("Create: Arsenal {} initializing!", modContainer.getModInfo().getVersion());
     }
 }

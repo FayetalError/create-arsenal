@@ -23,8 +23,8 @@ public final class ArsenalCreativeTabs {
                     .icon(() -> ArsenalItems.ANDESITE_PICKAXE.get().getDefaultInstance())
                     // Populate the tab when Minecraft requests its item list.
                     .displayItems((parameters, output) -> {
+                        output.accept(ArsenalItems.ANDESITE_PICKAXE_CORE.get());
                         output.accept(ArsenalItems.ANDESITE_PICKAXE.get());
-                        output.accept(ArsenalItems.EXAMPLE_ITEM.get());
                     })
                     .build());
 

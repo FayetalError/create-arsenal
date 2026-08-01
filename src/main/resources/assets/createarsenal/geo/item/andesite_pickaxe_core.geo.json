@@ -1,0 +1,39 @@
+{
+	"format_version": "1.21.110",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.andesite_pickaxe_core",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 3.5,
+				"visible_bounds_offset": [0, 1.25, 0]
+			},
+			"bones": [
+				{"name": "handle", "pivot": [-5, 0, -6]},
+				{
+					"name": "wood",
+					"parent": "handle",
+					"pivot": [0, 7.5, 0],
+					"cubes": [
+						{"origin": [-1, 0.5, -1], "size": [2, 22.75, 2], "uv": [0, 0]}
+					]
+				},
+				{"name": "head", "pivot": [0, 24.18108, 0]},
+				{"name": "iron", "parent": "head", "pivot": [0, 23.25, 0]},
+				{
+					"name": "andesite",
+					"parent": "head",
+					"pivot": [0, 24.0092, 0],
+					"cubes": [
+						{"origin": [-6, 23.25, -0.75], "size": [12, 2.5, 1.5], "uv": [16, 0]},
+						{"origin": [-0.75, 25.5092, -0.75], "size": [1.5, 1, 1.5], "uv": [16, 9]},
+						{"origin": [-10.375, 23.25, -0.75], "size": [4.5, 2.5, 1.5], "pivot": [-6, 25.25, 0], "rotation": [0, 0, -15], "uv": [16, 3]},
+						{"origin": [5.875, 23.25, -0.75], "size": [4.5, 2.5, 1.5], "pivot": [6, 25.25, 0], "rotation": [0, 0, 15], "uv": [16, 6]}
+					]
+				}
+			]
+		}
+	]
+}
