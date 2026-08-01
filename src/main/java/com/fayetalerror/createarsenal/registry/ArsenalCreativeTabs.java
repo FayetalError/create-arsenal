@@ -15,15 +15,17 @@ public final class ArsenalCreativeTabs {
 
     /**
      * Main tab registered as {@code createarsenal:createarsenal}.
-     * The tab appears before Minecraft's combat tab and uses the example item as its icon.
      */
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> ARSENAL_TAB =
             CREATIVE_MODE_TABS.register("createarsenal", () -> CreativeModeTab.builder()
                     // Resolve the visible title from assets/createarsenal/lang/en_us.json.
                     .title(Component.translatable("itemGroup.createarsenal"))
-                    .icon(() -> ArsenalItems.EXAMPLE_ITEM.get().getDefaultInstance())
+                    .icon(() -> ArsenalItems.ANDESITE_PICKAXE.get().getDefaultInstance())
                     // Populate the tab when Minecraft requests its item list.
-                    .displayItems((parameters, output) -> output.accept(ArsenalItems.EXAMPLE_ITEM.get()))
+                    .displayItems((parameters, output) -> {
+                        output.accept(ArsenalItems.ANDESITE_PICKAXE.get());
+                        output.accept(ArsenalItems.EXAMPLE_ITEM.get());
+                    })
                     .build());
 
     /** Utility class; registered tabs are exposed as static deferred holders. */

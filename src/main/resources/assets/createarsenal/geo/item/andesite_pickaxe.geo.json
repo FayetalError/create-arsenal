@@ -1,0 +1,64 @@
+{
+	"format_version": "1.21.110",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.andesite_pickaxe",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 3.5,
+				"visible_bounds_offset": [0, 1.25, 0]
+			},
+			"bones": [
+				{
+					"name": "handle",
+					"pivot": [-5, 0, -6]
+				},
+				{
+					"name": "wood",
+					"parent": "handle",
+					"pivot": [0, 7.5, 0],
+					"cubes": [
+						{"origin": [-1, 0.5, -1], "size": [2, 20.5, 2], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "iron2",
+					"parent": "handle",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-1.25, 0, -1.25], "size": [2.5, 2.5, 2.5], "uv": [16, 17]},
+						{"origin": [-1.25, 21, -1.25], "size": [2.5, 5, 2.5], "uv": [8, 17]}
+					]
+				},
+				{
+					"name": "head",
+					"pivot": [0, 24.18108, 0]
+				},
+				{
+					"name": "iron",
+					"parent": "head",
+					"pivot": [0, 23.25, 0],
+					"cubes": [
+						{"origin": [1.5, 24, -1.25], "size": [4.5, 2, 2.5], "uv": [8, 13]},
+						{"origin": [6, 24.25, -1], "size": [5.5, 1.75, 2], "pivot": [6, 26, 0], "rotation": [0, 0, 25], "uv": [8, 6]},
+						{"origin": [-6, 24, -1.25], "size": [4.5, 2, 2.5], "uv": [8, 9]},
+						{"origin": [-11.5, 24.25, -1], "size": [5.5, 1.75, 2], "pivot": [-6, 26, 0], "rotation": [0, 0, -25], "uv": [8, 3]}
+					]
+				},
+				{
+					"name": "andesite",
+					"parent": "head",
+					"pivot": [0, 24.0092, 0],
+					"cubes": [
+						{"origin": [-6, 23.25, -0.75], "size": [12, 2.5, 1.5], "uv": [8, 0]},
+						{"origin": [-0.75, 25.5092, -0.75], "size": [1.5, 1, 1.5], "uv": [20, 13]},
+						{"origin": [-10.25, 23.25, -0.75], "size": [4.5, 1.5, 1.5], "pivot": [-5.75, 24.25, 0], "rotation": [0, 0, -15], "uv": [20, 9]},
+						{"origin": [5.75, 23.25, -0.75], "size": [4.5, 1.5, 1.5], "pivot": [5.75, 24.25, 0], "rotation": [0, 0, 15], "uv": [20, 11]}
+					]
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,26 @@
+package com.fayetalerror.createarsenal.item;
+
+import com.simibubi.create.AllItems;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.neoforged.neoforge.common.SimpleTier;
+
+/** Defines the mining statistics and repair materials shared by Create: Arsenal tools. */
+public final class ArsenalToolTiers {
+    /**
+     * Andesite equipment mines at iron level with 650 durability and a 7.0 mining speed.
+     * Damaged tools using this tier can be repaired with Create's Andesite Alloy.
+     */
+    public static final Tier ANDESITE = new SimpleTier(
+            BlockTags.INCORRECT_FOR_IRON_TOOL,
+            650,
+            7.0F,
+            2.0F,
+            14,
+            () -> Ingredient.of(AllItems.ANDESITE_ALLOY.get())
+    );
+
+    private ArsenalToolTiers() {
+    }
+}

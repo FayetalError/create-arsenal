@@ -95,6 +95,14 @@ Addon for the Create mod that adds new weapons, tools, and other items to the ga
     versionRange="[6.0.10,6.1.0)"
     ordering="NONE"
     side="BOTH"
+
+# GeckoLib supplies animated models and renderers for the mod's equipment and block entities.
+[[dependencies.${mod_id}]]
+    modId="geckolib"
+    type="required"
+    versionRange="[${geckolib_version},4.10)"
+    ordering="AFTER"
+    side="BOTH"
     
 # Features are specific properties of the game environment, that you may want to declare you require. This example declares
 # that your mod requires GL version 3.2 or higher. Other features will be added. They are side aware so declaring this won't
