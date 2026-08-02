@@ -1,0 +1,55 @@
+{
+  "credit": "Made with Blockbench",
+  "parent": "builtin/entity",
+  "texture_size": [
+    64,
+    64
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [0, -90, 0],
+      "translation": [0, -6, 1.5],
+      "scale": [0.65, 0.65, 0.65]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [0, 90, 0],
+      "translation": [0, -6, 1.5],
+      "scale": [0.65, 0.65, 0.65]
+    },
+    "firstperson_righthand": {
+      "rotation": [0, -70, 0],
+      "translation": [0, -8, 3],
+      "scale": [0.75, 0.75, 0.75]
+    },
+    "firstperson_lefthand": {
+      "rotation": [0, 100, 0],
+      "translation": [0, -8, 3],
+      "scale": [0.75, 0.75, 0.75]
+    },
+    "ground": {
+      "scale": [0.5, 0.5, 0.5]
+    },
+    "gui": {
+      "rotation": [0, 180, 40],
+      "translation": [-7, -5.75, 0],
+      "scale": [0.55, 0.55, 0.55]
+    },
+    "head": {
+      "rotation": [0, 0, 110],
+      "translation": [12.75, 19.25, 0],
+      "scale": [0.75, 0.75, 0.75]
+    },
+    "fixed": {
+      "rotation": [0, 0, 40],
+      "translation": [8.75, -7.25, 0],
+      "scale": [0.7, 0.7, 0.7]
+    },
+    "on_shelf": {
+      "translation": [0, -1.5, 0],
+      "scale": [0.7, 0.7, 0.7]
+    }
+  },
+  "textures": {
+    "particle": "createarsenal:item/tools/andesite_axe_core"
+  }
+}

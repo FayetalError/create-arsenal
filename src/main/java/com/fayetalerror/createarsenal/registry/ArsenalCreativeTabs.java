@@ -25,6 +25,10 @@ public final class ArsenalCreativeTabs {
                     .displayItems((parameters, output) -> {
                         output.accept(ArsenalItems.ANDESITE_PICKAXE_CORE.get());
                         output.accept(ArsenalItems.ANDESITE_PICKAXE.get());
+                        output.accept(ArsenalItems.ANDESITE_AXE_CORE.get());
+                        output.accept(ArsenalItems.ANDESITE_AXE.get());
+                        output.accept(ArsenalItems.ANDESITE_SHOVEL_CORE.get());
+                        output.accept(ArsenalItems.ANDESITE_SHOVEL.get());
                     })
                     .build());
 

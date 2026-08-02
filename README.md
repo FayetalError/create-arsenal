@@ -37,6 +37,58 @@ Run the core through a Create sequenced assembly line to finish the pickaxe:
 
 The process consumes three Iron Sheets in total.
 
+### Andesite Axe
+
+- Iron-level harvesting
+- 650 durability
+- 7.0 chopping speed
+- Repairable with Create Iron Sheets
+- Custom GeckoLib model and texture
+
+### Andesite Axe Core
+
+A non-stackable intermediate component for the Andesite Axe. Craft it in an axe-shaped pattern using three Andesite Alloys and two sticks:
+
+```text
+AA
+AS
+ S
+```
+
+Run the core through a Create sequenced assembly line to finish the axe:
+
+1. Deploy one Iron Sheet onto the Andesite Axe Core.
+2. Repeat the deployment sequence three times.
+3. Receive one Andesite Axe.
+
+The process consumes three Iron Sheets in total.
+
+### Andesite Shovel
+
+- Iron-level harvesting
+- 650 durability
+- 7.0 digging speed
+- Repairable with Create Iron Sheets
+- Custom GeckoLib model and texture
+
+### Andesite Shovel Core
+
+A non-stackable intermediate component for the Andesite Shovel. Craft it with one Andesite Alloy above two sticks:
+
+```text
+ A
+ S
+ S
+```
+
+Run the core through a Create sequenced assembly line to finish the shovel:
+
+1. Deploy one Iron Sheet onto the Andesite Shovel Core.
+2. Repeat the deployment sequence three times.
+3. Receive one Andesite Shovel.
+
+The process consumes three Iron Sheets in total.
+
 ## Requirements
 
 | Dependency | Version |

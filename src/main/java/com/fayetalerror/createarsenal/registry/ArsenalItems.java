@@ -1,11 +1,17 @@
 package com.fayetalerror.createarsenal.registry;
 
 import com.fayetalerror.createarsenal.CreateArsenal;
+import com.fayetalerror.createarsenal.item.tools.AndesiteAxeCoreItem;
+import com.fayetalerror.createarsenal.item.tools.AndesiteAxeItem;
 import com.fayetalerror.createarsenal.item.tools.AndesitePickaxeCoreItem;
 import com.fayetalerror.createarsenal.item.tools.AndesitePickaxeItem;
+import com.fayetalerror.createarsenal.item.tools.AndesiteShovelCoreItem;
+import com.fayetalerror.createarsenal.item.tools.AndesiteShovelItem;
 import com.fayetalerror.createarsenal.item.tools.ArsenalToolTiers;
+import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.PickaxeItem;
+import net.minecraft.world.item.ShovelItem;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -29,6 +35,44 @@ public final class ArsenalItems {
                             ArsenalToolTiers.ANDESITE,
                             1.0F,
                             -2.8F
+                    ))
+            )
+    );
+
+    /** Static GeckoLib component registered as {@code createarsenal:andesite_axe_core}. */
+    public static final DeferredItem<AndesiteAxeCoreItem> ANDESITE_AXE_CORE = ITEMS.register(
+            "andesite_axe_core",
+            () -> new AndesiteAxeCoreItem(new Item.Properties().stacksTo(1))
+    );
+
+    /** GeckoLib-rendered axe registered as {@code createarsenal:andesite_axe}. */
+    public static final DeferredItem<AndesiteAxeItem> ANDESITE_AXE = ITEMS.register(
+            "andesite_axe",
+            () -> new AndesiteAxeItem(
+                    ArsenalToolTiers.ANDESITE,
+                    new Item.Properties().attributes(AxeItem.createAttributes(
+                            ArsenalToolTiers.ANDESITE,
+                            6.0F,
+                            -3.1F
+                    ))
+            )
+    );
+
+    /** Static GeckoLib component registered as {@code createarsenal:andesite_shovel_core}. */
+    public static final DeferredItem<AndesiteShovelCoreItem> ANDESITE_SHOVEL_CORE = ITEMS.register(
+            "andesite_shovel_core",
+            () -> new AndesiteShovelCoreItem(new Item.Properties().stacksTo(1))
+    );
+
+    /** GeckoLib-rendered shovel registered as {@code createarsenal:andesite_shovel}. */
+    public static final DeferredItem<AndesiteShovelItem> ANDESITE_SHOVEL = ITEMS.register(
+            "andesite_shovel",
+            () -> new AndesiteShovelItem(
+                    ArsenalToolTiers.ANDESITE,
+                    new Item.Properties().attributes(ShovelItem.createAttributes(
+                            ArsenalToolTiers.ANDESITE,
+                            1.5F,
+                            -3.0F
                     ))
             )
     );

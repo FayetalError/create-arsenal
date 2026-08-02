@@ -1,5 +1,9 @@
 {
   "itemGroup.createarsenal": "Create: Arsenal",
   "item.createarsenal.andesite_pickaxe_core": "Andesite Pickaxe Core",
-  "item.createarsenal.andesite_pickaxe": "Andesite Pickaxe"
+  "item.createarsenal.andesite_pickaxe": "Andesite Pickaxe",
+  "item.createarsenal.andesite_axe_core": "Andesite Axe Core",
+  "item.createarsenal.andesite_axe": "Andesite Axe",
+  "item.createarsenal.andesite_shovel_core": "Andesite Shovel Core",
+  "item.createarsenal.andesite_shovel": "Andesite Shovel"
 }
