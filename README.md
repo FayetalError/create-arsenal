@@ -115,6 +115,32 @@ Run the core through a Create sequenced assembly line to finish the hoe:
 
 The process consumes three Iron Sheets in total.
 
+### Andesite Sword
+
+- 6.5 total attack damage
+- 1.6 attacks per second
+- 650 durability
+- Repairable with Create Iron Sheets
+- Custom GeckoLib model and texture
+
+### Andesite Sword Core
+
+A non-stackable intermediate component for the Andesite Sword. Craft it with two Andesite Alloys above one stick:
+
+```text
+ A
+ A
+ S
+```
+
+Run the core through a Create sequenced assembly line to finish the sword:
+
+1. Deploy one Iron Sheet onto the Andesite Sword Core.
+2. Repeat the deployment sequence three times.
+3. Receive one Andesite Sword.
+
+The process consumes three Iron Sheets in total.
+
 ## Requirements
 
 | Dependency | Version |

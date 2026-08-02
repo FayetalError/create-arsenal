@@ -31,6 +31,8 @@ public final class ArsenalCreativeTabs {
                         output.accept(ArsenalItems.ANDESITE_SHOVEL.get());
                         output.accept(ArsenalItems.ANDESITE_HOE_CORE.get());
                         output.accept(ArsenalItems.ANDESITE_HOE.get());
+                        output.accept(ArsenalItems.ANDESITE_SWORD_CORE.get());
+                        output.accept(ArsenalItems.ANDESITE_SWORD.get());
                     })
                     .build());
 

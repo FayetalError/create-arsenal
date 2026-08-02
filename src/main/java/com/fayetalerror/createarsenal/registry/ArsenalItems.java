@@ -10,11 +10,14 @@ import com.fayetalerror.createarsenal.item.tools.AndesitePickaxeItem;
 import com.fayetalerror.createarsenal.item.tools.AndesiteShovelCoreItem;
 import com.fayetalerror.createarsenal.item.tools.AndesiteShovelItem;
 import com.fayetalerror.createarsenal.item.tools.ArsenalToolTiers;
+import com.fayetalerror.createarsenal.item.weapons.AndesiteSwordCoreItem;
+import com.fayetalerror.createarsenal.item.weapons.AndesiteSwordItem;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.PickaxeItem;
 import net.minecraft.world.item.ShovelItem;
+import net.minecraft.world.item.SwordItem;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -95,6 +98,25 @@ public final class ArsenalItems {
                             ArsenalToolTiers.ANDESITE,
                             -2.0F,
                             -1.0F
+                    ))
+            )
+    );
+
+    /** Static GeckoLib component registered as {@code createarsenal:andesite_sword_core}. */
+    public static final DeferredItem<AndesiteSwordCoreItem> ANDESITE_SWORD_CORE = ITEMS.register(
+            "andesite_sword_core",
+            () -> new AndesiteSwordCoreItem(new Item.Properties().stacksTo(1))
+    );
+
+    /** GeckoLib-rendered sword registered as {@code createarsenal:andesite_sword}. */
+    public static final DeferredItem<AndesiteSwordItem> ANDESITE_SWORD = ITEMS.register(
+            "andesite_sword",
+            () -> new AndesiteSwordItem(
+                    ArsenalToolTiers.ANDESITE,
+                    new Item.Properties().attributes(SwordItem.createAttributes(
+                            ArsenalToolTiers.ANDESITE,
+                            3.5F,
+                            -2.4F
                     ))
             )
     );
