@@ -89,6 +89,32 @@ Run the core through a Create sequenced assembly line to finish the shovel:
 
 The process consumes three Iron Sheets in total.
 
+### Andesite Hoe
+
+- Iron-level harvesting
+- 650 durability
+- 7.0 farming speed
+- Repairable with Create Iron Sheets
+- Custom GeckoLib model and texture
+
+### Andesite Hoe Core
+
+A non-stackable intermediate component for the Andesite Hoe. Craft it in a hoe-shaped pattern using two Andesite Alloys and two sticks:
+
+```text
+AA
+ S
+ S
+```
+
+Run the core through a Create sequenced assembly line to finish the hoe:
+
+1. Deploy one Iron Sheet onto the Andesite Hoe Core.
+2. Repeat the deployment sequence three times.
+3. Receive one Andesite Hoe.
+
+The process consumes three Iron Sheets in total.
+
 ## Requirements
 
 | Dependency | Version |

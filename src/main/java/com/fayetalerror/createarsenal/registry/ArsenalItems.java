@@ -3,12 +3,15 @@ package com.fayetalerror.createarsenal.registry;
 import com.fayetalerror.createarsenal.CreateArsenal;
 import com.fayetalerror.createarsenal.item.tools.AndesiteAxeCoreItem;
 import com.fayetalerror.createarsenal.item.tools.AndesiteAxeItem;
+import com.fayetalerror.createarsenal.item.tools.AndesiteHoeCoreItem;
+import com.fayetalerror.createarsenal.item.tools.AndesiteHoeItem;
 import com.fayetalerror.createarsenal.item.tools.AndesitePickaxeCoreItem;
 import com.fayetalerror.createarsenal.item.tools.AndesitePickaxeItem;
 import com.fayetalerror.createarsenal.item.tools.AndesiteShovelCoreItem;
 import com.fayetalerror.createarsenal.item.tools.AndesiteShovelItem;
 import com.fayetalerror.createarsenal.item.tools.ArsenalToolTiers;
 import net.minecraft.world.item.AxeItem;
+import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.PickaxeItem;
 import net.minecraft.world.item.ShovelItem;
@@ -73,6 +76,25 @@ public final class ArsenalItems {
                             ArsenalToolTiers.ANDESITE,
                             1.5F,
                             -3.0F
+                    ))
+            )
+    );
+
+    /** Static GeckoLib component registered as {@code createarsenal:andesite_hoe_core}. */
+    public static final DeferredItem<AndesiteHoeCoreItem> ANDESITE_HOE_CORE = ITEMS.register(
+            "andesite_hoe_core",
+            () -> new AndesiteHoeCoreItem(new Item.Properties().stacksTo(1))
+    );
+
+    /** GeckoLib-rendered hoe registered as {@code createarsenal:andesite_hoe}. */
+    public static final DeferredItem<AndesiteHoeItem> ANDESITE_HOE = ITEMS.register(
+            "andesite_hoe",
+            () -> new AndesiteHoeItem(
+                    ArsenalToolTiers.ANDESITE,
+                    new Item.Properties().attributes(HoeItem.createAttributes(
+                            ArsenalToolTiers.ANDESITE,
+                            -2.0F,
+                            -1.0F
                     ))
             )
     );

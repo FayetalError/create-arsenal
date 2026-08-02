@@ -2,19 +2,19 @@
   "credit": "Made with Blockbench",
   "parent": "builtin/entity",
   "texture_size": [
-    64,
-    64
+    32,
+    32
   ],
   "display": {
     "thirdperson_righthand": {
       "rotation": [
         0,
-        90,
+        -90,
         0
       ],
       "translation": [
         0,
-        -6.25,
+        -6,
         1.5
       ],
       "scale": [
@@ -31,7 +31,7 @@
       ],
       "translation": [
         0,
-        -6.25,
+        -6,
         1.5
       ],
       "scale": [
@@ -43,35 +43,35 @@
     "firstperson_righthand": {
       "rotation": [
         0,
-        100,
+        -100,
         0
       ],
       "translation": [
         0,
-        -8,
-        0
+        -6,
+        3
       ],
       "scale": [
-        0.75,
-        0.75,
-        0.75
+        0.5,
+        0.5,
+        0.5
       ]
     },
     "firstperson_lefthand": {
       "rotation": [
         0,
-        100,
+        80,
         0
       ],
       "translation": [
         0,
-        -8,
-        0
+        -6,
+        3
       ],
       "scale": [
-        0.75,
-        0.75,
-        0.75
+        0.5,
+        0.5,
+        0.5
       ]
     },
     "ground": {
@@ -85,28 +85,28 @@
       "rotation": [
         0,
         0,
-        -40
+        -45
       ],
       "translation": [
-        -6,
+        -5.75,
         -6.75,
         0
       ],
       "scale": [
-        0.55,
-        0.55,
-        0.55
+        0.6,
+        0.6,
+        0.6
       ]
     },
     "head": {
       "rotation": [
         0,
         0,
-        55
+        110
       ],
       "translation": [
-        18,
-        2,
+        15.5,
+        16.5,
         0
       ],
       "scale": [
@@ -118,24 +118,24 @@
     "fixed": {
       "rotation": [
         0,
-        0,
-        45
+        -180,
+        -45
       ],
       "translation": [
-        7.75,
-        -8,
+        6.75,
+        -7.75,
         0
       ],
       "scale": [
-        0.7,
-        0.7,
-        0.7
+        0.6,
+        0.6,
+        0.6
       ]
     },
     "on_shelf": {
       "translation": [
-        0,
-        -1,
+        2.5,
+        -1.5,
         0
       ],
       "scale": [
@@ -146,6 +146,6 @@
     }
   },
   "textures": {
-    "particle": "createarsenal:item/andesite_pickaxe"
+    "particle": "createarsenal:item/tools/andesite_hoe_core"
   }
 }

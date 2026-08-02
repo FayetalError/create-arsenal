@@ -29,6 +29,8 @@ public final class ArsenalCreativeTabs {
                         output.accept(ArsenalItems.ANDESITE_AXE.get());
                         output.accept(ArsenalItems.ANDESITE_SHOVEL_CORE.get());
                         output.accept(ArsenalItems.ANDESITE_SHOVEL.get());
+                        output.accept(ArsenalItems.ANDESITE_HOE_CORE.get());
+                        output.accept(ArsenalItems.ANDESITE_HOE.get());
                     })
                     .build());
 
