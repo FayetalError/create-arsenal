@@ -9,5 +9,9 @@
   "item.createarsenal.andesite_hoe_core": "Andesite Hoe Core",
   "item.createarsenal.andesite_hoe": "Andesite Hoe",
   "item.createarsenal.andesite_sword_core": "Andesite Sword Core",
-  "item.createarsenal.andesite_sword": "Andesite Sword"
+  "item.createarsenal.andesite_sword": "Andesite Sword",
+  "item.createarsenal.andesite_helmet": "Andesite Helmet",
+  "item.createarsenal.andesite_chestplate": "Andesite Chestplate",
+  "item.createarsenal.andesite_leggings": "Andesite Leggings",
+  "item.createarsenal.andesite_boots": "Andesite Boots"
 }

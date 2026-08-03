@@ -1,6 +1,7 @@
 package com.fayetalerror.createarsenal.registry;
 
 import com.fayetalerror.createarsenal.CreateArsenal;
+import com.fayetalerror.createarsenal.item.armor.AndesiteArmorItem;
 import com.fayetalerror.createarsenal.item.tools.AndesiteAxeCoreItem;
 import com.fayetalerror.createarsenal.item.tools.AndesiteAxeItem;
 import com.fayetalerror.createarsenal.item.tools.AndesiteHoeCoreItem;
@@ -13,6 +14,7 @@ import com.fayetalerror.createarsenal.item.tools.ArsenalToolTiers;
 import com.fayetalerror.createarsenal.item.weapons.AndesiteSwordCoreItem;
 import com.fayetalerror.createarsenal.item.weapons.AndesiteSwordItem;
 import net.minecraft.world.item.AxeItem;
+import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.PickaxeItem;
@@ -118,6 +120,46 @@ public final class ArsenalItems {
                             3.5F,
                             -2.4F
                     ))
+            )
+    );
+
+    /** Andesite helmet registered with the shared armor material and GeckoLib renderer. */
+    public static final DeferredItem<AndesiteArmorItem> ANDESITE_HELMET = ITEMS.register(
+            "andesite_helmet",
+            () -> new AndesiteArmorItem(
+                    ArsenalArmorMaterials.ANDESITE,
+                    ArmorItem.Type.HELMET,
+                    new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(25))
+            )
+    );
+
+    /** Andesite chestplate registered with the shared armor material and GeckoLib renderer. */
+    public static final DeferredItem<AndesiteArmorItem> ANDESITE_CHESTPLATE = ITEMS.register(
+            "andesite_chestplate",
+            () -> new AndesiteArmorItem(
+                    ArsenalArmorMaterials.ANDESITE,
+                    ArmorItem.Type.CHESTPLATE,
+                    new Item.Properties().durability(ArmorItem.Type.CHESTPLATE.getDurability(25))
+            )
+    );
+
+    /** Andesite leggings registered with the shared armor material and GeckoLib renderer. */
+    public static final DeferredItem<AndesiteArmorItem> ANDESITE_LEGGINGS = ITEMS.register(
+            "andesite_leggings",
+            () -> new AndesiteArmorItem(
+                    ArsenalArmorMaterials.ANDESITE,
+                    ArmorItem.Type.LEGGINGS,
+                    new Item.Properties().durability(ArmorItem.Type.LEGGINGS.getDurability(25))
+            )
+    );
+
+    /** Andesite boots registered with the shared armor material and GeckoLib renderer. */
+    public static final DeferredItem<AndesiteArmorItem> ANDESITE_BOOTS = ITEMS.register(
+            "andesite_boots",
+            () -> new AndesiteArmorItem(
+                    ArsenalArmorMaterials.ANDESITE,
+                    ArmorItem.Type.BOOTS,
+                    new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(25))
             )
     );
 
