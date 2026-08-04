@@ -116,6 +116,6 @@
     }
   },
   "textures": {
-    "particle": "createarsenal:item/armor/andesite_boots"
+    "particle": "createarsenal:item/andesite_boots"
   }
 }

@@ -1,0 +1,99 @@
+{
+	"format_version": "1.21.110",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.andesite_leggings",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 2,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [0, 0.75, 0]
+			},
+			"bones": [
+				{
+					"name": "armorRightLeg",
+					"pivot": [-3.25, 12, 0]
+				},
+				{
+					"name": "armorRightLeg.andesite",
+					"parent": "armorRightLeg",
+					"pivot": [-3.25, 12, 0],
+					"cubes": [
+						{"origin": [-5.25, 2, 2], "size": [4, 10, 1], "uv": [28, 0]},
+						{"origin": [-1.25, 2, -3], "size": [1, 10, 6], "uv": [0, 0]},
+						{"origin": [-6.25, 2, -3], "size": [1, 10, 6], "uv": [14, 0]},
+						{"origin": [-5.25, 2, -3], "size": [4, 10, 1], "uv": [28, 11]}
+					]
+				},
+				{
+					"name": "armorRightLeg.iron",
+					"parent": "armorRightLeg",
+					"pivot": [-3.25, 12, 0],
+					"cubes": [
+						{"origin": [-4.75, 6, -3.25], "size": [3, 1, 1], "uv": [48, 10]},
+						{"origin": [-4.75, 7.5, -3.25], "size": [3, 3.5, 1], "uv": [10, 46]},
+						{"origin": [-4.75, 3.5, -3.25], "size": [3, 2, 1], "uv": [46, 46]}
+					]
+				},
+				{
+					"name": "armorRightLeg.leather",
+					"parent": "armorRightLeg",
+					"pivot": [-3.25, 12, 0],
+					"cubes": [
+						{"origin": [-4.75, 4, 2.25], "size": [3, 1, 1], "uv": [48, 12]},
+						{"origin": [-6.5, 9.5, -3.25], "size": [1.75, 1, 6.5], "uv": [28, 22]},
+						{"origin": [-1.75, 4, -3.25], "size": [1.75, 1, 6.5], "uv": [28, 29]},
+						{"origin": [-1.75, 8, -3.25], "size": [1.75, 1, 6.5], "uv": [0, 32]},
+						{"origin": [-1.75, 9.5, -3.25], "size": [1.75, 1, 6.5], "uv": [14, 32]},
+						{"origin": [-6.5, 8, -3.25], "size": [1.75, 1, 6.5], "uv": [28, 36]},
+						{"origin": [-6.5, 4, -3.25], "size": [1.75, 1, 6.5], "uv": [38, 0]},
+						{"origin": [-4.75, 8, 2.25], "size": [3, 1, 1], "uv": [48, 14]},
+						{"origin": [-4.75, 9.5, 2.25], "size": [3, 1, 1], "uv": [48, 16]}
+					]
+				},
+				{
+					"name": "armorLeftLeg",
+					"pivot": [3.25, 12, 0]
+				},
+				{
+					"name": "armorLeftLeg.andesite",
+					"parent": "armorLeftLeg",
+					"pivot": [3.25, 12, 0],
+					"cubes": [
+						{"origin": [1.25, 2, -3], "size": [4, 10, 1], "uv": [38, 7]},
+						{"origin": [1.25, 2, 2], "size": [4, 10, 1], "uv": [0, 39]},
+						{"origin": [5.25, 2, -3], "size": [1, 10, 6], "uv": [0, 16]},
+						{"origin": [0.25, 2, -3], "size": [1, 10, 6], "uv": [14, 16]}
+					]
+				},
+				{
+					"name": "armorLeftLeg.iron",
+					"parent": "armorLeftLeg",
+					"pivot": [3.25, 12, 0],
+					"cubes": [
+						{"origin": [1.75, 6, -3.25], "size": [3, 1, 1], "uv": [46, 49]},
+						{"origin": [1.75, 3.5, -3.25], "size": [3, 2, 1], "uv": [48, 7]},
+						{"origin": [1.75, 7.5, -3.25], "size": [3, 3.5, 1], "uv": [38, 46]}
+					]
+				},
+				{
+					"name": "armorLeftLeg.leather",
+					"parent": "armorLeftLeg",
+					"pivot": [3.25, 12, 0],
+					"cubes": [
+						{"origin": [0, 9.5, -3.25], "size": [1.75, 1, 6.5], "uv": [10, 39]},
+						{"origin": [0, 4, -3.25], "size": [1.75, 1, 6.5], "uv": [42, 18]},
+						{"origin": [1.75, 4, 2.25], "size": [3, 1, 1], "uv": [0, 50]},
+						{"origin": [1.75, 8, 2.25], "size": [3, 1, 1], "uv": [8, 50]},
+						{"origin": [1.75, 9.5, 2.25], "size": [3, 1, 1], "uv": [16, 50]},
+						{"origin": [4.75, 9.5, -3.25], "size": [1.75, 1, 6.5], "uv": [42, 25]},
+						{"origin": [4.75, 8, -3.25], "size": [1.75, 1, 6.5], "uv": [42, 32]},
+						{"origin": [4.75, 4, -3.25], "size": [1.75, 1, 6.5], "uv": [42, 39]},
+						{"origin": [0, 8, -3.25], "size": [1.75, 1, 6.5], "uv": [24, 43]}
+					]
+				}
+			]
+		}
+	]
+}

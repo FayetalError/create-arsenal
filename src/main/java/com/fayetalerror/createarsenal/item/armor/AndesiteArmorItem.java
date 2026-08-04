@@ -1,8 +1,13 @@
 package com.fayetalerror.createarsenal.item.armor;
 
 import com.fayetalerror.createarsenal.client.renderer.item.armor.AndesiteArmorRenderer;
+import com.fayetalerror.createarsenal.client.renderer.item.armor.AndesiteBootsItemRenderer;
+import com.fayetalerror.createarsenal.client.renderer.item.armor.AndesiteChestplateItemRenderer;
+import com.fayetalerror.createarsenal.client.renderer.item.armor.AndesiteHelmetItemRenderer;
+import com.fayetalerror.createarsenal.client.renderer.item.armor.AndesiteLeggingsItemRenderer;
 import java.util.function.Consumer;
 import net.minecraft.client.model.HumanoidModel;
+import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.core.Holder;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
@@ -38,6 +43,56 @@ public final class AndesiteArmorItem extends ArmorItem implements GeoItem {
         consumer.accept(new GeoRenderProvider() {
             /** Reuse one renderer instead of creating a new renderer every frame. */
             private AndesiteArmorRenderer renderer;
+
+            /** Reuse the helmet-only renderer for three-dimensional item-display views. */
+            private AndesiteHelmetItemRenderer helmetItemRenderer;
+
+            /** Reuse the chestplate-only renderer for three-dimensional item-display views. */
+            private AndesiteChestplateItemRenderer chestplateItemRenderer;
+
+            /** Reuse the leggings-only renderer for three-dimensional item-display views. */
+            private AndesiteLeggingsItemRenderer leggingsItemRenderer;
+
+            /** Reuse the boots-only renderer for three-dimensional item-display views. */
+            private AndesiteBootsItemRenderer bootsItemRenderer;
+
+            /** Returns the item renderer matching the armor piece's {@code builtin/entity} model. */
+            @Override
+            public BlockEntityWithoutLevelRenderer getGeoItemRenderer() {
+                if (AndesiteArmorItem.this.getType() == ArmorItem.Type.HELMET) {
+                    if (this.helmetItemRenderer == null) {
+                        this.helmetItemRenderer = new AndesiteHelmetItemRenderer();
+                    }
+
+                    return this.helmetItemRenderer;
+                }
+
+                if (AndesiteArmorItem.this.getType() == ArmorItem.Type.CHESTPLATE) {
+                    if (this.chestplateItemRenderer == null) {
+                        this.chestplateItemRenderer = new AndesiteChestplateItemRenderer();
+                    }
+
+                    return this.chestplateItemRenderer;
+                }
+
+                if (AndesiteArmorItem.this.getType() == ArmorItem.Type.LEGGINGS) {
+                    if (this.leggingsItemRenderer == null) {
+                        this.leggingsItemRenderer = new AndesiteLeggingsItemRenderer();
+                    }
+
+                    return this.leggingsItemRenderer;
+                }
+
+                if (AndesiteArmorItem.this.getType() == ArmorItem.Type.BOOTS) {
+                    if (this.bootsItemRenderer == null) {
+                        this.bootsItemRenderer = new AndesiteBootsItemRenderer();
+                    }
+
+                    return this.bootsItemRenderer;
+                }
+
+                return null;
+            }
 
             /** Returns the shared armor renderer whenever this item is worn. */
             @Override
