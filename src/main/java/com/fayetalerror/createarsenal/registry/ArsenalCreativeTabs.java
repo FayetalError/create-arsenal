@@ -33,9 +33,13 @@ public final class ArsenalCreativeTabs {
                         output.accept(ArsenalItems.ANDESITE_HOE.get());
                         output.accept(ArsenalItems.ANDESITE_SWORD_CORE.get());
                         output.accept(ArsenalItems.ANDESITE_SWORD.get());
+                        output.accept(ArsenalItems.ANDESITE_HELMET_CORE.get());
                         output.accept(ArsenalItems.ANDESITE_HELMET.get());
+                        output.accept(ArsenalItems.ANDESITE_CHESTPLATE_CORE.get());
                         output.accept(ArsenalItems.ANDESITE_CHESTPLATE.get());
+                        output.accept(ArsenalItems.ANDESITE_LEGGINGS_CORE.get());
                         output.accept(ArsenalItems.ANDESITE_LEGGINGS.get());
+                        output.accept(ArsenalItems.ANDESITE_BOOTS_CORE.get());
                         output.accept(ArsenalItems.ANDESITE_BOOTS.get());
                     })
                     .build());

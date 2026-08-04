@@ -2,6 +2,7 @@ package com.fayetalerror.createarsenal.registry;
 
 import com.fayetalerror.createarsenal.CreateArsenal;
 import com.fayetalerror.createarsenal.item.ArsenalToolTiers;
+import com.fayetalerror.createarsenal.item.armor.AndesiteArmorCoreItem;
 import com.fayetalerror.createarsenal.item.armor.AndesiteArmorItem;
 import com.fayetalerror.createarsenal.item.tools.AndesiteAxeCoreItem;
 import com.fayetalerror.createarsenal.item.tools.AndesiteAxeItem;
@@ -120,6 +121,42 @@ public final class ArsenalItems {
                             3.5F,
                             -2.4F
                     ))
+            )
+    );
+
+    /** Static GeckoLib component used to craft the Andesite Helmet. */
+    public static final DeferredItem<AndesiteArmorCoreItem> ANDESITE_HELMET_CORE = ITEMS.register(
+            "andesite_helmet_core",
+            () -> new AndesiteArmorCoreItem(
+                    AndesiteArmorCoreItem.Type.HELMET,
+                    new Item.Properties().stacksTo(1)
+            )
+    );
+
+    /** Static GeckoLib component used to craft the Andesite Chestplate. */
+    public static final DeferredItem<AndesiteArmorCoreItem> ANDESITE_CHESTPLATE_CORE = ITEMS.register(
+            "andesite_chestplate_core",
+            () -> new AndesiteArmorCoreItem(
+                    AndesiteArmorCoreItem.Type.CHESTPLATE,
+                    new Item.Properties().stacksTo(1)
+            )
+    );
+
+    /** Static GeckoLib component used to craft the Andesite Leggings. */
+    public static final DeferredItem<AndesiteArmorCoreItem> ANDESITE_LEGGINGS_CORE = ITEMS.register(
+            "andesite_leggings_core",
+            () -> new AndesiteArmorCoreItem(
+                    AndesiteArmorCoreItem.Type.LEGGINGS,
+                    new Item.Properties().stacksTo(1)
+            )
+    );
+
+    /** Static GeckoLib component used to craft the Andesite Boots. */
+    public static final DeferredItem<AndesiteArmorCoreItem> ANDESITE_BOOTS_CORE = ITEMS.register(
+            "andesite_boots_core",
+            () -> new AndesiteArmorCoreItem(
+                    AndesiteArmorCoreItem.Type.BOOTS,
+                    new Item.Properties().stacksTo(1)
             )
     );
 

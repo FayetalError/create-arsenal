@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    " S ",
+    "SCS",
+    " S "
+  ],
+  "key": {
+    "S": {
+      "item": "create:iron_sheet"
+    },
+    "C": {
+      "item": "createarsenal:andesite_leggings_core"
+    }
+  },
+  "result": {
+    "id": "createarsenal:andesite_leggings",
+    "count": 1
+  }
+}
