@@ -46,14 +46,61 @@ PALETTES = [
         ("Shade", "#168A9A"),
         ("Deep edge", "#536174"),
     ]),
-    ("WOOD", [
-        ("Highlight", "#896727"),
-        ("Light 1", "#795B23"),
-        ("Light 2", "#684E1E"),
-        ("Mid-light", "#59421A"),
-        ("Mid", "#493615"),
-        ("Shade", "#392A10"),
-        ("Dark", "#281E0B"),
+    ("SPRUCE", [
+        ("Highlight", "#906B3D"),
+        ("Light 1", "#8A673E"),
+        ("Light 2", "#816037"),
+        ("Light 3", "#6D5B34"),
+        ("Mid-light 1", "#675630"),
+        ("Mid-light 2", "#6F512D"),
+        ("Mid", "#644B2C"),
+        ("Mid-dark", "#5D492A"),
+        ("Shade 1", "#554727"),
+        ("Shade 2", "#504224"),
+        ("Dark", "#47341D"),
+        ("Deep", "#382E17"),
+    ]),
+    ("DARK OAK", [
+        ("Highlight", "#513719"),
+        ("Light 1", "#4D3118"),
+        ("Light 2", "#42321F"),
+        ("Light 3", "#482E17"),
+        ("Mid-light 1", "#3E301E"),
+        ("Mid-light 2", "#3A2E1D"),
+        ("Mid", "#372B1C"),
+        ("Mid-dark", "#342A1B"),
+        ("Shade 1", "#322819"),
+        ("Shade 2", "#2F261A"),
+        ("Dark", "#2C2316"),
+        ("Deep", "#241D13"),
+    ]),
+    ("STURDY SHEET", [
+        ("Highlight", "#8C8B9F"),
+        ("Light 1", "#6F6D80"),
+        ("Light 2", "#605F70"),
+        ("Light 3", "#515060"),
+        ("Mid-light", "#494858"),
+        ("Mid", "#424150"),
+        ("Mid-dark", "#373745"),
+        ("Shade 1", "#292936"),
+        ("Shade 2", "#21222D"),
+        ("Dark", "#191B24"),
+        ("Deep", "#0B0D15"),
+        ("Outline", "#03050C"),
+    ]),
+    ("BRASS", [
+        ("Brightest", "#FFFEF5"),
+        ("Highlight 1", "#FFF9C7"),
+        ("Highlight 2", "#FFF3AD"),
+        ("Light", "#FFEC93"),
+        ("Mid-light", "#FFCD67"),
+        ("Gold", "#EDB75E"),
+        ("Mid", "#DAA255"),
+        ("Warm mid", "#BD7949"),
+        ("Shade 1", "#AF6A43"),
+        ("Shade 2", "#A05B3D"),
+        ("Dark", "#7C462A"),
+        ("Deep", "#652D1C"),
     ]),
 ]
 
@@ -69,7 +116,7 @@ def font(size: int, bold: bool = False):
     return ImageFont.load_default()
 
 
-W, H = 1600, 1300
+W, H = 1600, 2060
 BG = "#171A1D"
 PANEL = "#22272B"
 TEXT = "#F2F3F4"
@@ -91,7 +138,10 @@ positions = [
     (64, 718, 600, 250),
     (680, 718, 352, 250),
     (1048, 718, 488, 250),
-    (64, 990, 1000, 220),
+    (64, 990, 1472, 220),
+    (64, 1232, 1472, 230),
+    (64, 1484, 1472, 230),
+    (64, 1736, 1472, 230),
 ]
 
 for (name, colors), (x, y, width, height) in zip(PALETTES, positions):
@@ -109,7 +159,7 @@ for (name, colors), (x, y, width, height) in zip(PALETTES, positions):
         draw.text((sx, swatch_y + swatch_h + 10), value, font=hex_font, fill=TEXT)
         draw.text((sx, swatch_y + swatch_h + 38), label, font=label_font, fill=MUTED)
 
-draw.text((66, 1246), "Material reference only — excludes transparency, UV guides, mannequin colors, and placement markers.", font=subtitle_font, fill=MUTED)
+draw.text((66, 2012), "Material reference only — excludes transparency, UV guides, mannequin colors, and placement markers.", font=subtitle_font, fill=MUTED)
 OUT.parent.mkdir(parents=True, exist_ok=True)
 img.save(OUT, optimize=True)
 print(OUT.resolve())
