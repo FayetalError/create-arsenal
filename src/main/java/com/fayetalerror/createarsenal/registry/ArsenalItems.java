@@ -1,6 +1,7 @@
 package com.fayetalerror.createarsenal.registry;
 
 import com.fayetalerror.createarsenal.CreateArsenal;
+import com.fayetalerror.createarsenal.item.ArsenalToolTiers;
 import com.fayetalerror.createarsenal.item.armor.AndesiteArmorItem;
 import com.fayetalerror.createarsenal.item.tools.AndesiteAxeCoreItem;
 import com.fayetalerror.createarsenal.item.tools.AndesiteAxeItem;
@@ -10,7 +11,6 @@ import com.fayetalerror.createarsenal.item.tools.AndesitePickaxeCoreItem;
 import com.fayetalerror.createarsenal.item.tools.AndesitePickaxeItem;
 import com.fayetalerror.createarsenal.item.tools.AndesiteShovelCoreItem;
 import com.fayetalerror.createarsenal.item.tools.AndesiteShovelItem;
-import com.fayetalerror.createarsenal.item.tools.ArsenalToolTiers;
 import com.fayetalerror.createarsenal.item.weapons.AndesiteSwordCoreItem;
 import com.fayetalerror.createarsenal.item.weapons.AndesiteSwordItem;
 import net.minecraft.world.item.AxeItem;

@@ -1,4 +1,4 @@
-package com.fayetalerror.createarsenal.item.tools;
+package com.fayetalerror.createarsenal.item;
 
 import com.simibubi.create.AllItems;
 import net.minecraft.tags.BlockTags;
