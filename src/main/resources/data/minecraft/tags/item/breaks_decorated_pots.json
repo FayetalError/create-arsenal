@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "createarsenal:andesite_pickaxe",
+    "createarsenal:andesite_axe",
+    "createarsenal:andesite_shovel",
+    "createarsenal:andesite_hoe",
+    "createarsenal:andesite_sword"
+  ]
+}
