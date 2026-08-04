@@ -2,8 +2,8 @@
   "credit": "Made with Blockbench",
   "parent": "builtin/entity",
   "texture_size": [
-    64,
-    64
+    32,
+    32
   ],
   "display": {
     "thirdperson_righthand": {
@@ -102,7 +102,7 @@
       "rotation": [
         0,
         0,
-        180
+        -180
       ],
       "translation": [
         0,
@@ -144,8 +144,5 @@
         0.7
       ]
     }
-  },
-  "textures": {
-    "particle": "createarsenal:item/weapons/andesite_sword_core"
   }
 }

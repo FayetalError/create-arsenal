@@ -2,8 +2,8 @@
   "credit": "Made with Blockbench",
   "parent": "builtin/entity",
   "texture_size": [
-    64,
-    64
+    256,
+    256
   ],
   "display": {
     "thirdperson_righthand": {
@@ -146,6 +146,6 @@
     }
   },
   "textures": {
-    "particle": "createarsenal:item/andesite_axe_core"
+    "particle": "createarsenal:item/andesite_axe"
   }
 }

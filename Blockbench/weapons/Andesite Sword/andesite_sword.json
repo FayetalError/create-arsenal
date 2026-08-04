@@ -2,8 +2,8 @@
   "credit": "Made with Blockbench",
   "parent": "builtin/entity",
   "texture_size": [
-    64,
-    64
+    256,
+    256
   ],
   "display": {
     "thirdperson_righthand": {
@@ -102,7 +102,7 @@
       "rotation": [
         0,
         0,
-        180
+        -180
       ],
       "translation": [
         0,

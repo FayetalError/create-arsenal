@@ -144,8 +144,5 @@
         0.7
       ]
     }
-  },
-  "textures": {
-    "particle": "createarsenal:item/andesite_shovel_core"
   }
 }
