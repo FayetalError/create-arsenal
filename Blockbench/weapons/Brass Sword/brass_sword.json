@@ -14,7 +14,7 @@
       ],
       "translation": [
         0,
-        -5.5,
+        -5,
         1.75
       ],
       "scale": [
@@ -31,7 +31,7 @@
       ],
       "translation": [
         0,
-        -5.5,
+        -5,
         1.75
       ],
       "scale": [
@@ -48,13 +48,13 @@
       ],
       "translation": [
         0,
-        -6.5,
-        2
+        0.75,
+        3
       ],
       "scale": [
-        0.5,
-        0.5,
-        0.5
+        0.25,
+        0.25,
+        0.25
       ]
     },
     "firstperson_lefthand": {
@@ -65,19 +65,19 @@
       ],
       "translation": [
         0,
-        -6.5,
-        2
+        0.75,
+        3
       ],
       "scale": [
-        0.5,
-        0.5,
-        0.5
+        0.25,
+        0.25,
+        0.25
       ]
     },
     "ground": {
       "translation": [
         0,
-        -1,
+        -0.5,
         0
       ],
       "scale": [
@@ -93,25 +93,25 @@
         45
       ],
       "translation": [
-        -5.5,
-        -6.75,
+        -6.25,
+        -6.25,
         0
       ],
       "scale": [
-        0.5,
-        0.5,
-        0.5
+        0.375,
+        0.375,
+        0.375
       ]
     },
     "head": {
       "rotation": [
         0,
         0,
-        55
+        -180
       ],
       "translation": [
-        18,
-        1,
+        0,
+        23,
         0
       ],
       "scale": [
@@ -127,8 +127,20 @@
         45
       ],
       "translation": [
-        7,
-        -8.5,
+        7.75,
+        -7.25,
+        0
+      ],
+      "scale": [
+        0.45,
+        0.45,
+        0.45
+      ]
+    },
+    "on_shelf": {
+      "translation": [
+        0,
+        -1.75,
         0
       ],
       "scale": [
@@ -136,26 +148,9 @@
         0.6,
         0.6
       ]
-    },
-    "on_shelf": {
-      "rotation": [
-        0,
-        -180,
-        0
-      ],
-      "translation": [
-        0,
-        -3,
-        0
-      ],
-      "scale": [
-        0.7,
-        0.7,
-        0.7
-      ]
     }
   },
   "textures": {
-    "particle": "createarsenal:item/brass_axe"
+    "particle": "createarsenal:item/brass_sword"
   }
 }

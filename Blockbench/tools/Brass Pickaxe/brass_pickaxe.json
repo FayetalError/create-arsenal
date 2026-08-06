@@ -89,7 +89,7 @@
     "gui": {
       "rotation": [
         0,
-        180,
+        -180,
         45
       ],
       "translation": [
@@ -105,7 +105,7 @@
     },
     "head": {
       "rotation": [
-        180,
+        -180,
         0,
         120
       ],
@@ -140,7 +140,7 @@
     "on_shelf": {
       "rotation": [
         0,
-        180,
+        -180,
         0
       ],
       "translation": [
