@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
-    "createarsenal:andesite_shovel"
+    "createarsenal:andesite_shovel",
+    "createarsenal:brass_shovel",
+    "createarsenal:brass_paxel"
   ]
 }

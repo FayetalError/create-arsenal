@@ -17,8 +17,21 @@ public final class ArsenalToolTiers {
             650,
             7.0F,
             2.0F,
-            14,
+            16,
             () -> Ingredient.of(AllItems.IRON_SHEET.get())
+    );
+
+    /**
+     * Brass equipment mines at diamond level with 2000 durability and a 9.0 mining speed.
+     * Damaged tools using this tier can be repaired with Create's Brass Sheets.
+     */
+    public static final Tier BRASS = new SimpleTier(
+            BlockTags.INCORRECT_FOR_DIAMOND_TOOL,
+            2000,
+            9.0F,
+            4.0F,
+            16,
+            () -> Ingredient.of(AllItems.BRASS_SHEET.get())
     );
 
     private ArsenalToolTiers() {

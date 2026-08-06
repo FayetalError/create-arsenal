@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "createarsenal:andesite_hoe"
+    "createarsenal:andesite_hoe",
+    "createarsenal:brass_hoe"
   ]
 }

@@ -2,6 +2,7 @@ package com.fayetalerror.createarsenal.registry;
 
 import com.fayetalerror.createarsenal.CreateArsenal;
 import com.fayetalerror.createarsenal.item.ArsenalToolTiers;
+import com.fayetalerror.createarsenal.item.BrassCoreItem;
 import com.fayetalerror.createarsenal.item.armor.AndesiteArmorCoreItem;
 import com.fayetalerror.createarsenal.item.armor.AndesiteArmorItem;
 import com.fayetalerror.createarsenal.item.tools.AndesiteAxeCoreItem;
@@ -14,8 +15,15 @@ import com.fayetalerror.createarsenal.item.tools.AndesiteShovelCoreItem;
 import com.fayetalerror.createarsenal.item.tools.AndesiteShovelItem;
 import com.fayetalerror.createarsenal.item.weapons.AndesiteSwordCoreItem;
 import com.fayetalerror.createarsenal.item.weapons.AndesiteSwordItem;
+import com.fayetalerror.createarsenal.item.tools.BrassPickaxeItem;
+import com.fayetalerror.createarsenal.item.tools.BrassAxeItem;
+import com.fayetalerror.createarsenal.item.tools.BrassHoeItem;
+import com.fayetalerror.createarsenal.item.tools.BrassPaxelItem;
+import com.fayetalerror.createarsenal.item.tools.BrassShovelItem;
+import com.fayetalerror.createarsenal.item.weapons.BrassSwordItem;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.DiggerItem;
 import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.PickaxeItem;
@@ -199,6 +207,45 @@ public final class ArsenalItems {
                     new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(25))
             )
     );
+
+    /** GeckoLib-rendered brass pickaxe registered as {@code createarsenal:brass_pickaxe}. */
+    public static final DeferredItem<BrassPickaxeItem> BRASS_PICKAXE = ITEMS.register(
+            "brass_pickaxe",
+            () -> new BrassPickaxeItem(
+                    ArsenalToolTiers.BRASS,
+                    new Item.Properties().attributes(PickaxeItem.createAttributes(
+                            ArsenalToolTiers.BRASS,
+                            1.0F,
+                            -2.8F
+                    ))
+            )
+    );
+
+    public static final DeferredItem<BrassCoreItem> BRASS_PICKAXE_CORE = ITEMS.register("brass_pickaxe_core",
+            () -> new BrassCoreItem("tools/brass_pickaxe_core", new Item.Properties().stacksTo(1)));
+
+    public static final DeferredItem<BrassCoreItem> BRASS_AXE_CORE = ITEMS.register("brass_axe_core",
+            () -> new BrassCoreItem("tools/brass_axe_core", new Item.Properties().stacksTo(1)));
+    public static final DeferredItem<BrassAxeItem> BRASS_AXE = ITEMS.register("brass_axe",
+            () -> new BrassAxeItem(ArsenalToolTiers.BRASS, new Item.Properties().attributes(AxeItem.createAttributes(ArsenalToolTiers.BRASS, 6.0F, -3.1F))));
+
+    public static final DeferredItem<BrassCoreItem> BRASS_SHOVEL_CORE = ITEMS.register("brass_shovel_core",
+            () -> new BrassCoreItem("tools/brass_shovel_core", new Item.Properties().stacksTo(1)));
+    public static final DeferredItem<BrassShovelItem> BRASS_SHOVEL = ITEMS.register("brass_shovel",
+            () -> new BrassShovelItem(ArsenalToolTiers.BRASS, new Item.Properties().attributes(ShovelItem.createAttributes(ArsenalToolTiers.BRASS, 1.5F, -3.0F))));
+
+    public static final DeferredItem<BrassCoreItem> BRASS_HOE_CORE = ITEMS.register("brass_hoe_core",
+            () -> new BrassCoreItem("tools/brass_hoe_core", new Item.Properties().stacksTo(1)));
+    public static final DeferredItem<BrassHoeItem> BRASS_HOE = ITEMS.register("brass_hoe",
+            () -> new BrassHoeItem(ArsenalToolTiers.BRASS, new Item.Properties().attributes(HoeItem.createAttributes(ArsenalToolTiers.BRASS, -2.0F, -1.0F))));
+
+    public static final DeferredItem<BrassPaxelItem> BRASS_PAXEL = ITEMS.register("brass_paxel",
+            () -> new BrassPaxelItem(ArsenalToolTiers.BRASS, new Item.Properties().attributes(DiggerItem.createAttributes(ArsenalToolTiers.BRASS, 4.0F, -3.0F))));
+
+    public static final DeferredItem<BrassCoreItem> BRASS_SWORD_CORE = ITEMS.register("brass_sword_core",
+            () -> new BrassCoreItem("weapons/brass_sword_core", new Item.Properties().stacksTo(1)));
+    public static final DeferredItem<BrassSwordItem> BRASS_SWORD = ITEMS.register("brass_sword",
+            () -> new BrassSwordItem(ArsenalToolTiers.BRASS, new Item.Properties().attributes(SwordItem.createAttributes(ArsenalToolTiers.BRASS, 2.5F, -2.4F))));
 
     /** Utility class; registered items are exposed as static deferred holders. */
     private ArsenalItems() {

@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "createarsenal:andesite_sword"
+    "createarsenal:andesite_sword",
+    "createarsenal:brass_sword"
   ]
 }
