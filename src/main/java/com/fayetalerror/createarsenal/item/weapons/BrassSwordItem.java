@@ -1,8 +1,8 @@
 package com.fayetalerror.createarsenal.item.weapons;
 
 import com.fayetalerror.createarsenal.client.renderer.item.weapons.BrassSwordRenderer;
+import com.fayetalerror.createarsenal.item.ArsenalGeoItemSupport;
 import java.util.function.Consumer;
-import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
 import software.bernie.geckolib.animatable.GeoItem;
@@ -13,12 +13,9 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 
 /** Brass sword with vanilla melee behavior and a GeckoLib item model. */
 public final class BrassSwordItem extends SwordItem implements GeoItem {
-    private final AnimatableInstanceCache animationCache = GeckoLibUtil.createInstanceCache(this);
-    public BrassSwordItem(Tier tier, Properties properties) { super(tier, properties); GeoItem.registerSyncedAnimatable(this); }
-    @Override public void createGeoRenderer(Consumer<GeoRenderProvider> consumer) { consumer.accept(new GeoRenderProvider() {
-        private BrassSwordRenderer renderer;
-        @Override public BlockEntityWithoutLevelRenderer getGeoItemRenderer() { if (renderer == null) renderer = new BrassSwordRenderer(); return renderer; }
-    }); }
-    @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) { }
-    @Override public AnimatableInstanceCache getAnimatableInstanceCache() { return animationCache; }
+    private final ArsenalGeoItemSupport geoSupport;
+    public BrassSwordItem(Tier tier, Properties properties) { super(tier, properties); geoSupport = new ArsenalGeoItemSupport(this); }
+    @Override public void createGeoRenderer(Consumer<GeoRenderProvider> consumer) { geoSupport.createRenderer(consumer, BrassSwordRenderer::new); }
+    @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) { geoSupport.registerControllers(controllers); }
+    @Override public AnimatableInstanceCache getAnimatableInstanceCache() { return geoSupport.animationCache(); }
 }

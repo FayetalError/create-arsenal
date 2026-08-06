@@ -197,6 +197,99 @@ tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
 }
 
+// Validates the data-driven item definitions before a build can package them.
+tasks.register('validateArsenalDefinitions') {
+    def definitionsDir = file('src/main/resources/data/createarsenal/item_definitions')
+    def definitionFiles = fileTree(definitionsDir).matching { include '*.json' }.files
+    def assetsDir = file('src/main/resources/assets/createarsenal')
+    def recipeFiles = fileTree('src/main/resources/data/createarsenal/recipe').matching { include '*.json' }.files
+    def tagFiles = fileTree('src/main/resources/data').matching { include '**/tags/item/*.json'; include '**/tags/item/**/*.json' }.files
+    inputs.files(recipeFiles, tagFiles)
+    inputs.dir(definitionsDir)
+    doLast {
+        def requiredByKind = [
+                'TOOL'      : ['id', 'kind', 'tier', 'tool_type', 'durability', 'attack_damage', 'attack_speed', 'model'],
+                'WEAPON'    : ['id', 'kind', 'tier', 'tool_type', 'durability', 'attack_damage', 'attack_speed', 'model'],
+                'MULTI_TOOL': ['id', 'kind', 'tier', 'tool_type', 'durability', 'attack_damage', 'attack_speed', 'model'],
+                'CORE'      : ['id', 'kind', 'model'],
+                'ARMOR'     : ['id', 'kind', 'slot', 'defense', 'toughness', 'durability_modifier', 'model', 'equipped_model'],
+                'ARMOR_MATERIAL': ['kind', 'helmet_defense', 'chestplate_defense', 'leggings_defense', 'boots_defense', 'enchantability', 'toughness', 'knockback_resistance']
+        ]
+        def files = definitionFiles
+        def knownIds = files.collect { new groovy.json.JsonSlurper().parse(it).id?.toString() }.findAll { it }
+        def walkJson
+        walkJson = { value, sourceFile ->
+            if (value instanceof Map) {
+                value.values().each { walkJson(it, sourceFile) }
+            } else if (value instanceof Collection) {
+                value.each { walkJson(it, sourceFile) }
+            } else if (value?.toString()?.startsWith('createarsenal:')) {
+                def id = value.toString().substring('createarsenal:'.length())
+                if (!knownIds.contains(id)) {
+                    throw new GradleException("${sourceFile.name}: unknown Create: Arsenal reference createarsenal:${id}")
+                }
+            }
+        }
+        recipeFiles.each { jsonFile ->
+            walkJson(new groovy.json.JsonSlurper().parse(jsonFile), jsonFile)
+        }
+        tagFiles.each { jsonFile ->
+            def unresolved = []
+            def tagJson = new groovy.json.JsonSlurper().parse(jsonFile)
+            def scanTag
+            scanTag = { value ->
+                if (value instanceof Map) value.values().each { scanTag(it) }
+                else if (value instanceof Collection) value.each { scanTag(it) }
+                else if (value?.toString()?.startsWith('createarsenal:')) {
+                    def id = value.toString().substring('createarsenal:'.length())
+                    if (!knownIds.contains(id)) unresolved << id
+                }
+            }
+            scanTag(tagJson)
+            unresolved.unique().each { logger.warn("${jsonFile.name}: unresolved Create: Arsenal tag reference createarsenal:${it}") }
+        }
+        if (files.isEmpty()) {
+            throw new GradleException('No Arsenal definition JSON files found')
+        }
+        files.each { definitionFile ->
+            def json = new groovy.json.JsonSlurper().parse(definitionFile)
+            def kind = json.kind?.toString()?.toUpperCase()
+            if (!requiredByKind.containsKey(kind)) {
+                throw new GradleException("${definitionFile.name}: unknown definition kind '${json.kind}'")
+            }
+            def missing = requiredByKind[kind].findAll { !json.containsKey(it) }
+            if (!missing.isEmpty()) {
+                throw new GradleException("${definitionFile.name}: missing fields ${missing}")
+            }
+
+            if (kind != 'ARMOR_MATERIAL') {
+                def modelPath = json.model.toString()
+                def geoFile = new File(assetsDir, "geo/item/${modelPath}.geo.json")
+                def textureFile = new File(assetsDir, "textures/item/${modelPath}.png")
+                if (!geoFile.isFile()) {
+                    throw new GradleException("${definitionFile.name}: missing geo model ${geoFile}")
+                }
+                if (!textureFile.isFile()) {
+                    throw new GradleException("${definitionFile.name}: missing texture ${textureFile}")
+                }
+            }
+
+            if (kind == 'ARMOR' && json.equipped_model) {
+                def equippedModel = json.equipped_model.toString()
+                def equippedGeo = new File(assetsDir, "geo/item/${equippedModel}.geo.json")
+                if (!equippedGeo.isFile()) {
+                    throw new GradleException("${definitionFile.name}: missing equipped geo model ${equippedGeo}")
+                }
+            }
+        }
+        logger.lifecycle("Validated ${files.size()} Create: Arsenal definition JSON files")
+    }
+}
+
+tasks.named('processResources').configure {
+    dependsOn('validateArsenalDefinitions')
+}
+
 // IDEA no longer automatically downloads sources/javadoc jars for dependencies, so we need to explicitly enable the behavior.
 idea {
     module {

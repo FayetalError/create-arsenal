@@ -5,6 +5,7 @@ import com.fayetalerror.createarsenal.client.renderer.item.armor.AndesiteBootsIt
 import com.fayetalerror.createarsenal.client.renderer.item.armor.AndesiteChestplateItemRenderer;
 import com.fayetalerror.createarsenal.client.renderer.item.armor.AndesiteHelmetItemRenderer;
 import com.fayetalerror.createarsenal.client.renderer.item.armor.AndesiteLeggingsItemRenderer;
+import com.fayetalerror.createarsenal.item.ArsenalGeoItemSupport;
 import java.util.function.Consumer;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
@@ -19,12 +20,11 @@ import software.bernie.geckolib.animatable.GeoItem;
 import software.bernie.geckolib.animatable.client.GeoRenderProvider;
 import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.animation.AnimatableManager;
-import software.bernie.geckolib.util.GeckoLibUtil;
 
 /** Wearable armor item that uses the shared static Andesite Armor GeckoLib model. */
 public final class AndesiteArmorItem extends ArmorItem implements GeoItem {
     /** Stores GeckoLib's per-item rendering and animation state. */
-    private final AnimatableInstanceCache animationCache = GeckoLibUtil.createInstanceCache(this);
+    private final ArsenalGeoItemSupport geoSupport;
 
     /**
      * Creates one wearable piece from the shared material and a specific armor slot type.
@@ -35,6 +35,7 @@ public final class AndesiteArmorItem extends ArmorItem implements GeoItem {
      */
     public AndesiteArmorItem(Holder<ArmorMaterial> material, Type type, Properties properties) {
         super(material, type, properties);
+        geoSupport = new ArsenalGeoItemSupport(this);
     }
 
     /** Supplies GeckoLib's custom worn-armor renderer on the client. */
@@ -114,11 +115,12 @@ public final class AndesiteArmorItem extends ArmorItem implements GeoItem {
     /** The current armor model is static, so it does not register animation controllers. */
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
+        geoSupport.registerControllers(controllers);
     }
 
     /** Gives GeckoLib access to the cached state associated with this armor item. */
     @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() {
-        return this.animationCache;
+        return geoSupport.animationCache();
     }
 }

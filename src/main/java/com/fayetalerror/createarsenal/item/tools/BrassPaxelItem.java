@@ -1,6 +1,7 @@
 package com.fayetalerror.createarsenal.item.tools;
 
 import com.fayetalerror.createarsenal.client.renderer.item.tools.BrassPaxelRenderer;
+import com.fayetalerror.createarsenal.item.ArsenalGeoItemSupport;
 import com.fayetalerror.createarsenal.registry.ArsenalBlockTags;
 import java.util.function.Consumer;
 import javax.annotation.Nullable;
@@ -34,12 +35,12 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 
 /** Combined pickaxe, axe, and shovel with GeckoLib rendering. */
 public final class BrassPaxelItem extends DiggerItem implements GeoItem {
-    private final AnimatableInstanceCache animationCache = GeckoLibUtil.createInstanceCache(this);
+    private final ArsenalGeoItemSupport geoSupport;
 
     public BrassPaxelItem(Tier tier, Properties properties) {
         // The combined block tag supplies mining speed and correct-drop behavior for all three tools.
         super(tier, ArsenalBlockTags.MINEABLE_WITH_PAXEL, properties);
-        GeoItem.registerSyncedAnimatable(this);
+        geoSupport = new ArsenalGeoItemSupport(this);
     }
 
     /** Advertises every standard pickaxe, axe, and shovel ability to NeoForge integrations. */
@@ -138,25 +139,16 @@ public final class BrassPaxelItem extends DiggerItem implements GeoItem {
 
     @Override
     public void createGeoRenderer(Consumer<GeoRenderProvider> consumer) {
-        consumer.accept(new GeoRenderProvider() {
-            private BrassPaxelRenderer renderer;
-
-            @Override
-            public BlockEntityWithoutLevelRenderer getGeoItemRenderer() {
-                if (renderer == null) {
-                    renderer = new BrassPaxelRenderer();
-                }
-                return renderer;
-            }
-        });
+        geoSupport.createRenderer(consumer, BrassPaxelRenderer::new);
     }
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
+        geoSupport.registerControllers(controllers);
     }
 
     @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() {
-        return animationCache;
+        return geoSupport.animationCache();
     }
 }

@@ -1,6 +1,7 @@
 package com.fayetalerror.createarsenal.item.tools;
 
 import com.fayetalerror.createarsenal.client.renderer.item.tools.BrassPickaxeRenderer;
+import com.fayetalerror.createarsenal.item.ArsenalGeoItemSupport;
 import java.util.function.Consumer;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.world.item.PickaxeItem;
@@ -17,7 +18,7 @@ import software.bernie.geckolib.util.GeckoLibUtil;
  */
 public final class BrassPickaxeItem extends PickaxeItem implements GeoItem {
     /** Stores animation state for individual item stacks. */
-    private final AnimatableInstanceCache animationCache = GeckoLibUtil.createInstanceCache(this);
+    private final ArsenalGeoItemSupport geoSupport;
 
     /**
      * Creates a brass pickaxe with the supplied mining tier and item properties.
@@ -29,7 +30,7 @@ public final class BrassPickaxeItem extends PickaxeItem implements GeoItem {
         super(tier, properties);
 
         // Enable server-synchronized and server-triggered item animations for future controllers.
-        GeoItem.registerSyncedAnimatable(this);
+        geoSupport = new ArsenalGeoItemSupport(this);
     }
 
     /**
@@ -38,31 +39,20 @@ public final class BrassPickaxeItem extends PickaxeItem implements GeoItem {
      */
     @Override
     public void createGeoRenderer(Consumer<GeoRenderProvider> consumer) {
-        consumer.accept(new GeoRenderProvider() {
-            private BrassPickaxeRenderer renderer;
-
-            @Override
-            public BlockEntityWithoutLevelRenderer getGeoItemRenderer() {
-                if (this.renderer == null) {
-                    this.renderer = new BrassPickaxeRenderer();
-                }
-
-                return this.renderer;
-            }
-        });
+        geoSupport.createRenderer(consumer, BrassPickaxeRenderer::new);
     }
-
     /**
      * Registers animation controllers for this item.
      * Controllers will be added when the pickaxe's animation behavior is implemented.
      */
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
+        geoSupport.registerControllers(controllers);
     }
 
     /** Gives GeckoLib access to this item's per-stack animation state. */
     @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() {
-        return this.animationCache;
+        return geoSupport.animationCache();
     }
 }
