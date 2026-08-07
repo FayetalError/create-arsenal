@@ -1,1 +1,10 @@
-{"id":"brass_paxel","kind":"MULTI_TOOL","tier":"brass","tool_type":"multi_tool","durability":2000,"attack_damage":4.0,"attack_speed":-3.0,"model":"tools/brass_paxel"}
+{
+    "id":  "brass_paxel",
+    "kind":  "MULTI_TOOL",
+    "tier":  "brass",
+    "tool_type":  "multi_tool",
+    "durability":  2000,
+    "attack_damage":  4.0,
+    "attack_speed":  -3.0,
+    "model":  "tools/brass_paxel"
+}

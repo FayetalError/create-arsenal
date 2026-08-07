@@ -1,0 +1,20 @@
+[
+    {
+        "id": "andesite",
+        "mining_tag": "minecraft:incorrect_for_iron_tool",
+        "durability": 650,
+        "speed": 7.0,
+        "attack_bonus": 2.0,
+        "enchantability": 16,
+        "repair_item": "create:iron_sheet"
+    },
+    {
+        "id": "brass",
+        "mining_tag": "minecraft:incorrect_for_diamond_tool",
+        "durability": 2000,
+        "speed": 9.0,
+        "attack_bonus": 4.0,
+        "enchantability": 16,
+        "repair_item": "create:brass_sheet"
+    }
+]

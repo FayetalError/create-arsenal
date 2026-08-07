@@ -1,17 +1,33 @@
-{
-  "type": "create:sequenced_assembly",
-  "ingredient": { "item": "createarsenal:brass_sword_core" },
-  "transitional_item": { "id": "createarsenal:brass_sword_core" },
-  "sequence": [
-    {
-      "type": "create:deploying",
-      "ingredients": [
-        { "item": "createarsenal:brass_sword_core" },
-        { "item": "create:brass_sheet" }
-      ],
-      "results": [{ "id": "createarsenal:brass_sword_core" }]
-    }
-  ],
-  "results": [{ "id": "createarsenal:brass_sword" }],
-  "loops": 3
+﻿{
+    "type":  "create:sequenced_assembly",
+    "ingredient":  {
+                       "item":  "createarsenal:brass_sword_core"
+                   },
+    "transitional_item":  {
+                              "id":  "createarsenal:brass_sword_core"
+                          },
+    "sequence":  [
+                     {
+                         "type":  "create:deploying",
+                         "ingredients":  [
+                                             {
+                                                 "item":  "createarsenal:brass_sword_core"
+                                             },
+                                             {
+                                                 "item":  "create:brass_sheet"
+                                             }
+                                         ],
+                         "results":  [
+                                         {
+                                             "id":  "createarsenal:brass_sword_core"
+                                         }
+                                     ]
+                     }
+                 ],
+    "results":  [
+                    {
+                        "id":  "createarsenal:brass_sword"
+                    }
+                ],
+    "loops":  3
 }

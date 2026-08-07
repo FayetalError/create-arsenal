@@ -1,1 +1,10 @@
-{"id":"andesite_shovel","kind":"TOOL","tier":"andesite","tool_type":"shovel","durability":650,"attack_damage":1.5,"attack_speed":-3.0,"model":"tools/andesite_shovel"}
+{
+    "id":  "andesite_shovel",
+    "kind":  "TOOL",
+    "tier":  "andesite",
+    "tool_type":  "shovel",
+    "durability":  650,
+    "attack_damage":  1.5,
+    "attack_speed":  -3.0,
+    "model":  "tools/andesite_shovel"
+}

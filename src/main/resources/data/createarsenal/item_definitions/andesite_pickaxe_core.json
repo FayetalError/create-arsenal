@@ -1,1 +1,5 @@
-{"id":"andesite_pickaxe_core","kind":"CORE","model":"tools/andesite_pickaxe_core"}
+{
+    "id":  "andesite_pickaxe_core",
+    "kind":  "ITEM",
+    "model":  "tools/andesite_pickaxe_core"
+}

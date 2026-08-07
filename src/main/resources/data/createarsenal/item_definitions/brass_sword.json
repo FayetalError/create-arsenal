@@ -1,1 +1,10 @@
-{"id":"brass_sword","kind":"WEAPON","tier":"brass","tool_type":"sword","durability":2000,"attack_damage":2.5,"attack_speed":-2.4,"model":"weapons/brass_sword"}
+{
+    "id":  "brass_sword",
+    "kind":  "WEAPON",
+    "tier":  "brass",
+    "weapon_type":  "sword",
+    "durability":  2000,
+    "attack_damage":  2.5,
+    "attack_speed":  -2.4,
+    "model":  "weapons/brass_sword"
+}

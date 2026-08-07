@@ -1,12 +1,27 @@
-{
-  "type": "minecraft:crafting_shaped",
-  "category": "equipment",
-  "pattern": ["ABC", " S ", " S "],
-  "key": {
-    "A": { "item": "createarsenal:brass_axe" },
-    "B": { "item": "createarsenal:brass_shovel" },
-    "C": { "item": "createarsenal:brass_pickaxe" },
-    "S": { "item": "minecraft:stick" }
-  },
-  "result": { "id": "createarsenal:brass_paxel", "count": 1 }
+﻿{
+    "type":  "minecraft:crafting_shaped",
+    "category":  "equipment",
+    "pattern":  [
+                    "ABC",
+                    " S ",
+                    " S "
+                ],
+    "key":  {
+                "A":  {
+                          "item":  "createarsenal:brass_axe"
+                      },
+                "B":  {
+                          "item":  "createarsenal:brass_shovel"
+                      },
+                "C":  {
+                          "item":  "createarsenal:brass_pickaxe"
+                      },
+                "S":  {
+                          "item":  "minecraft:stick"
+                      }
+            },
+    "result":  {
+                   "id":  "createarsenal:brass_paxel",
+                   "count":  1
+               }
 }

@@ -1,7 +1,6 @@
-{
-  "replace": false,
-  "values": [
-    "createarsenal:andesite_leggings",
-    "createarsenal:brass_leggings"
-  ]
+﻿{
+    "replace":  false,
+    "values":  [
+                   "createarsenal:andesite_leggings"
+               ]
 }

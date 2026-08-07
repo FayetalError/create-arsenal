@@ -6,9 +6,16 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
+import com.google.gson.JsonParser;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
+import java.util.List;
 
 /** Declares the mod's custom creative-mode tabs and their displayed contents. */
 public final class ArsenalCreativeTabs {
+    /** Content order for the tab. Keeping this list data-like makes additions local and reviewable. */
+    private static final TabDefinition TAB_DEFINITION = loadDefinition();
+
     /** Deferred registry for creative tabs under the mod namespace. */
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, CreateArsenal.MODID);
@@ -20,42 +27,27 @@ public final class ArsenalCreativeTabs {
             CREATIVE_MODE_TABS.register("createarsenal", () -> CreativeModeTab.builder()
                     // Resolve the visible title from assets/createarsenal/lang/en_us.json.
                     .title(Component.translatable("itemGroup.createarsenal"))
-                    .icon(() -> ArsenalItems.ANDESITE_PICKAXE.get().getDefaultInstance())
+                    .icon(() -> ArsenalItems.item(TAB_DEFINITION.icon()).getDefaultInstance())
                     // Populate the tab when Minecraft requests its item list.
-                    .displayItems((parameters, output) -> {
-                        output.accept(ArsenalItems.ANDESITE_PICKAXE_CORE.get());
-                        output.accept(ArsenalItems.ANDESITE_PICKAXE.get());
-                        output.accept(ArsenalItems.ANDESITE_AXE_CORE.get());
-                        output.accept(ArsenalItems.ANDESITE_AXE.get());
-                        output.accept(ArsenalItems.ANDESITE_SHOVEL_CORE.get());
-                        output.accept(ArsenalItems.ANDESITE_SHOVEL.get());
-                        output.accept(ArsenalItems.ANDESITE_HOE_CORE.get());
-                        output.accept(ArsenalItems.ANDESITE_HOE.get());
-                        output.accept(ArsenalItems.ANDESITE_SWORD_CORE.get());
-                        output.accept(ArsenalItems.ANDESITE_SWORD.get());
-                        output.accept(ArsenalItems.ANDESITE_HELMET_CORE.get());
-                        output.accept(ArsenalItems.ANDESITE_HELMET.get());
-                        output.accept(ArsenalItems.ANDESITE_CHESTPLATE_CORE.get());
-                        output.accept(ArsenalItems.ANDESITE_CHESTPLATE.get());
-                        output.accept(ArsenalItems.ANDESITE_LEGGINGS_CORE.get());
-                        output.accept(ArsenalItems.ANDESITE_LEGGINGS.get());
-                        output.accept(ArsenalItems.ANDESITE_BOOTS_CORE.get());
-                        output.accept(ArsenalItems.ANDESITE_BOOTS.get());
-                        output.accept(ArsenalItems.BRASS_PICKAXE);
-                        output.accept(ArsenalItems.BRASS_PICKAXE_CORE.get());
-                        output.accept(ArsenalItems.BRASS_AXE_CORE.get());
-                        output.accept(ArsenalItems.BRASS_AXE.get());
-                        output.accept(ArsenalItems.BRASS_SHOVEL_CORE.get());
-                        output.accept(ArsenalItems.BRASS_SHOVEL.get());
-                        output.accept(ArsenalItems.BRASS_HOE_CORE.get());
-                        output.accept(ArsenalItems.BRASS_HOE.get());
-                        output.accept(ArsenalItems.BRASS_PAXEL.get());
-                        output.accept(ArsenalItems.BRASS_SWORD_CORE.get());
-                        output.accept(ArsenalItems.BRASS_SWORD.get());
-                    })
+                    .displayItems((parameters, output) -> TAB_DEFINITION.items()
+                            .forEach(item -> output.accept(ArsenalItems.item(item))))
                     .build());
 
     /** Utility class; registered tabs are exposed as static deferred holders. */
     private ArsenalCreativeTabs() {
     }
+
+    private static TabDefinition loadDefinition() {
+        try (var stream = ArsenalCreativeTabs.class.getClassLoader()
+                .getResourceAsStream("data/createarsenal/creative_tab.json")) {
+            if (stream == null) throw new IllegalArgumentException("Missing creative tab definition");
+            var json = JsonParser.parseReader(new InputStreamReader(stream, StandardCharsets.UTF_8)).getAsJsonObject();
+            return new TabDefinition(json.get("icon").getAsString(),
+                    json.getAsJsonArray("items").asList().stream().map(element -> element.getAsString()).toList());
+        } catch (Exception exception) {
+            throw new IllegalArgumentException("Unable to load creative tab definition", exception);
+        }
+    }
+
+    private record TabDefinition(String icon, List<String> items) { }
 }

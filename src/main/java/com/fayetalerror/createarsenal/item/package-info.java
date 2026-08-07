@@ -1,2 +1,2 @@
-/** Gameplay definitions shared by multiple Create: Arsenal item categories. */
+/** Shared item bases, geo-item support, and data-driven tool-tier construction. */
 package com.fayetalerror.createarsenal.item;

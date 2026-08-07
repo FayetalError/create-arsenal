@@ -1,27 +1,33 @@
 package com.fayetalerror.createarsenal.registry;
 
 import com.fayetalerror.createarsenal.CreateArsenal;
-import com.fayetalerror.createarsenal.item.ArsenalToolTiers;
-import com.fayetalerror.createarsenal.item.ArsenalCoreItem;
-import com.fayetalerror.createarsenal.config.ArsenalItemDefinition;
-import com.fayetalerror.createarsenal.config.ArsenalDefinitionLoader;
 import com.fayetalerror.createarsenal.config.ArmorDefinition;
+import com.fayetalerror.createarsenal.config.ArsenalDefinitionLoader;
+import com.fayetalerror.createarsenal.config.ArsenalItemDefinition;
+import com.fayetalerror.createarsenal.config.ItemKind;
+import com.fayetalerror.createarsenal.config.ItemRegistration;
 import com.fayetalerror.createarsenal.config.ToolDefinition;
-import java.util.function.BiFunction;
-import com.fayetalerror.createarsenal.item.armor.AndesiteArmorItem;
-import com.fayetalerror.createarsenal.item.tools.AndesiteAxeItem;
-import com.fayetalerror.createarsenal.item.tools.AndesiteHoeItem;
-import com.fayetalerror.createarsenal.item.tools.AndesitePickaxeItem;
-import com.fayetalerror.createarsenal.item.tools.AndesiteShovelItem;
-import com.fayetalerror.createarsenal.item.weapons.AndesiteSwordItem;
-import com.fayetalerror.createarsenal.item.tools.BrassPickaxeItem;
-import com.fayetalerror.createarsenal.item.tools.BrassAxeItem;
-import com.fayetalerror.createarsenal.item.tools.BrassHoeItem;
-import com.fayetalerror.createarsenal.item.tools.BrassPaxelItem;
-import com.fayetalerror.createarsenal.item.tools.BrassShovelItem;
-import com.fayetalerror.createarsenal.item.weapons.BrassSwordItem;
-import net.minecraft.world.item.AxeItem;
+import com.fayetalerror.createarsenal.config.ToolType;
+import com.fayetalerror.createarsenal.config.WeaponDefinition;
+import com.fayetalerror.createarsenal.config.WeaponType;
+import com.fayetalerror.createarsenal.config.TierDefinition;
+import com.fayetalerror.createarsenal.item.ArsenalItem;
+import com.fayetalerror.createarsenal.item.ArsenalToolTiers;
+import com.fayetalerror.createarsenal.item.armor.ArsenalArmorItem;
+import com.fayetalerror.createarsenal.item.tools.ArsenalAxeItem;
+import com.fayetalerror.createarsenal.item.tools.ArsenalHoeItem;
+import com.fayetalerror.createarsenal.item.tools.ArsenalPaxelItem;
+import com.fayetalerror.createarsenal.item.tools.ArsenalPickaxeItem;
+import com.fayetalerror.createarsenal.item.tools.ArsenalShovelItem;
+import com.fayetalerror.createarsenal.item.weapons.ArsenalSwordItem;
+import java.util.Collections;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.DiggerItem;
 import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.Item;
@@ -32,194 +38,145 @@ import net.minecraft.world.item.Tier;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
-/** Declares every item and block item registered by Create: Arsenal. */
+/** Registers every JSON-described item through generic behavior factories. */
 public final class ArsenalItems {
-    /** Deferred item registry scoped to the {@code createarsenal} namespace. */
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(CreateArsenal.MODID);
 
-    private static ToolDefinition loadToolDefinition(String id) {
-        return ArsenalDefinitionLoader.loadTool(
-                "data/" + CreateArsenal.MODID + "/item_definitions/" + id + ".json");
+    private static final List<ItemRegistration> REGISTRATIONS =
+            ArsenalDefinitionLoader.loadRegistrations(definitionPath("registrations"));
+    private static final Map<String, ToolDefinition> TOOL_DEFINITIONS = loadDefinitions(
+            ItemKind.TOOL, ArsenalDefinitionLoader::loadTool);
+    private static final Map<String, WeaponDefinition> WEAPON_DEFINITIONS = loadDefinitions(
+            ItemKind.WEAPON, ArsenalDefinitionLoader::loadWeapon);
+    private static final Map<String, ArsenalItemDefinition> ITEM_DEFINITIONS = loadDefinitions(
+            ItemKind.ITEM, ArsenalDefinitionLoader::loadCore);
+    private static final Map<String, ArmorDefinition> ARMOR_DEFINITIONS = loadDefinitions(
+            ItemKind.ARMOR, ArsenalDefinitionLoader::loadArmor);
+
+    private static final Map<String, Tier> TIERS = loadTierDefinitions();
+
+    private static final Map<ToolType, ToolFactory> TOOL_FACTORIES = Map.of(
+            ToolType.PICKAXE, ArsenalPickaxeItem::new,
+            ToolType.AXE, ArsenalAxeItem::new,
+            ToolType.SHOVEL, ArsenalShovelItem::new,
+            ToolType.HOE, ArsenalHoeItem::new,
+            ToolType.MULTI_TOOL, ArsenalPaxelItem::new);
+
+    private static final Map<WeaponType, WeaponFactory> WEAPON_FACTORIES = Map.of(
+            WeaponType.SWORD, ArsenalSwordItem::new);
+
+    public static final Map<String, DeferredItem<? extends Item>> ITEMS_BY_ID = registerAll();
+
+    public static Item item(String id) {
+        DeferredItem<? extends Item> holder = ITEMS_BY_ID.get(id);
+        if (holder == null) throw new IllegalArgumentException("Unknown registered item: " + id);
+        return holder.get();
     }
 
-    private static ArsenalItemDefinition loadCoreDefinition(String id) {
-        return ArsenalDefinitionLoader.loadCore(
-                "data/" + CreateArsenal.MODID + "/item_definitions/" + id + ".json");
+    private static Map<String, DeferredItem<? extends Item>> registerAll() {
+        Map<String, DeferredItem<? extends Item>> items = new LinkedHashMap<>();
+        for (ItemRegistration registration : REGISTRATIONS) {
+            DeferredItem<? extends Item> previous = items.put(
+                    registration.id(), register(registration));
+            if (previous != null) {
+                throw new IllegalArgumentException("Duplicate item registration: " + registration.id());
+            }
+        }
+        return Collections.unmodifiableMap(items);
     }
 
-    private static ArmorDefinition loadArmorDefinition(String id) {
-        return ArsenalDefinitionLoader.loadArmor(
-                "data/" + CreateArsenal.MODID + "/item_definitions/" + id + ".json");
+    private static Map<String, Tier> loadTierDefinitions() {
+        Map<String, Tier> tiers = new LinkedHashMap<>();
+        for (TierDefinition definition : ArsenalDefinitionLoader.loadTiers(
+                "data/" + CreateArsenal.MODID + "/tiers.json").values()) {
+            tiers.put(definition.id(), ArsenalToolTiers.create(definition));
+        }
+        return Collections.unmodifiableMap(tiers);
     }
 
-    private static final ToolDefinition ANDESITE_PICKAXE_DEFINITION = loadToolDefinition("andesite_pickaxe");
-    private static final ToolDefinition ANDESITE_AXE_DEFINITION = loadToolDefinition("andesite_axe");
-    private static final ToolDefinition ANDESITE_SHOVEL_DEFINITION = loadToolDefinition("andesite_shovel");
-    private static final ToolDefinition ANDESITE_HOE_DEFINITION = loadToolDefinition("andesite_hoe");
-    private static final ToolDefinition ANDESITE_SWORD_DEFINITION = loadToolDefinition("andesite_sword");
-    private static final ToolDefinition BRASS_PICKAXE_DEFINITION = loadToolDefinition("brass_pickaxe");
-    private static final ToolDefinition BRASS_AXE_DEFINITION = loadToolDefinition("brass_axe");
-    private static final ToolDefinition BRASS_SHOVEL_DEFINITION = loadToolDefinition("brass_shovel");
-    private static final ToolDefinition BRASS_HOE_DEFINITION = loadToolDefinition("brass_hoe");
-    private static final ToolDefinition BRASS_PAXEL_DEFINITION = loadToolDefinition("brass_paxel");
-    private static final ToolDefinition BRASS_SWORD_DEFINITION = loadToolDefinition("brass_sword");
-    private static final ArsenalItemDefinition ANDESITE_PICKAXE_CORE_DEFINITION = loadCoreDefinition("andesite_pickaxe_core");
-    private static final ArsenalItemDefinition ANDESITE_AXE_CORE_DEFINITION = loadCoreDefinition("andesite_axe_core");
-    private static final ArsenalItemDefinition ANDESITE_SHOVEL_CORE_DEFINITION = loadCoreDefinition("andesite_shovel_core");
-    private static final ArsenalItemDefinition ANDESITE_HOE_CORE_DEFINITION = loadCoreDefinition("andesite_hoe_core");
-    private static final ArsenalItemDefinition ANDESITE_SWORD_CORE_DEFINITION = loadCoreDefinition("andesite_sword_core");
-    private static final ArsenalItemDefinition BRASS_PICKAXE_CORE_DEFINITION = loadCoreDefinition("brass_pickaxe_core");
-    private static final ArsenalItemDefinition BRASS_AXE_CORE_DEFINITION = loadCoreDefinition("brass_axe_core");
-    private static final ArsenalItemDefinition BRASS_SHOVEL_CORE_DEFINITION = loadCoreDefinition("brass_shovel_core");
-    private static final ArsenalItemDefinition BRASS_HOE_CORE_DEFINITION = loadCoreDefinition("brass_hoe_core");
-    private static final ArsenalItemDefinition BRASS_SWORD_CORE_DEFINITION = loadCoreDefinition("brass_sword_core");
-    private static final ArmorDefinition HELMET_DEFINITION = loadArmorDefinition("andesite_helmet");
-    private static final ArmorDefinition CHESTPLATE_DEFINITION = loadArmorDefinition("andesite_chestplate");
-    private static final ArmorDefinition LEGGINGS_DEFINITION = loadArmorDefinition("andesite_leggings");
-    private static final ArmorDefinition BOOTS_DEFINITION = loadArmorDefinition("andesite_boots");
-    private static final ArsenalItemDefinition HELMET_CORE_DEFINITION = loadCoreDefinition("andesite_helmet_core");
-    private static final ArsenalItemDefinition CHESTPLATE_CORE_DEFINITION = loadCoreDefinition("andesite_chestplate_core");
-    private static final ArsenalItemDefinition LEGGINGS_CORE_DEFINITION = loadCoreDefinition("andesite_leggings_core");
-    private static final ArsenalItemDefinition BOOTS_CORE_DEFINITION = loadCoreDefinition("andesite_boots_core");
-
-    /** Static GeckoLib component registered as {@code createarsenal:andesite_pickaxe_core}. */
-    public static final DeferredItem<ArsenalCoreItem> ANDESITE_PICKAXE_CORE = registerCore(ANDESITE_PICKAXE_CORE_DEFINITION);
-
-    /** GeckoLib-rendered pickaxe registered as {@code createarsenal:andesite_pickaxe}. */
-    public static final DeferredItem<AndesitePickaxeItem> ANDESITE_PICKAXE = registerTool(
-            ArsenalToolTiers.ANDESITE, ANDESITE_PICKAXE_DEFINITION, AndesitePickaxeItem::new);
-
-    /** Static GeckoLib component registered as {@code createarsenal:andesite_axe_core}. */
-    public static final DeferredItem<ArsenalCoreItem> ANDESITE_AXE_CORE = registerCore(ANDESITE_AXE_CORE_DEFINITION);
-
-    /** GeckoLib-rendered axe registered as {@code createarsenal:andesite_axe}. */
-    public static final DeferredItem<AndesiteAxeItem> ANDESITE_AXE = registerTool(
-            ArsenalToolTiers.ANDESITE, ANDESITE_AXE_DEFINITION, AndesiteAxeItem::new);
-
-    /** Static GeckoLib component registered as {@code createarsenal:andesite_shovel_core}. */
-    public static final DeferredItem<ArsenalCoreItem> ANDESITE_SHOVEL_CORE = registerCore(ANDESITE_SHOVEL_CORE_DEFINITION);
-
-    /** GeckoLib-rendered shovel registered as {@code createarsenal:andesite_shovel}. */
-    public static final DeferredItem<AndesiteShovelItem> ANDESITE_SHOVEL = registerTool(
-            ArsenalToolTiers.ANDESITE, ANDESITE_SHOVEL_DEFINITION, AndesiteShovelItem::new);
-
-    /** Static GeckoLib component registered as {@code createarsenal:andesite_hoe_core}. */
-    public static final DeferredItem<ArsenalCoreItem> ANDESITE_HOE_CORE = registerCore(ANDESITE_HOE_CORE_DEFINITION);
-
-    /** GeckoLib-rendered hoe registered as {@code createarsenal:andesite_hoe}. */
-    public static final DeferredItem<AndesiteHoeItem> ANDESITE_HOE = registerTool(
-            ArsenalToolTiers.ANDESITE, ANDESITE_HOE_DEFINITION, AndesiteHoeItem::new);
-
-    /** Static GeckoLib component registered as {@code createarsenal:andesite_sword_core}. */
-    public static final DeferredItem<ArsenalCoreItem> ANDESITE_SWORD_CORE = registerCore(ANDESITE_SWORD_CORE_DEFINITION);
-
-    /** GeckoLib-rendered sword registered as {@code createarsenal:andesite_sword}. */
-    public static final DeferredItem<AndesiteSwordItem> ANDESITE_SWORD = registerTool(
-            ArsenalToolTiers.ANDESITE, ANDESITE_SWORD_DEFINITION, AndesiteSwordItem::new);
-
-    /** Static GeckoLib component used to craft the Andesite Helmet. */
-    public static final DeferredItem<ArsenalCoreItem> ANDESITE_HELMET_CORE = registerCore(HELMET_CORE_DEFINITION);
-
-    /** Static GeckoLib component used to craft the Andesite Chestplate. */
-    public static final DeferredItem<ArsenalCoreItem> ANDESITE_CHESTPLATE_CORE = registerCore(CHESTPLATE_CORE_DEFINITION);
-
-    /** Static GeckoLib component used to craft the Andesite Leggings. */
-    public static final DeferredItem<ArsenalCoreItem> ANDESITE_LEGGINGS_CORE = registerCore(LEGGINGS_CORE_DEFINITION);
-
-    /** Static GeckoLib component used to craft the Andesite Boots. */
-    public static final DeferredItem<ArsenalCoreItem> ANDESITE_BOOTS_CORE = registerCore(BOOTS_CORE_DEFINITION);
-
-    /** Andesite helmet registered with the shared armor material and GeckoLib renderer. */
-    public static final DeferredItem<AndesiteArmorItem> ANDESITE_HELMET = registerArmor(HELMET_DEFINITION);
-
-    /** Andesite chestplate registered with the shared armor material and GeckoLib renderer. */
-    public static final DeferredItem<AndesiteArmorItem> ANDESITE_CHESTPLATE = registerArmor(CHESTPLATE_DEFINITION);
-
-    /** Andesite leggings registered with the shared armor material and GeckoLib renderer. */
-    public static final DeferredItem<AndesiteArmorItem> ANDESITE_LEGGINGS = registerArmor(LEGGINGS_DEFINITION);
-
-    /** Andesite boots registered with the shared armor material and GeckoLib renderer. */
-    public static final DeferredItem<AndesiteArmorItem> ANDESITE_BOOTS = registerArmor(BOOTS_DEFINITION);
-
-    /** GeckoLib-rendered brass pickaxe registered as {@code createarsenal:brass_pickaxe}. */
-    public static final DeferredItem<BrassPickaxeItem> BRASS_PICKAXE = registerBrassTool(
-            BRASS_PICKAXE_DEFINITION, BrassPickaxeItem::new);
-
-    public static final DeferredItem<ArsenalCoreItem> BRASS_PICKAXE_CORE = registerCore(BRASS_PICKAXE_CORE_DEFINITION);
-
-    public static final DeferredItem<ArsenalCoreItem> BRASS_AXE_CORE = registerCore(BRASS_AXE_CORE_DEFINITION);
-    public static final DeferredItem<BrassAxeItem> BRASS_AXE = registerBrassTool(
-            BRASS_AXE_DEFINITION, BrassAxeItem::new);
-
-    public static final DeferredItem<ArsenalCoreItem> BRASS_SHOVEL_CORE = registerCore(BRASS_SHOVEL_CORE_DEFINITION);
-    public static final DeferredItem<BrassShovelItem> BRASS_SHOVEL = registerBrassTool(
-            BRASS_SHOVEL_DEFINITION, BrassShovelItem::new);
-
-    public static final DeferredItem<ArsenalCoreItem> BRASS_HOE_CORE = registerCore(BRASS_HOE_CORE_DEFINITION);
-    public static final DeferredItem<BrassHoeItem> BRASS_HOE = registerBrassTool(
-            BRASS_HOE_DEFINITION, BrassHoeItem::new);
-
-    public static final DeferredItem<BrassPaxelItem> BRASS_PAXEL = registerBrassTool(
-            BRASS_PAXEL_DEFINITION, BrassPaxelItem::new);
-
-    public static final DeferredItem<ArsenalCoreItem> BRASS_SWORD_CORE = registerCore(BRASS_SWORD_CORE_DEFINITION);
-    public static final DeferredItem<BrassSwordItem> BRASS_SWORD = registerBrassTool(
-            BRASS_SWORD_DEFINITION, BrassSwordItem::new);
-
-    /** Utility class; registered items are exposed as static deferred holders. */
-    private static DeferredItem<ArsenalCoreItem> registerCore(ArsenalItemDefinition definition) {
-        return ITEMS.register(definition.id(),
-                () -> new ArsenalCoreItem(definition.modelPath(), new Item.Properties().stacksTo(1)));
-    }
-
-    private static DeferredItem<AndesiteArmorItem> registerArmor(ArmorDefinition definition) {
-        ArmorItem.Type type = switch (definition.slot()) {
-            case "helmet" -> ArmorItem.Type.HELMET;
-            case "chestplate" -> ArmorItem.Type.CHESTPLATE;
-            case "leggings" -> ArmorItem.Type.LEGGINGS;
-            case "boots" -> ArmorItem.Type.BOOTS;
-            default -> throw new IllegalArgumentException("Unknown armor slot: " + definition.slot());
+    private static DeferredItem<? extends Item> register(ItemRegistration registration) {
+        return switch (registration.kind()) {
+            case ITEM -> registerItem(required(ITEM_DEFINITIONS, registration.id()));
+            case TOOL, MULTI_TOOL -> registerTool(required(TOOL_DEFINITIONS, registration.id()));
+            case WEAPON -> registerWeapon(required(WEAPON_DEFINITIONS, registration.id()));
+            case ARMOR -> registerArmor(required(ARMOR_DEFINITIONS, registration.id()));
         };
-        return ITEMS.register(definition.item().id(), () -> new AndesiteArmorItem(
-                ArsenalArmorMaterials.ANDESITE,
-                type,
-                new Item.Properties().durability(type.getDurability(definition.durabilityModifier()))));
     }
 
-    private static <T extends Item> DeferredItem<T> registerBrassTool(
-            ToolDefinition definition,
-            BiFunction<Tier, Item.Properties, T> factory
-    ) {
-        return registerTool(ArsenalToolTiers.BRASS, definition, factory);
+    private static DeferredItem<ArsenalItem> registerItem(ArsenalItemDefinition definition) {
+        return ITEMS.register(definition.id(),
+                () -> new ArsenalItem(definition.modelPath(), new Item.Properties().stacksTo(1)));
     }
 
-    private static <T extends Item> DeferredItem<T> registerTool(
-            Tier tier,
-            ToolDefinition definition,
-            BiFunction<Tier, Item.Properties, T> factory
-    ) {
-        return ITEMS.register(definition.item().id(),
-                () -> factory.apply(tier, toolProperties(tier, definition)));
+    private static DeferredItem<? extends Item> registerTool(ToolDefinition definition) {
+        Tier tier = required(TIERS, definition.tierName());
+        ToolFactory factory = required(TOOL_FACTORIES, definition.toolType());
+        return ITEMS.register(definition.item().id(), () -> factory.create(
+                tier, toolProperties(tier, definition), definition.item().modelPath()));
+    }
+
+    private static DeferredItem<? extends Item> registerWeapon(WeaponDefinition definition) {
+        Tier tier = required(TIERS, definition.tierName());
+        WeaponFactory factory = required(WEAPON_FACTORIES, definition.weaponType());
+        return ITEMS.register(definition.item().id(), () -> factory.create(
+                tier, weaponProperties(tier, definition), definition.item().modelPath()));
+    }
+
+    private static DeferredItem<ArsenalArmorItem> registerArmor(ArmorDefinition definition) {
+        ArmorItem.Type type = switch (definition.slot()) {
+            case HELMET -> ArmorItem.Type.HELMET;
+            case CHESTPLATE -> ArmorItem.Type.CHESTPLATE;
+            case LEGGINGS -> ArmorItem.Type.LEGGINGS;
+            case BOOTS -> ArmorItem.Type.BOOTS;
+        };
+        return ITEMS.register(definition.item().id(), () -> new ArsenalArmorItem(
+                ArsenalArmorMaterials.byId(definition.material()), type,
+                new Item.Properties().durability(type.getDurability(definition.durabilityModifier())),
+                definition.item().modelPath(), definition.equippedModel()));
     }
 
     private static Item.Properties toolProperties(Tier tier, ToolDefinition definition) {
         return new Item.Properties().attributes(switch (definition.toolType()) {
-            case "pickaxe" -> PickaxeItem.createAttributes(
-                    tier, definition.attackDamage(), definition.attackSpeed());
-            case "axe" -> AxeItem.createAttributes(
-                    tier, definition.attackDamage(), definition.attackSpeed());
-            case "shovel" -> ShovelItem.createAttributes(
-                    tier, definition.attackDamage(), definition.attackSpeed());
-            case "hoe" -> HoeItem.createAttributes(
-                    tier, definition.attackDamage(), definition.attackSpeed());
-            case "sword" -> SwordItem.createAttributes(
-                    tier, definition.attackDamage(), definition.attackSpeed());
-            case "multi_tool" -> DiggerItem.createAttributes(
-                    tier, definition.attackDamage(), definition.attackSpeed());
-            default -> throw new IllegalArgumentException("Unknown Brass tool type: " + definition.toolType());
+            case PICKAXE -> PickaxeItem.createAttributes(tier, definition.attackDamage(), definition.attackSpeed());
+            case AXE -> AxeItem.createAttributes(tier, definition.attackDamage(), definition.attackSpeed());
+            case SHOVEL -> ShovelItem.createAttributes(tier, definition.attackDamage(), definition.attackSpeed());
+            case HOE -> HoeItem.createAttributes(tier, definition.attackDamage(), definition.attackSpeed());
+            case MULTI_TOOL -> DiggerItem.createAttributes(tier, definition.attackDamage(), definition.attackSpeed());
         });
     }
 
-    private ArsenalItems() {
+    private static Item.Properties weaponProperties(Tier tier, WeaponDefinition definition) {
+        return new Item.Properties().attributes(SwordItem.createAttributes(
+                tier, definition.attackDamage(), definition.attackSpeed()));
     }
+
+    private static <T> Map<String, T> loadDefinitions(ItemKind kind, Function<String, T> loader) {
+        return REGISTRATIONS.stream()
+                .filter(registration -> registration.kind() == kind
+                        || kind == ItemKind.TOOL && registration.kind() == ItemKind.MULTI_TOOL)
+                .collect(Collectors.toUnmodifiableMap(ItemRegistration::id,
+                        registration -> loader.apply(definitionPath(registration.id()))));
+    }
+
+    private static <K, V> V required(Map<K, V> values, K key) {
+        V value = values.get(key);
+        if (value == null) throw new IllegalArgumentException("Unknown data-driven value: " + key);
+        return value;
+    }
+
+    private static String definitionPath(String id) {
+        return "data/" + CreateArsenal.MODID + "/item_definitions/" + id + ".json";
+    }
+
+    @FunctionalInterface
+    private interface ToolFactory {
+        Item create(Tier tier, Item.Properties properties, String modelPath);
+    }
+
+    @FunctionalInterface
+    private interface WeaponFactory {
+        Item create(Tier tier, Item.Properties properties, String modelPath);
+    }
+
+    private ArsenalItems() { }
 }

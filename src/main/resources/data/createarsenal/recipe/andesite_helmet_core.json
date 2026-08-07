@@ -1,21 +1,21 @@
-{
-  "type": "minecraft:crafting_shaped",
-  "category": "equipment",
-  "pattern": [
-    "   ",
-    "AAA",
-    "AGA"
-  ],
-  "key": {
-    "A": {
-      "item": "create:andesite_alloy"
-    },
-    "G": {
-      "item": "create:goggles"
-    }
-  },
-  "result": {
-    "id": "createarsenal:andesite_helmet_core",
-    "count": 1
-  }
+﻿{
+    "type":  "minecraft:crafting_shaped",
+    "category":  "equipment",
+    "pattern":  [
+                    "   ",
+                    "AAA",
+                    "AGA"
+                ],
+    "key":  {
+                "A":  {
+                          "item":  "create:andesite_alloy"
+                      },
+                "G":  {
+                          "item":  "create:goggles"
+                      }
+            },
+    "result":  {
+                   "id":  "createarsenal:andesite_helmet_core",
+                   "count":  1
+               }
 }

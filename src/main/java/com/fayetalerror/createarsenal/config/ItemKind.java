@@ -7,9 +7,6 @@ package com.fayetalerror.createarsenal.config;
  * is, while the corresponding Java item class supplies its behavior.</p>
  */
 public enum ItemKind {
-    /** A regular item without tool or armor behavior. */
-    BASIC,
-
     /** A pickaxe, axe, shovel, or hoe-style item. */
     TOOL,
 
@@ -22,6 +19,6 @@ public enum ItemKind {
     /** A multi-purpose tool such as the Paxel. */
     MULTI_TOOL,
 
-    /** An intermediate crafting item such as a tool core. */
-    CORE
+    /** A regular item without tool, weapon, or armor behavior. */
+    ITEM
 }

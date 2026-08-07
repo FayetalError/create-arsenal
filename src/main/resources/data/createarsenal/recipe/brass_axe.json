@@ -1,17 +1,33 @@
-{
-  "type": "create:sequenced_assembly",
-  "ingredient": { "item": "createarsenal:brass_axe_core" },
-  "transitional_item": { "id": "createarsenal:brass_axe_core" },
-  "sequence": [
-    {
-      "type": "create:deploying",
-      "ingredients": [
-        { "item": "createarsenal:brass_axe_core" },
-        { "item": "create:brass_sheet" }
-      ],
-      "results": [{ "id": "createarsenal:brass_axe_core" }]
-    }
-  ],
-  "results": [{ "id": "createarsenal:brass_axe" }],
-  "loops": 3
+﻿{
+    "type":  "create:sequenced_assembly",
+    "ingredient":  {
+                       "item":  "createarsenal:brass_axe_core"
+                   },
+    "transitional_item":  {
+                              "id":  "createarsenal:brass_axe_core"
+                          },
+    "sequence":  [
+                     {
+                         "type":  "create:deploying",
+                         "ingredients":  [
+                                             {
+                                                 "item":  "createarsenal:brass_axe_core"
+                                             },
+                                             {
+                                                 "item":  "create:brass_sheet"
+                                             }
+                                         ],
+                         "results":  [
+                                         {
+                                             "id":  "createarsenal:brass_axe_core"
+                                         }
+                                     ]
+                     }
+                 ],
+    "results":  [
+                    {
+                        "id":  "createarsenal:brass_axe"
+                    }
+                ],
+    "loops":  3
 }

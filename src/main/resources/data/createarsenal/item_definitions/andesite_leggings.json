@@ -1,1 +1,11 @@
-{"id":"andesite_leggings","kind":"ARMOR","slot":"leggings","defense":5,"toughness":1.0,"durability_modifier":25,"model":"armor/andesite_leggings","equipped_model":"armor/andesite_armor"}
+{
+    "id":  "andesite_leggings",
+    "kind":  "ARMOR",
+    "material":  "andesite",
+    "slot":  "leggings",
+    "defense":  5,
+    "toughness":  1.0,
+    "durability_modifier":  25,
+    "model":  "armor/andesite_leggings",
+    "equipped_model":  "armor/andesite_armor"
+}

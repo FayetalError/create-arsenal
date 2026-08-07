@@ -1,2 +1,2 @@
-/** Tool items and components used to craft Create: Arsenal tools. */
+/** Generic pickaxe, axe, shovel, hoe, and paxel item implementations. */
 package com.fayetalerror.createarsenal.item.tools;

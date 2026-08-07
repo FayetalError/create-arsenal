@@ -1,0 +1,120 @@
+{
+    "items":  [
+                  {
+                      "id":  "andesite_pickaxe",
+                      "kind":  "TOOL"
+                  },
+                  {
+                      "id":  "andesite_axe",
+                      "kind":  "TOOL"
+                  },
+                  {
+                      "id":  "andesite_shovel",
+                      "kind":  "TOOL"
+                  },
+                  {
+                      "id":  "andesite_hoe",
+                      "kind":  "TOOL"
+                  },
+                  {
+                      "id":  "andesite_sword",
+                      "kind":  "WEAPON"
+                  },
+                  {
+                      "id":  "brass_pickaxe",
+                      "kind":  "TOOL"
+                  },
+                  {
+                      "id":  "brass_axe",
+                      "kind":  "TOOL"
+                  },
+                  {
+                      "id":  "brass_shovel",
+                      "kind":  "TOOL"
+                  },
+                  {
+                      "id":  "brass_hoe",
+                      "kind":  "TOOL"
+                  },
+                  {
+                      "id":  "brass_paxel",
+                      "kind":  "MULTI_TOOL"
+                  },
+                  {
+                      "id":  "brass_sword",
+                      "kind":  "WEAPON"
+                  },
+                  {
+                      "id":  "andesite_pickaxe_core",
+                      "kind":  "ITEM"
+                  },
+                  {
+                      "id":  "andesite_axe_core",
+                      "kind":  "ITEM"
+                  },
+                  {
+                      "id":  "andesite_shovel_core",
+                      "kind":  "ITEM"
+                  },
+                  {
+                      "id":  "andesite_hoe_core",
+                      "kind":  "ITEM"
+                  },
+                  {
+                      "id":  "andesite_sword_core",
+                      "kind":  "ITEM"
+                  },
+                  {
+                      "id":  "brass_pickaxe_core",
+                      "kind":  "ITEM"
+                  },
+                  {
+                      "id":  "brass_axe_core",
+                      "kind":  "ITEM"
+                  },
+                  {
+                      "id":  "brass_shovel_core",
+                      "kind":  "ITEM"
+                  },
+                  {
+                      "id":  "brass_hoe_core",
+                      "kind":  "ITEM"
+                  },
+                  {
+                      "id":  "brass_sword_core",
+                      "kind":  "ITEM"
+                  },
+                  {
+                      "id":  "andesite_helmet_core",
+                      "kind":  "ITEM"
+                  },
+                  {
+                      "id":  "andesite_chestplate_core",
+                      "kind":  "ITEM"
+                  },
+                  {
+                      "id":  "andesite_leggings_core",
+                      "kind":  "ITEM"
+                  },
+                  {
+                      "id":  "andesite_boots_core",
+                      "kind":  "ITEM"
+                  },
+                  {
+                      "id":  "andesite_helmet",
+                      "kind":  "ARMOR"
+                  },
+                  {
+                      "id":  "andesite_chestplate",
+                      "kind":  "ARMOR"
+                  },
+                  {
+                      "id":  "andesite_leggings",
+                      "kind":  "ARMOR"
+                  },
+                  {
+                      "id":  "andesite_boots",
+                      "kind":  "ARMOR"
+                  }
+              ]
+}

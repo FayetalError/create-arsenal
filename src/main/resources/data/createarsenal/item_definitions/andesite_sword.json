@@ -1,1 +1,10 @@
-{"id":"andesite_sword","kind":"WEAPON","tier":"andesite","tool_type":"sword","durability":650,"attack_damage":3.5,"attack_speed":-2.4,"model":"weapons/andesite_sword"}
+{
+    "id":  "andesite_sword",
+    "kind":  "WEAPON",
+    "tier":  "andesite",
+    "weapon_type":  "sword",
+    "durability":  650,
+    "attack_damage":  3.5,
+    "attack_speed":  -2.4,
+    "model":  "weapons/andesite_sword"
+}

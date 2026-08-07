@@ -1,6 +1,6 @@
 {
-  "replace": false,
-  "values": [
-    "createarsenal:andesite_chestplate"
-  ]
+    "replace":  false,
+    "values":  [
+                   "createarsenal:andesite_chestplate"
+               ]
 }

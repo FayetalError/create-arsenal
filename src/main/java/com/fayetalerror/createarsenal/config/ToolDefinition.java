@@ -13,7 +13,7 @@ package com.fayetalerror.createarsenal.config;
 public record ToolDefinition(
         ArsenalItemDefinition item,
         String tierName,
-        String toolType,
+        ToolType toolType,
         int durability,
         float attackDamage,
         float attackSpeed

@@ -1,1 +1,11 @@
-{"id":"andesite_helmet","kind":"ARMOR","slot":"helmet","defense":2,"toughness":1.0,"durability_modifier":25,"model":"armor/andesite_helmet","equipped_model":"armor/andesite_armor"}
+{
+    "id":  "andesite_helmet",
+    "kind":  "ARMOR",
+    "material":  "andesite",
+    "slot":  "helmet",
+    "defense":  2,
+    "toughness":  1.0,
+    "durability_modifier":  25,
+    "model":  "armor/andesite_helmet",
+    "equipped_model":  "armor/andesite_armor"
+}

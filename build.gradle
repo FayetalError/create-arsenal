@@ -32,7 +32,7 @@ repositories {
     maven { url = "https://maven.ithundxr.dev/snapshots" } // Registrate
     maven {
 		name = 'GeckoLib'
-		url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
+		url = 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
 		content {
 			includeGroup("software.bernie.geckolib")
 		}
@@ -188,7 +188,7 @@ publishing {
     }
     repositories {
         maven {
-            url "file://${project.projectDir}/repo"
+			url = "file://${project.projectDir}/repo"
         }
     }
 }
@@ -200,7 +200,10 @@ tasks.withType(JavaCompile).configureEach {
 // Validates the data-driven item definitions before a build can package them.
 tasks.register('validateArsenalDefinitions') {
     def definitionsDir = file('src/main/resources/data/createarsenal/item_definitions')
-    def definitionFiles = fileTree(definitionsDir).matching { include '*.json' }.files
+    def definitionFiles = fileTree(definitionsDir).matching {
+        include '*.json'
+        exclude 'registrations.json'
+    }.files
     def assetsDir = file('src/main/resources/assets/createarsenal')
     def recipeFiles = fileTree('src/main/resources/data/createarsenal/recipe').matching { include '*.json' }.files
     def tagFiles = fileTree('src/main/resources/data').matching { include '**/tags/item/*.json'; include '**/tags/item/**/*.json' }.files
@@ -209,10 +212,11 @@ tasks.register('validateArsenalDefinitions') {
     doLast {
         def requiredByKind = [
                 'TOOL'      : ['id', 'kind', 'tier', 'tool_type', 'durability', 'attack_damage', 'attack_speed', 'model'],
-                'WEAPON'    : ['id', 'kind', 'tier', 'tool_type', 'durability', 'attack_damage', 'attack_speed', 'model'],
+                'WEAPON'    : ['id', 'kind', 'tier', 'weapon_type', 'durability', 'attack_damage', 'attack_speed', 'model'],
                 'MULTI_TOOL': ['id', 'kind', 'tier', 'tool_type', 'durability', 'attack_damage', 'attack_speed', 'model'],
-                'CORE'      : ['id', 'kind', 'model'],
-                'ARMOR'     : ['id', 'kind', 'slot', 'defense', 'toughness', 'durability_modifier', 'model', 'equipped_model'],
+                'ITEM'      : ['id', 'kind', 'model'],
+                'ARMOR'     : ['id', 'kind', 'material', 'slot', 'defense', 'toughness', 'durability_modifier', 'model', 'equipped_model'],
+                'TIER'      : ['id', 'kind', 'mining_tag', 'durability', 'speed', 'attack_bonus', 'enchantability', 'repair_item'],
                 'ARMOR_MATERIAL': ['kind', 'helmet_defense', 'chestplate_defense', 'leggings_defense', 'boots_defense', 'enchantability', 'toughness', 'knockback_resistance']
         ]
         def files = definitionFiles
@@ -262,7 +266,7 @@ tasks.register('validateArsenalDefinitions') {
                 throw new GradleException("${definitionFile.name}: missing fields ${missing}")
             }
 
-            if (kind != 'ARMOR_MATERIAL') {
+            if (!['ARMOR_MATERIAL', 'TIER'].contains(kind)) {
                 def modelPath = json.model.toString()
                 def geoFile = new File(assetsDir, "geo/item/${modelPath}.geo.json")
                 def textureFile = new File(assetsDir, "textures/item/${modelPath}.png")

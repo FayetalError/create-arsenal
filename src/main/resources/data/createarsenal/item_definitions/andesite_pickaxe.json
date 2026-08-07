@@ -1,1 +1,10 @@
-{"id":"andesite_pickaxe","kind":"TOOL","tier":"andesite","tool_type":"pickaxe","durability":650,"attack_damage":1.0,"attack_speed":-2.8,"model":"tools/andesite_pickaxe"}
+{
+    "id":  "andesite_pickaxe",
+    "kind":  "TOOL",
+    "tier":  "andesite",
+    "tool_type":  "pickaxe",
+    "durability":  650,
+    "attack_damage":  1.0,
+    "attack_speed":  -2.8,
+    "model":  "tools/andesite_pickaxe"
+}

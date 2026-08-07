@@ -1,24 +1,20 @@
-{
-  "replace": false,
-  "values": [
-    "createarsenal:andesite_pickaxe",
-    "createarsenal:andesite_axe",
-    "createarsenal:andesite_shovel",
-    "createarsenal:andesite_hoe",
-    "createarsenal:andesite_sword",
-    "createarsenal:andesite_helmet",
-    "createarsenal:andesite_chestplate",
-    "createarsenal:andesite_leggings",
-    "createarsenal:andesite_boots",
-    "createarsenal:brass_pickaxe",
-    "createarsenal:brass_axe",
-    "createarsenal:brass_shovel",
-    "createarsenal:brass_hoe",
-    "createarsenal:brass_sword",
-    "createarsenal:brass_helmet",
-    "createarsenal:brass_chestplate",
-    "createarsenal:brass_leggings",
-    "createarsenal:brass_boots",
-    "createarsenal:brass_paxel"
-  ]
+﻿{
+    "replace":  false,
+    "values":  [
+                   "createarsenal:andesite_pickaxe",
+                   "createarsenal:andesite_axe",
+                   "createarsenal:andesite_shovel",
+                   "createarsenal:andesite_hoe",
+                   "createarsenal:andesite_sword",
+                   "createarsenal:andesite_helmet",
+                   "createarsenal:andesite_chestplate",
+                   "createarsenal:andesite_leggings",
+                   "createarsenal:andesite_boots",
+                   "createarsenal:brass_pickaxe",
+                   "createarsenal:brass_axe",
+                   "createarsenal:brass_shovel",
+                   "createarsenal:brass_hoe",
+                   "createarsenal:brass_sword",
+                   "createarsenal:brass_paxel"
+               ]
 }

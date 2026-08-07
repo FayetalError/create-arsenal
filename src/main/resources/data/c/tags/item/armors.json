@@ -1,13 +1,9 @@
-{
-  "replace": false,
-  "values": [
-    "createarsenal:andesite_helmet",
-    "createarsenal:andesite_chestplate",
-    "createarsenal:andesite_leggings",
-    "createarsenal:andesite_boots",
-    "createarsenal:brass_helmet",
-    "createarsenal:brass_chestplate",
-    "createarsenal:brass_leggings",
-    "createarsenal:brass_boots"
-  ]
+﻿{
+    "replace":  false,
+    "values":  [
+                   "createarsenal:andesite_helmet",
+                   "createarsenal:andesite_chestplate",
+                   "createarsenal:andesite_leggings",
+                   "createarsenal:andesite_boots"
+               ]
 }

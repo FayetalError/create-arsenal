@@ -1,1 +1,11 @@
-{"id":"andesite_boots","kind":"ARMOR","slot":"boots","defense":2,"toughness":1.0,"durability_modifier":25,"model":"armor/andesite_boots","equipped_model":"armor/andesite_armor"}
+{
+    "id":  "andesite_boots",
+    "kind":  "ARMOR",
+    "material":  "andesite",
+    "slot":  "boots",
+    "defense":  2,
+    "toughness":  1.0,
+    "durability_modifier":  25,
+    "model":  "armor/andesite_boots",
+    "equipped_model":  "armor/andesite_armor"
+}

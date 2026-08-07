@@ -8,6 +8,7 @@ import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.ArmorItem;
@@ -26,9 +27,10 @@ public final class ArsenalArmorMaterials {
      * Iron-level armor material with higher enchantability, one point of toughness,
      * and Create Iron Sheets as its repair ingredient.
      */
-    private static final ArmorMaterialDefinition ANDESITE_DEFINITION =
-            ArsenalDefinitionLoader.loadArmorMaterial(
-                    "data/" + CreateArsenal.MODID + "/item_definitions/andesite_armor_material.json");
+    private static final Map<String, ArmorMaterialDefinition> DEFINITIONS =
+            ArsenalDefinitionLoader.loadArmorMaterials(
+                    "data/" + CreateArsenal.MODID + "/armor_materials.json");
+    private static final ArmorMaterialDefinition ANDESITE_DEFINITION = DEFINITIONS.get("andesite");
 
     public static final DeferredHolder<ArmorMaterial, ArmorMaterial> ANDESITE =
             ARMOR_MATERIALS.register("andesite", () -> new ArmorMaterial(
@@ -42,6 +44,11 @@ public final class ArsenalArmorMaterials {
                     ANDESITE_DEFINITION.toughness(),
                     ANDESITE_DEFINITION.knockbackResistance()
             ));
+
+    public static Holder<ArmorMaterial> byId(String id) {
+        if ("andesite".equals(id)) return ANDESITE;
+        throw new IllegalArgumentException("Unknown armor material: " + id);
+    }
 
     /** Creates the defense value associated with each wearable armor slot. */
     private static Map<ArmorItem.Type, Integer> createAndesiteDefenseValues(ArmorMaterialDefinition definition) {

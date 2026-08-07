@@ -1,1 +1,11 @@
-{"id":"andesite_chestplate","kind":"ARMOR","slot":"chestplate","defense":7,"toughness":1.0,"durability_modifier":25,"model":"armor/andesite_chestplate","equipped_model":"armor/andesite_armor"}
+{
+    "id":  "andesite_chestplate",
+    "kind":  "ARMOR",
+    "material":  "andesite",
+    "slot":  "chestplate",
+    "defense":  7,
+    "toughness":  1.0,
+    "durability_modifier":  25,
+    "model":  "armor/andesite_chestplate",
+    "equipped_model":  "armor/andesite_armor"
+}

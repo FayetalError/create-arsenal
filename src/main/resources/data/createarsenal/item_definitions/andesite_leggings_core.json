@@ -1,1 +1,5 @@
-{"id":"andesite_leggings_core","kind":"CORE","model":"armor/andesite_leggings_core"}
+{
+    "id":  "andesite_leggings_core",
+    "kind":  "ITEM",
+    "model":  "armor/andesite_leggings_core"
+}

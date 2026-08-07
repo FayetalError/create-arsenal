@@ -1,0 +1,15 @@
+[
+    {
+        "id": "andesite",
+        "helmet_defense": 2,
+        "chestplate_defense": 7,
+        "leggings_defense": 5,
+        "boots_defense": 2,
+        "enchantability": 14,
+        "toughness": 1.0,
+        "knockback_resistance": 0.0,
+        "repair_item": "iron_sheet",
+        "equip_sound": "iron",
+        "layer": "andesite"
+    }
+]

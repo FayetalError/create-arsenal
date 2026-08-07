@@ -1,7 +1,6 @@
-{
-  "replace": false,
-  "values": [
-    "createarsenal:andesite_boots",
-    "createarsenal:brass_boots"
-  ]
+﻿{
+    "replace":  false,
+    "values":  [
+                   "createarsenal:andesite_boots"
+               ]
 }

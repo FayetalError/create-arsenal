@@ -1,8 +1,8 @@
 {
-  "replace": false,
-  "values": [
-    "createarsenal:andesite_pickaxe",
-    "createarsenal:brass_pickaxe",
-    "createarsenal:brass_paxel"
-  ]
+    "replace":  false,
+    "values":  [
+                   "createarsenal:andesite_pickaxe",
+                   "createarsenal:brass_pickaxe",
+                   "createarsenal:brass_paxel"
+               ]
 }
