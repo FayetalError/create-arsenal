@@ -4,6 +4,7 @@ import java.util.function.Consumer;
 import java.util.function.Supplier;
 import com.fayetalerror.createarsenal.client.renderer.item.ArsenalGeoItemRenderer;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
+import net.minecraft.world.item.Item;
 import software.bernie.geckolib.animatable.GeoItem;
 import software.bernie.geckolib.animatable.client.GeoRenderProvider;
 import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
@@ -41,8 +42,9 @@ public final class ArsenalGeoItemSupport {
     }
 
     /** Creates the standard data-driven GeckoLib item renderer lazily. */
-    public void createRenderer(Consumer<GeoRenderProvider> consumer, String modelPath) {
-        createRenderer(consumer, () -> new ArsenalGeoItemRenderer(modelPath));
+    public <T extends Item & GeoItem> void createRenderer(
+            Consumer<GeoRenderProvider> consumer, String modelPath) {
+        createRenderer(consumer, () -> new ArsenalGeoItemRenderer<T>(modelPath));
     }
 
     /** Creates the standard renderer using this item's configured model path. */
