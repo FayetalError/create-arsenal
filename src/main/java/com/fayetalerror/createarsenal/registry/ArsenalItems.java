@@ -5,7 +5,6 @@ import com.fayetalerror.createarsenal.config.ArmorDefinition;
 import com.fayetalerror.createarsenal.config.ArsenalDefinition;
 import com.fayetalerror.createarsenal.config.ArsenalDefinitionLoader;
 import com.fayetalerror.createarsenal.config.ArsenalItemDefinition;
-import com.fayetalerror.createarsenal.config.ItemKind;
 import com.fayetalerror.createarsenal.config.ItemRegistration;
 import com.fayetalerror.createarsenal.config.ToolDefinition;
 import com.fayetalerror.createarsenal.config.ToolType;

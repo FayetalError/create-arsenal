@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "create:goggles",
-    "createarsenal:andesite_helmet"
+    "createarsenal:andesite_helmet",
+    "createarsenal:brass_helmet"
   ]
 }

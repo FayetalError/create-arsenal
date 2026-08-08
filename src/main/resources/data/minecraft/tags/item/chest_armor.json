@@ -1,6 +1,7 @@
 {
     "replace":  false,
     "values":  [
-                   "createarsenal:andesite_chestplate"
+                   "createarsenal:andesite_chestplate",
+                   "createarsenal:brass_chestplate"
                ]
 }

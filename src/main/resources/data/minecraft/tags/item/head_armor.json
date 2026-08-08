@@ -1,6 +1,7 @@
 {
     "replace":  false,
     "values":  [
-                   "createarsenal:andesite_helmet"
+                   "createarsenal:andesite_helmet",
+                   "createarsenal:brass_helmet"
                ]
 }

@@ -20,7 +20,7 @@
         "boots_defense": 3,
         "enchantability": 16,
         "toughness": 3.0,
-        "knockback_resistance": 0.1,
+        "knockback_resistance": 0.0,
         "repair_item": "brass_sheet",
         "equip_sound": "iron",
         "layer": "brass"
