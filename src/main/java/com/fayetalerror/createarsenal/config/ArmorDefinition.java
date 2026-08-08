@@ -7,5 +7,8 @@ public record ArmorDefinition(
         ArmorSlot slot,
         int durabilityModifier,
         String equippedModel
-) {
+) implements ArsenalDefinition {
+    @Override public String id() { return item.id(); }
+    @Override public ItemKind kind() { return item.kind(); }
+    @Override public String modelPath() { return item.modelPath(); }
 }

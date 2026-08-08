@@ -14,6 +14,7 @@ import java.util.Map;
 public final class ArsenalDefinitionLoader {
     private ArsenalDefinitionLoader() { }
 
+    /** Loads a tool definition from a classpath JSON resource. */
     public static ToolDefinition loadTool(String path) {
         JsonObject json = loadJson(path);
         return new ToolDefinition(item(json, ItemKind.valueOf(
@@ -22,10 +23,12 @@ public final class ArsenalDefinitionLoader {
                 decimal(json, "attack_damage"), decimal(json, "attack_speed"));
     }
 
+    /** Loads a regular item definition from a classpath JSON resource. */
     public static ArsenalItemDefinition loadCore(String path) {
         return item(loadJson(path), ItemKind.ITEM);
     }
 
+    /** Loads a weapon definition from a classpath JSON resource. */
     public static WeaponDefinition loadWeapon(String path) {
         JsonObject json = loadJson(path);
         return new WeaponDefinition(item(json, ItemKind.WEAPON), required(json, "tier"),
@@ -33,6 +36,7 @@ public final class ArsenalDefinitionLoader {
                 decimal(json, "attack_damage"), decimal(json, "attack_speed"));
     }
 
+    /** Loads an armor definition from a classpath JSON resource. */
     public static ArmorDefinition loadArmor(String path) {
         JsonObject json = loadJson(path);
         return new ArmorDefinition(item(json, ItemKind.ARMOR), required(json, "material"),
@@ -40,6 +44,7 @@ public final class ArsenalDefinitionLoader {
                 required(json, "equipped_model"));
     }
 
+    /** Loads one tool tier definition from a classpath JSON resource. */
     public static TierDefinition loadTier(String path) {
         JsonObject json = loadJson(path);
         return new TierDefinition(required(json, "id"), required(json, "mining_tag"),
@@ -48,6 +53,7 @@ public final class ArsenalDefinitionLoader {
                 required(json, "repair_item"));
     }
 
+    /** Loads all tool tier definitions from a JSON array resource. */
     public static Map<String, TierDefinition> loadTiers(String path) {
         Map<String, TierDefinition> result = new LinkedHashMap<>();
         JsonParser.parseReader(new InputStreamReader(resource(path), StandardCharsets.UTF_8))
@@ -62,6 +68,7 @@ public final class ArsenalDefinitionLoader {
         return Map.copyOf(result);
     }
 
+    /** Loads all armor material definitions from a JSON array resource. */
     public static Map<String, ArmorMaterialDefinition> loadArmorMaterials(String path) {
         Map<String, ArmorMaterialDefinition> result = new LinkedHashMap<>();
         JsonParser.parseReader(new InputStreamReader(resource(path), StandardCharsets.UTF_8))
@@ -76,6 +83,7 @@ public final class ArsenalDefinitionLoader {
         return Map.copyOf(result);
     }
 
+    /** Loads one armor material definition from a JSON resource. */
     public static ArmorMaterialDefinition loadArmorMaterial(String path) {
         JsonObject json = loadJson(path);
         return new ArmorMaterialDefinition(integer(json, "helmet_defense"),
@@ -84,6 +92,7 @@ public final class ArsenalDefinitionLoader {
                 decimal(json, "toughness"), decimal(json, "knockback_resistance"));
     }
 
+    /** Loads the item registration list from a JSON array resource. */
     public static List<ItemRegistration> loadRegistrations(String path) {
         JsonObject json = loadJson(path);
         if (!json.has("items") || !json.get("items").isJsonArray()) {

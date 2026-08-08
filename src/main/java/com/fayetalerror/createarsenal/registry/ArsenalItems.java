@@ -2,6 +2,7 @@ package com.fayetalerror.createarsenal.registry;
 
 import com.fayetalerror.createarsenal.CreateArsenal;
 import com.fayetalerror.createarsenal.config.ArmorDefinition;
+import com.fayetalerror.createarsenal.config.ArsenalDefinition;
 import com.fayetalerror.createarsenal.config.ArsenalDefinitionLoader;
 import com.fayetalerror.createarsenal.config.ArsenalItemDefinition;
 import com.fayetalerror.createarsenal.config.ItemKind;
@@ -24,16 +25,9 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 import net.minecraft.world.item.ArmorItem;
-import net.minecraft.world.item.AxeItem;
-import net.minecraft.world.item.DiggerItem;
-import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.PickaxeItem;
-import net.minecraft.world.item.ShovelItem;
-import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -44,35 +38,30 @@ public final class ArsenalItems {
 
     private static final List<ItemRegistration> REGISTRATIONS =
             ArsenalDefinitionLoader.loadRegistrations(definitionPath("registrations"));
-    private static final Map<String, ToolDefinition> TOOL_DEFINITIONS = loadDefinitions(
-            ItemKind.TOOL, ArsenalDefinitionLoader::loadTool);
-    private static final Map<String, WeaponDefinition> WEAPON_DEFINITIONS = loadDefinitions(
-            ItemKind.WEAPON, ArsenalDefinitionLoader::loadWeapon);
-    private static final Map<String, ArsenalItemDefinition> ITEM_DEFINITIONS = loadDefinitions(
-            ItemKind.ITEM, ArsenalDefinitionLoader::loadCore);
-    private static final Map<String, ArmorDefinition> ARMOR_DEFINITIONS = loadDefinitions(
-            ItemKind.ARMOR, ArsenalDefinitionLoader::loadArmor);
+    private static final Map<String, ArsenalDefinition> DEFINITIONS = loadDefinitions();
 
     private static final Map<String, Tier> TIERS = loadTierDefinitions();
 
     private static final Map<ToolType, ToolFactory> TOOL_FACTORIES = Map.of(
-            ToolType.PICKAXE, ArsenalPickaxeItem::new,
-            ToolType.AXE, ArsenalAxeItem::new,
-            ToolType.SHOVEL, ArsenalShovelItem::new,
-            ToolType.HOE, ArsenalHoeItem::new,
-            ToolType.MULTI_TOOL, ArsenalPaxelItem::new);
+            ToolType.PICKAXE, new ToolFactory(ArsenalPickaxeItem::new),
+            ToolType.AXE, new ToolFactory(ArsenalAxeItem::new),
+            ToolType.SHOVEL, new ToolFactory(ArsenalShovelItem::new),
+            ToolType.HOE, new ToolFactory(ArsenalHoeItem::new),
+            ToolType.MULTI_TOOL, new ToolFactory(ArsenalPaxelItem::new));
 
     private static final Map<WeaponType, WeaponFactory> WEAPON_FACTORIES = Map.of(
             WeaponType.SWORD, ArsenalSwordItem::new);
 
     public static final Map<String, DeferredItem<? extends Item>> ITEMS_BY_ID = registerAll();
 
+    /** Resolves a registered item by its data-defined registry ID. */
     public static Item item(String id) {
         DeferredItem<? extends Item> holder = ITEMS_BY_ID.get(id);
         if (holder == null) throw new IllegalArgumentException("Unknown registered item: " + id);
         return holder.get();
     }
 
+    /** Registers every item described by the registrations JSON file. */
     private static Map<String, DeferredItem<? extends Item>> registerAll() {
         Map<String, DeferredItem<? extends Item>> items = new LinkedHashMap<>();
         for (ItemRegistration registration : REGISTRATIONS) {
@@ -85,6 +74,7 @@ public final class ArsenalItems {
         return Collections.unmodifiableMap(items);
     }
 
+    /** Loads and constructs all configured tool tiers. */
     private static Map<String, Tier> loadTierDefinitions() {
         Map<String, Tier> tiers = new LinkedHashMap<>();
         for (TierDefinition definition : ArsenalDefinitionLoader.loadTiers(
@@ -94,82 +84,92 @@ public final class ArsenalItems {
         return Collections.unmodifiableMap(tiers);
     }
 
+    /** Dispatches one registration to the appropriate typed item factory. */
     private static DeferredItem<? extends Item> register(ItemRegistration registration) {
         return switch (registration.kind()) {
-            case ITEM -> registerItem(required(ITEM_DEFINITIONS, registration.id()));
-            case TOOL, MULTI_TOOL -> registerTool(required(TOOL_DEFINITIONS, registration.id()));
-            case WEAPON -> registerWeapon(required(WEAPON_DEFINITIONS, registration.id()));
-            case ARMOR -> registerArmor(required(ARMOR_DEFINITIONS, registration.id()));
+            case ITEM -> registerItem(definition(registration.id(), ArsenalItemDefinition.class));
+            case TOOL, MULTI_TOOL -> registerTool(definition(registration.id(), ToolDefinition.class));
+            case WEAPON -> registerWeapon(definition(registration.id(), WeaponDefinition.class));
+            case ARMOR -> registerArmor(definition(registration.id(), ArmorDefinition.class));
         };
     }
 
+    /** Registers a regular item definition. */
     private static DeferredItem<ArsenalItem> registerItem(ArsenalItemDefinition definition) {
         return ITEMS.register(definition.id(),
                 () -> new ArsenalItem(definition.modelPath(), new Item.Properties().stacksTo(1)));
     }
 
+    /** Registers a tool or multitool definition. */
     private static DeferredItem<? extends Item> registerTool(ToolDefinition definition) {
         Tier tier = required(TIERS, definition.tierName());
         ToolFactory factory = required(TOOL_FACTORIES, definition.toolType());
         return ITEMS.register(definition.item().id(), () -> factory.create(
-                tier, toolProperties(tier, definition), definition.item().modelPath()));
+                tier, definition.properties(tier), definition.modelPath()));
     }
 
+    /** Registers a weapon definition. */
     private static DeferredItem<? extends Item> registerWeapon(WeaponDefinition definition) {
         Tier tier = required(TIERS, definition.tierName());
         WeaponFactory factory = required(WEAPON_FACTORIES, definition.weaponType());
         return ITEMS.register(definition.item().id(), () -> factory.create(
-                tier, weaponProperties(tier, definition), definition.item().modelPath()));
+                tier, definition.properties(tier), definition.modelPath()));
     }
 
+    /** Registers an armor definition. */
     private static DeferredItem<ArsenalArmorItem> registerArmor(ArmorDefinition definition) {
-        ArmorItem.Type type = switch (definition.slot()) {
-            case HELMET -> ArmorItem.Type.HELMET;
-            case CHESTPLATE -> ArmorItem.Type.CHESTPLATE;
-            case LEGGINGS -> ArmorItem.Type.LEGGINGS;
-            case BOOTS -> ArmorItem.Type.BOOTS;
-        };
+        ArmorItem.Type type = definition.slot().minecraftType();
         return ITEMS.register(definition.item().id(), () -> new ArsenalArmorItem(
                 ArsenalArmorMaterials.byId(definition.material()), type,
                 new Item.Properties().durability(type.getDurability(definition.durabilityModifier())),
                 definition.item().modelPath(), definition.equippedModel()));
     }
 
-    private static Item.Properties toolProperties(Tier tier, ToolDefinition definition) {
-        return new Item.Properties().attributes(switch (definition.toolType()) {
-            case PICKAXE -> PickaxeItem.createAttributes(tier, definition.attackDamage(), definition.attackSpeed());
-            case AXE -> AxeItem.createAttributes(tier, definition.attackDamage(), definition.attackSpeed());
-            case SHOVEL -> ShovelItem.createAttributes(tier, definition.attackDamage(), definition.attackSpeed());
-            case HOE -> HoeItem.createAttributes(tier, definition.attackDamage(), definition.attackSpeed());
-            case MULTI_TOOL -> DiggerItem.createAttributes(tier, definition.attackDamage(), definition.attackSpeed());
-        });
-    }
-
-    private static Item.Properties weaponProperties(Tier tier, WeaponDefinition definition) {
-        return new Item.Properties().attributes(SwordItem.createAttributes(
-                tier, definition.attackDamage(), definition.attackSpeed()));
-    }
-
-    private static <T> Map<String, T> loadDefinitions(ItemKind kind, Function<String, T> loader) {
+    /** Loads all item definitions into one polymorphic lookup map. */
+    private static Map<String, ArsenalDefinition> loadDefinitions() {
         return REGISTRATIONS.stream()
-                .filter(registration -> registration.kind() == kind
-                        || kind == ItemKind.TOOL && registration.kind() == ItemKind.MULTI_TOOL)
-                .collect(Collectors.toUnmodifiableMap(ItemRegistration::id,
-                        registration -> loader.apply(definitionPath(registration.id()))));
+                .collect(Collectors.toUnmodifiableMap(ItemRegistration::id, ArsenalItems::loadDefinition));
     }
 
+    /** Loads the specialized definition matching one registration kind. */
+    private static ArsenalDefinition loadDefinition(ItemRegistration registration) {
+        return switch (registration.kind()) {
+            case ITEM -> ArsenalDefinitionLoader.loadCore(definitionPath(registration.id()));
+            case TOOL, MULTI_TOOL -> ArsenalDefinitionLoader.loadTool(definitionPath(registration.id()));
+            case WEAPON -> ArsenalDefinitionLoader.loadWeapon(definitionPath(registration.id()));
+            case ARMOR -> ArsenalDefinitionLoader.loadArmor(definitionPath(registration.id()));
+        };
+    }
+
+    /** Retrieves and validates a definition's specialized record type. */
+    private static <T extends ArsenalDefinition> T definition(String id, Class<T> type) {
+        ArsenalDefinition definition = required(DEFINITIONS, id);
+        if (!type.isInstance(definition)) {
+            throw new IllegalArgumentException("Definition " + id + " is not a " + type.getSimpleName());
+        }
+        return type.cast(definition);
+    }
+
+    /** Retrieves a required map value or reports a configuration error. */
     private static <K, V> V required(Map<K, V> values, K key) {
         V value = values.get(key);
         if (value == null) throw new IllegalArgumentException("Unknown data-driven value: " + key);
         return value;
     }
 
+    /** Builds the classpath path for an item definition JSON file. */
     private static String definitionPath(String id) {
         return "data/" + CreateArsenal.MODID + "/item_definitions/" + id + ".json";
     }
 
+    private record ToolFactory(ToolConstructor constructor) {
+        Item create(Tier tier, Item.Properties properties, String modelPath) {
+            return constructor.create(tier, properties, modelPath);
+        }
+    }
+
     @FunctionalInterface
-    private interface ToolFactory {
+    private interface ToolConstructor {
         Item create(Tier tier, Item.Properties properties, String modelPath);
     }
 

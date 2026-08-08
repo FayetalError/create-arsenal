@@ -2,6 +2,7 @@ package com.fayetalerror.createarsenal.item.armor;
 
 import com.fayetalerror.createarsenal.client.renderer.item.ArsenalArmorRenderer;
 import com.fayetalerror.createarsenal.client.renderer.item.ArsenalGeoItemRenderer;
+import com.fayetalerror.createarsenal.item.ArsenalGeoItem;
 import com.fayetalerror.createarsenal.item.ArsenalGeoItemSupport;
 import java.util.function.Consumer;
 import net.minecraft.client.model.HumanoidModel;
@@ -13,13 +14,10 @@ import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.Nullable;
-import software.bernie.geckolib.animatable.GeoItem;
 import software.bernie.geckolib.animatable.client.GeoRenderProvider;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.AnimatableManager;
 
 /** Data-driven armor item with shared worn and inventory GeckoLib renderers. */
-public final class ArsenalArmorItem extends ArmorItem implements GeoItem {
+public final class ArsenalArmorItem extends ArmorItem implements ArsenalGeoItem {
     private final ArsenalGeoItemSupport geoSupport;
     private final String itemModelPath;
     private final String equippedModelPath;
@@ -59,12 +57,7 @@ public final class ArsenalArmorItem extends ArmorItem implements GeoItem {
     }
 
     @Override
-    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        geoSupport.registerControllers(controllers);
-    }
-
-    @Override
-    public AnimatableInstanceCache getAnimatableInstanceCache() {
-        return geoSupport.animationCache();
+    public ArsenalGeoItemSupport geoSupport() {
+        return geoSupport;
     }
 }

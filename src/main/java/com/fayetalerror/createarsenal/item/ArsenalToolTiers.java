@@ -14,6 +14,7 @@ import net.neoforged.neoforge.common.SimpleTier;
 public final class ArsenalToolTiers {
     private ArsenalToolTiers() { }
 
+    /** Creates a Minecraft tier from a data-defined tier description. */
     public static Tier create(TierDefinition definition) {
         TagKey<Block> miningTag = TagKey.create(
                 Registries.BLOCK, ResourceLocation.parse(definition.miningTag()));

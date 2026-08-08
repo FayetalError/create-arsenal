@@ -11,5 +11,5 @@ public record ArsenalItemDefinition(
         String id,
         ItemKind kind,
         String modelPath
-) {
+) implements ArsenalDefinition {
 }

@@ -1,8 +1,9 @@
 package com.fayetalerror.createarsenal.item.tools;
 
+import com.fayetalerror.createarsenal.item.ArsenalGeoItem;
 import com.fayetalerror.createarsenal.item.ArsenalGeoItemSupport;
 import com.fayetalerror.createarsenal.registry.ArsenalBlockTags;
-import java.util.function.Consumer;
+import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
@@ -25,13 +26,20 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.neoforged.neoforge.common.ItemAbilities;
 import net.neoforged.neoforge.common.ItemAbility;
-import software.bernie.geckolib.animatable.GeoItem;
-import software.bernie.geckolib.animatable.client.GeoRenderProvider;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.AnimatableManager;
 
 /** Combined pickaxe, axe, and shovel with GeckoLib rendering. */
-public final class ArsenalPaxelItem extends DiggerItem implements GeoItem {
+public final class ArsenalPaxelItem extends DiggerItem implements ArsenalGeoItem {
+    private record ToolModification(ItemAbility ability, @Nullable SoundEvent sound, int levelEvent) {}
+
+    private static final List<ToolModification> AXE_MODIFICATIONS = List.of(
+            new ToolModification(ItemAbilities.AXE_STRIP, SoundEvents.AXE_STRIP, -1),
+            new ToolModification(ItemAbilities.AXE_SCRAPE, SoundEvents.AXE_SCRAPE, 3005),
+            new ToolModification(ItemAbilities.AXE_WAX_OFF, SoundEvents.AXE_WAX_OFF, 3004));
+
+    private static final List<ToolModification> SHOVEL_MODIFICATIONS = List.of(
+            new ToolModification(ItemAbilities.SHOVEL_FLATTEN, SoundEvents.SHOVEL_FLATTEN, -1),
+            new ToolModification(ItemAbilities.SHOVEL_DOUSE, null, 1009));
+
     private final ArsenalGeoItemSupport geoSupport;
 
     public ArsenalPaxelItem(Tier tier, Properties properties, String modelPath) {
@@ -59,19 +67,11 @@ public final class ArsenalPaxelItem extends DiggerItem implements GeoItem {
         BlockPos position = context.getClickedPos();
         BlockState originalState = level.getBlockState(position);
 
-        BlockState modifiedState = originalState.getToolModifiedState(context, ItemAbilities.AXE_STRIP, false);
-        if (modifiedState != null) {
-            return applyModification(context, modifiedState, SoundEvents.AXE_STRIP, -1);
-        }
-
-        modifiedState = originalState.getToolModifiedState(context, ItemAbilities.AXE_SCRAPE, false);
-        if (modifiedState != null) {
-            return applyModification(context, modifiedState, SoundEvents.AXE_SCRAPE, 3005);
-        }
-
-        modifiedState = originalState.getToolModifiedState(context, ItemAbilities.AXE_WAX_OFF, false);
-        if (modifiedState != null) {
-            return applyModification(context, modifiedState, SoundEvents.AXE_WAX_OFF, 3004);
+        for (ToolModification modification : AXE_MODIFICATIONS) {
+            BlockState modifiedState = originalState.getToolModifiedState(context, modification.ability(), false);
+            if (modifiedState != null) {
+                return applyModification(context, modifiedState, modification.sound(), modification.levelEvent());
+            }
         }
 
         // Shovels cannot flatten or douse through the underside of a block.
@@ -79,14 +79,15 @@ public final class ArsenalPaxelItem extends DiggerItem implements GeoItem {
             return InteractionResult.PASS;
         }
 
-        modifiedState = originalState.getToolModifiedState(context, ItemAbilities.SHOVEL_FLATTEN, false);
-        if (modifiedState != null && level.getBlockState(position.above()).isAir()) {
-            return applyModification(context, modifiedState, SoundEvents.SHOVEL_FLATTEN, -1);
-        }
-
-        modifiedState = originalState.getToolModifiedState(context, ItemAbilities.SHOVEL_DOUSE, false);
-        if (modifiedState != null) {
-            return applyModification(context, modifiedState, null, 1009);
+        for (ToolModification modification : SHOVEL_MODIFICATIONS) {
+            if (modification.ability() == ItemAbilities.SHOVEL_FLATTEN
+                    && !level.getBlockState(position.above()).isAir()) {
+                continue;
+            }
+            BlockState modifiedState = originalState.getToolModifiedState(context, modification.ability(), false);
+            if (modifiedState != null) {
+                return applyModification(context, modifiedState, modification.sound(), modification.levelEvent());
+            }
         }
 
         return InteractionResult.PASS;
@@ -135,17 +136,7 @@ public final class ArsenalPaxelItem extends DiggerItem implements GeoItem {
     }
 
     @Override
-    public void createGeoRenderer(Consumer<GeoRenderProvider> consumer) {
-        geoSupport.createRenderer(consumer);
-    }
-
-    @Override
-    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        geoSupport.registerControllers(controllers);
-    }
-
-    @Override
-    public AnimatableInstanceCache getAnimatableInstanceCache() {
-        return geoSupport.animationCache();
+    public ArsenalGeoItemSupport geoSupport() {
+        return geoSupport;
     }
 }

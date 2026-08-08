@@ -13,6 +13,7 @@ public final class ArsenalRegistries {
      *
      * @param modEventBus bus supplied to the main mod entry point by NeoForge
      */
+    /** Attaches all Arsenal deferred registers to the mod event bus. */
     public static void register(IEventBus modEventBus) {
         ArsenalArmorMaterials.ARMOR_MATERIALS.register(modEventBus);
         ArsenalItems.ITEMS.register(modEventBus);
