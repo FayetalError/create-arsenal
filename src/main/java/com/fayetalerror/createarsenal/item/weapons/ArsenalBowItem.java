@@ -46,7 +46,7 @@ public final class ArsenalBowItem extends BowItem implements ArsenalGeoItem {
             boolean drawing = stack != null && player != null
                     && stack.is(this)
                     && player.isUsingItem()
-                    && player.getUseItem() == stack;
+                    && player.getUseItem().is(this);
 
             RawAnimation animation = drawing ? DRAW_ANIMATION : IDLE_ANIMATION;
             if (!state.isCurrentAnimation(animation)) {
