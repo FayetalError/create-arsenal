@@ -31,10 +31,11 @@ public final class ArsenalArmorMaterials {
             ArsenalDefinitionLoader.loadArmorMaterials(
                     "data/" + CreateArsenal.MODID + "/armor_materials.json");
     private static final ArmorMaterialDefinition ANDESITE_DEFINITION = DEFINITIONS.get("andesite");
+    private static final ArmorMaterialDefinition BRASS_DEFINITION = DEFINITIONS.get("brass");
 
     public static final DeferredHolder<ArmorMaterial, ArmorMaterial> ANDESITE =
             ARMOR_MATERIALS.register("andesite", () -> new ArmorMaterial(
-                    createAndesiteDefenseValues(ANDESITE_DEFINITION),
+                    createDefenseValues(ANDESITE_DEFINITION),
                     ANDESITE_DEFINITION.enchantability(),
                     SoundEvents.ARMOR_EQUIP_IRON,
                     () -> Ingredient.of(AllItems.IRON_SHEET.get()),
@@ -45,13 +46,27 @@ public final class ArsenalArmorMaterials {
                     ANDESITE_DEFINITION.knockbackResistance()
             ));
 
+    public static final DeferredHolder<ArmorMaterial, ArmorMaterial> BRASS =
+            ARMOR_MATERIALS.register("brass", () -> new ArmorMaterial(
+                    createDefenseValues(BRASS_DEFINITION),
+                    BRASS_DEFINITION.enchantability(),
+                    SoundEvents.ARMOR_EQUIP_IRON,
+                    () -> Ingredient.of(AllItems.BRASS_SHEET.get()),
+                    List.of(new ArmorMaterial.Layer(
+                            ResourceLocation.fromNamespaceAndPath(CreateArsenal.MODID, "brass")
+                    )),
+                    BRASS_DEFINITION.toughness(),
+                    BRASS_DEFINITION.knockbackResistance()
+            ));
+
     public static Holder<ArmorMaterial> byId(String id) {
         if ("andesite".equals(id)) return ANDESITE;
+        if ("brass".equals(id)) return BRASS;
         throw new IllegalArgumentException("Unknown armor material: " + id);
     }
 
     /** Creates the defense value associated with each wearable armor slot. */
-    private static Map<ArmorItem.Type, Integer> createAndesiteDefenseValues(ArmorMaterialDefinition definition) {
+    private static Map<ArmorItem.Type, Integer> createDefenseValues(ArmorMaterialDefinition definition) {
         EnumMap<ArmorItem.Type, Integer> defenseValues = new EnumMap<>(ArmorItem.Type.class);
 
         defenseValues.put(ArmorItem.Type.HELMET, definition.helmetDefense());

@@ -29,6 +29,14 @@
         "brass_hoe",
         "brass_paxel",
         "brass_sword_core",
-        "brass_sword"
+        "brass_sword",
+        "brass_helmet_core",
+        "brass_helmet",
+        "brass_chestplate_core",
+        "brass_chestplate",
+        "brass_leggings_core",
+        "brass_leggings",
+        "brass_boots_core",
+        "brass_boots"
     ]
 }

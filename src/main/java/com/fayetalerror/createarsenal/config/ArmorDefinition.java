@@ -5,8 +5,6 @@ public record ArmorDefinition(
         ArsenalItemDefinition item,
         String material,
         ArmorSlot slot,
-        int defense,
-        float toughness,
         int durabilityModifier,
         String equippedModel
 ) {

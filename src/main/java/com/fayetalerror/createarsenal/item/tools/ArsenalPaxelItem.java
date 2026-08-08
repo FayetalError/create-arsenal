@@ -5,7 +5,6 @@ import com.fayetalerror.createarsenal.registry.ArsenalBlockTags;
 import java.util.function.Consumer;
 import javax.annotation.Nullable;
 import net.minecraft.advancements.CriteriaTriggers;
-import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerPlayer;
@@ -30,7 +29,6 @@ import software.bernie.geckolib.animatable.GeoItem;
 import software.bernie.geckolib.animatable.client.GeoRenderProvider;
 import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.animation.AnimatableManager;
-import software.bernie.geckolib.util.GeckoLibUtil;
 
 /** Combined pickaxe, axe, and shovel with GeckoLib rendering. */
 public final class ArsenalPaxelItem extends DiggerItem implements GeoItem {

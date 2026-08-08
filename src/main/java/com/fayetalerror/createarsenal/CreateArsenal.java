@@ -1,10 +1,13 @@
 package com.fayetalerror.createarsenal;
 
 import com.fayetalerror.createarsenal.registry.ArsenalRegistries;
+import com.fayetalerror.createarsenal.registry.ArsenalItems;
 import com.mojang.logging.LogUtils;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
+import com.simibubi.create.content.equipment.goggles.GogglesItem;
+import net.minecraft.world.entity.EquipmentSlot;
 import org.slf4j.Logger;
 
 /**
@@ -28,6 +31,8 @@ public final class CreateArsenal {
     public CreateArsenal(IEventBus modEventBus, ModContainer modContainer) {
         // Attach every deferred registry before NeoForge begins registering content.
         ArsenalRegistries.register(modEventBus);
+        GogglesItem.addIsWearingPredicate(player -> player.getItemBySlot(EquipmentSlot.HEAD)
+                .is(ArsenalItems.item("andesite_helmet")));
 
         LOGGER.info("Create: Arsenal {} initializing!", modContainer.getModInfo().getVersion());
     }

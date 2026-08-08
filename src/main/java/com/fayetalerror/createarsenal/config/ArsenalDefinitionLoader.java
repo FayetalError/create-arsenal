@@ -36,8 +36,7 @@ public final class ArsenalDefinitionLoader {
     public static ArmorDefinition loadArmor(String path) {
         JsonObject json = loadJson(path);
         return new ArmorDefinition(item(json, ItemKind.ARMOR), required(json, "material"),
-                parseEnum(ArmorSlot.class, json, "slot"), integer(json, "defense"),
-                decimal(json, "toughness"), integer(json, "durability_modifier"),
+                parseEnum(ArmorSlot.class, json, "slot"), integer(json, "durability_modifier"),
                 required(json, "equipped_model"));
     }
 

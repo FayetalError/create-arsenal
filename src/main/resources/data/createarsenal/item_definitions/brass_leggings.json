@@ -1,0 +1,9 @@
+{
+  "id": "brass_leggings",
+  "kind": "ARMOR",
+  "material": "brass",
+  "slot": "leggings",
+  "durability_modifier": 30,
+  "model": "armor/brass_leggings",
+  "equipped_model": "armor/brass_armor"
+}

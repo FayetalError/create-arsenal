@@ -1,0 +1,9 @@
+{
+  "id": "brass_boots",
+  "kind": "ARMOR",
+  "material": "brass",
+  "slot": "boots",
+  "durability_modifier": 30,
+  "model": "armor/brass_boots",
+  "equipped_model": "armor/brass_armor"
+}

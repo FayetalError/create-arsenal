@@ -5,11 +5,24 @@
         "chestplate_defense": 7,
         "leggings_defense": 5,
         "boots_defense": 2,
-        "enchantability": 14,
+        "enchantability": 16,
         "toughness": 1.0,
         "knockback_resistance": 0.0,
         "repair_item": "iron_sheet",
         "equip_sound": "iron",
         "layer": "andesite"
+    },
+    {
+        "id": "brass",
+        "helmet_defense": 3,
+        "chestplate_defense": 8,
+        "leggings_defense": 6,
+        "boots_defense": 3,
+        "enchantability": 16,
+        "toughness": 3.0,
+        "knockback_resistance": 0.1,
+        "repair_item": "brass_sheet",
+        "equip_sound": "iron",
+        "layer": "brass"
     }
 ]

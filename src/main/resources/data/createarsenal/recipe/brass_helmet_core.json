@@ -1,0 +1,20 @@
+﻿{
+    "type":  "minecraft:crafting_shaped",
+    "category":  "equipment",
+    "pattern":  [
+                    "AAA",
+                    "AGA"
+                ],
+    "key":  {
+                "A":  {
+                          "item":  "create:sturdy_sheet"
+                      },
+                "G":  {
+                          "item":  "create:goggles"
+                      }
+            },
+    "result":  {
+                   "id":  "createarsenal:brass_helmet_core",
+                   "count":  1
+               }
+}

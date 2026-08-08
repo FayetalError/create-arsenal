@@ -88,8 +88,8 @@
     },
     "gui": {
       "rotation": [
-        0,
-        -180,
+        10,
+        170,
         0
       ],
       "translation": [

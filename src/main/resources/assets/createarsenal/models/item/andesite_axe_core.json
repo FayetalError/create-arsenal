@@ -83,8 +83,8 @@
     },
     "gui": {
       "rotation": [
-        0,
-        0,
+        20,
+        20,
         -45
       ],
       "translation": [
@@ -118,7 +118,7 @@
     "fixed": {
       "rotation": [
         0,
-        180,
+        -180,
         -45
       ],
       "translation": [
@@ -144,8 +144,5 @@
         0.7
       ]
     }
-  },
-  "textures": {
-    "particle": "createarsenal:item/andesite_axe"
   }
 }

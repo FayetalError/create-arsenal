@@ -1,156 +1,156 @@
 {
-    "credit":  "Made with Blockbench",
-    "parent":  "builtin/entity",
-    "texture_size":  [
-                         256,
-                         256
-                     ],
-    "display":  {
-                    "thirdperson_righthand":  {
-                                                  "rotation":  [
-                                                                   0,
-                                                                   90,
-                                                                   0
-                                                               ],
-                                                  "translation":  [
-                                                                      0,
-                                                                      -5,
-                                                                      1.75
-                                                                  ],
-                                                  "scale":  [
-                                                                0.5,
-                                                                0.5,
-                                                                0.5
-                                                            ]
-                                              },
-                    "thirdperson_lefthand":  {
-                                                 "rotation":  [
-                                                                  0,
-                                                                  -90,
-                                                                  0
-                                                              ],
-                                                 "translation":  [
-                                                                     0,
-                                                                     -5,
-                                                                     1.75
-                                                                 ],
-                                                 "scale":  [
-                                                               0.5,
-                                                               0.5,
-                                                               0.5
-                                                           ]
-                                             },
-                    "firstperson_righthand":  {
-                                                  "rotation":  [
-                                                                   0,
-                                                                   90,
-                                                                   0
-                                                               ],
-                                                  "translation":  [
-                                                                      0,
-                                                                      0.75,
-                                                                      3
-                                                                  ],
-                                                  "scale":  [
-                                                                0.25,
-                                                                0.25,
-                                                                0.25
-                                                            ]
-                                              },
-                    "firstperson_lefthand":  {
-                                                 "rotation":  [
-                                                                  0,
-                                                                  -90,
-                                                                  0
-                                                              ],
-                                                 "translation":  [
-                                                                     0,
-                                                                     0.75,
-                                                                     3
-                                                                 ],
-                                                 "scale":  [
-                                                               0.25,
-                                                               0.25,
-                                                               0.25
-                                                           ]
-                                             },
-                    "ground":  {
-                                   "translation":  [
-                                                       0,
-                                                       -0.5,
-                                                       0
-                                                   ],
-                                   "scale":  [
-                                                 0.5,
-                                                 0.5,
-                                                 0.5
-                                             ]
-                               },
-                    "gui":  {
-                                "rotation":  [
-                                                 0,
-                                                 -180,
-                                                 45
-                                             ],
-                                "translation":  [
-                                                    -6.25,
-                                                    -6.25,
-                                                    0
-                                                ],
-                                "scale":  [
-                                              0.375,
-                                              0.375,
-                                              0.375
-                                          ]
-                            },
-                    "head":  {
-                                 "rotation":  [
-                                                  0,
-                                                  0,
-                                                  -180
-                                              ],
-                                 "translation":  [
-                                                     0,
-                                                     23,
-                                                     0
-                                                 ],
-                                 "scale":  [
-                                               0.75,
-                                               0.75,
-                                               0.75
-                                           ]
-                             },
-                    "fixed":  {
-                                  "rotation":  [
-                                                   0,
-                                                   0,
-                                                   45
-                                               ],
-                                  "translation":  [
-                                                      7.75,
-                                                      -7.25,
-                                                      0
-                                                  ],
-                                  "scale":  [
-                                                0.45,
-                                                0.45,
-                                                0.45
-                                            ]
-                              },
-                    "on_shelf":  {
-                                     "translation":  [
-                                                         0,
-                                                         -1.75,
-                                                         0
-                                                     ],
-                                     "scale":  [
-                                                   0.6,
-                                                   0.6,
-                                                   0.6
-                                               ]
-                                 }
-                },
-    "textures":  {
-                     "particle":  "createarsenal:item/brass_sword_core"
-                 }
+  "credit": "Made with Blockbench",
+  "parent": "builtin/entity",
+  "texture_size": [
+    256,
+    256
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        0,
+        90,
+        0
+      ],
+      "translation": [
+        0,
+        -5,
+        1.75
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        0,
+        -90,
+        0
+      ],
+      "translation": [
+        0,
+        -5,
+        1.75
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        90,
+        0
+      ],
+      "translation": [
+        0,
+        0.75,
+        3
+      ],
+      "scale": [
+        0.25,
+        0.25,
+        0.25
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        0,
+        -90,
+        0
+      ],
+      "translation": [
+        0,
+        0.75,
+        3
+      ],
+      "scale": [
+        0.25,
+        0.25,
+        0.25
+      ]
+    },
+    "ground": {
+      "translation": [
+        0,
+        -0.5,
+        0
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "gui": {
+      "rotation": [
+        20,
+        -160,
+        45
+      ],
+      "translation": [
+        -6.25,
+        -6.25,
+        0
+      ],
+      "scale": [
+        0.375,
+        0.375,
+        0.375
+      ]
+    },
+    "head": {
+      "rotation": [
+        0,
+        0,
+        -180
+      ],
+      "translation": [
+        0,
+        23,
+        0
+      ],
+      "scale": [
+        0.75,
+        0.75,
+        0.75
+      ]
+    },
+    "fixed": {
+      "rotation": [
+        0,
+        0,
+        45
+      ],
+      "translation": [
+        7.75,
+        -7.25,
+        0
+      ],
+      "scale": [
+        0.45,
+        0.45,
+        0.45
+      ]
+    },
+    "on_shelf": {
+      "translation": [
+        0,
+        -1.75,
+        0
+      ],
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ]
+    }
+  },
+  "textures": {
+    "particle": "createarsenal:item/brass_sword_core"
+  }
 }

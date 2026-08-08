@@ -28,5 +28,13 @@
   "item.createarsenal.brass_hoe": "Brass Hoe",
   "item.createarsenal.brass_paxel": "Brass Paxel",
   "item.createarsenal.brass_sword_core": "Brass Sword Core",
-  "item.createarsenal.brass_sword": "Brass Sword"
+  "item.createarsenal.brass_sword": "Brass Sword",
+  "item.createarsenal.brass_helmet_core": "Brass Helmet Core",
+  "item.createarsenal.brass_helmet": "Brass Helmet",
+  "item.createarsenal.brass_chestplate_core": "Brass Chestplate Core",
+  "item.createarsenal.brass_chestplate": "Brass Chestplate",
+  "item.createarsenal.brass_leggings_core": "Brass Leggings Core",
+  "item.createarsenal.brass_leggings": "Brass Leggings",
+  "item.createarsenal.brass_boots_core": "Brass Boots Core",
+  "item.createarsenal.brass_boots": "Brass Boots"
 }

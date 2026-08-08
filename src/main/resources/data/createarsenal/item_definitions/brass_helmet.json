@@ -1,0 +1,9 @@
+{
+  "id": "brass_helmet",
+  "kind": "ARMOR",
+  "material": "brass",
+  "slot": "helmet",
+  "durability_modifier": 30,
+  "model": "armor/brass_helmet",
+  "equipped_model": "armor/brass_armor"
+}

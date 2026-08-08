@@ -115,6 +115,38 @@
                   {
                       "id":  "andesite_boots",
                       "kind":  "ARMOR"
-                  }
+                  },
+                    {
+                        "id":  "brass_helmet_core",
+                        "kind":  "ITEM"
+                    },
+                    {
+                        "id":  "brass_chestplate_core",
+                        "kind":  "ITEM"
+                    },
+                    {
+                        "id":  "brass_leggings_core",
+                        "kind":  "ITEM"
+                    },
+                    {
+                        "id":  "brass_boots_core",
+                        "kind":  "ITEM"
+                    },
+                    {
+                        "id":  "brass_helmet",
+                        "kind":  "ARMOR"
+                    },
+                    {
+                        "id":  "brass_chestplate",
+                        "kind":  "ARMOR"
+                    },
+                    {
+                        "id":  "brass_leggings",
+                        "kind":  "ARMOR"
+                    },
+                    {
+                        "id":  "brass_boots",
+                        "kind":  "ARMOR"
+                    }
               ]
 }

@@ -1,0 +1,9 @@
+{
+  "id": "brass_chestplate",
+  "kind": "ARMOR",
+  "material": "brass",
+  "slot": "chestplate",
+  "durability_modifier": 30,
+  "model": "armor/brass_chestplate",
+  "equipped_model": "armor/brass_armor"
+}
