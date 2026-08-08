@@ -33,6 +33,8 @@ public final class CreateArsenal {
         ArsenalRegistries.register(modEventBus);
         GogglesItem.addIsWearingPredicate(player -> player.getItemBySlot(EquipmentSlot.HEAD)
                 .is(ArsenalItems.item("andesite_helmet")));
+        GogglesItem.addIsWearingPredicate(player -> player.getItemBySlot(EquipmentSlot.HEAD)
+                .is(ArsenalItems.item("brass_helmet")));
 
         LOGGER.info("Create: Arsenal {} initializing!", modContainer.getModInfo().getVersion());
     }
