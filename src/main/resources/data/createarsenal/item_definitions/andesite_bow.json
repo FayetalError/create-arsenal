@@ -1,0 +1,10 @@
+{
+    "id":  "andesite_bow",
+    "kind":  "WEAPON",
+    "tier":  "andesite",
+    "weapon_type":  "bow",
+    "durability":  650,
+    "attack_damage":  0.0,
+    "attack_speed":  0.0,
+    "model":  "weapons/andesite_bow"
+}

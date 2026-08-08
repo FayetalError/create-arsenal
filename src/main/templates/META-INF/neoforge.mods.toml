@@ -46,7 +46,7 @@ authors="FayetalError"
 
 # The description text for the mod (multi line!) (#mandatory)
 description='''
-Addon for the Create mod that adds new weapons, tools, and other items to the game.
+Addon for the Create mod that adds new Create themed equipment to the game.
 '''
 
 # The [[mixins]] block allows you to declare your mixin config to FML so that it gets loaded.

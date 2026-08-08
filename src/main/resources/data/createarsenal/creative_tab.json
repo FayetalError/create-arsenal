@@ -1,5 +1,5 @@
 {
-    "icon": "andesite_pickaxe",
+    "icon": "brass_pickaxe",
     "items": [
         "andesite_pickaxe_core",
         "andesite_pickaxe",
@@ -11,6 +11,8 @@
         "andesite_hoe",
         "andesite_sword_core",
         "andesite_sword",
+        "andesite_bow_core",
+        "andesite_bow",
         "andesite_helmet_core",
         "andesite_helmet",
         "andesite_chestplate_core",

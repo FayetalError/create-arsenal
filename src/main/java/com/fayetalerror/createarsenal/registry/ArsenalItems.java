@@ -20,6 +20,7 @@ import com.fayetalerror.createarsenal.item.tools.ArsenalPaxelItem;
 import com.fayetalerror.createarsenal.item.tools.ArsenalPickaxeItem;
 import com.fayetalerror.createarsenal.item.tools.ArsenalShovelItem;
 import com.fayetalerror.createarsenal.item.weapons.ArsenalSwordItem;
+import com.fayetalerror.createarsenal.item.weapons.ArsenalBowItem;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -49,7 +50,8 @@ public final class ArsenalItems {
             ToolType.MULTI_TOOL, new ToolFactory(ArsenalPaxelItem::new));
 
     private static final Map<WeaponType, WeaponFactory> WEAPON_FACTORIES = Map.of(
-            WeaponType.SWORD, ArsenalSwordItem::new);
+            WeaponType.SWORD, (tier, properties, modelPath) -> new ArsenalSwordItem(tier, properties, modelPath),
+            WeaponType.BOW, (tier, properties, modelPath) -> new ArsenalBowItem(properties, modelPath));
 
     public static final Map<String, DeferredItem<? extends Item>> ITEMS_BY_ID = registerAll();
 

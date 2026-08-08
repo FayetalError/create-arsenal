@@ -12,7 +12,10 @@ public record WeaponDefinition(ArsenalItemDefinition item, String tierName, Weap
 
     /** Creates the Minecraft properties using this definition's balance values. */
     public Item.Properties properties(Tier tier) {
-        return new Item.Properties().attributes(
-                SwordItem.createAttributes(tier, attackDamage, attackSpeed));
+        return switch (weaponType) {
+            case SWORD -> new Item.Properties().attributes(
+                    SwordItem.createAttributes(tier, attackDamage, attackSpeed));
+            case BOW -> new Item.Properties().durability(durability);
+        };
     }
 }

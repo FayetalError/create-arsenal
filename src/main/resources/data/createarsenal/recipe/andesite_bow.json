@@ -1,0 +1,17 @@
+﻿{
+    "type":  "minecraft:crafting_shaped",
+    "category":  "equipment",
+    "pattern":  [
+        " S ",
+        "SCS",
+        " S "
+    ],
+    "key":  {
+        "S":  {"item":  "create:iron_sheet"},
+        "C":  {"item":  "createarsenal:andesite_bow_core"}
+    },
+    "result":  {
+        "id":  "createarsenal:andesite_bow",
+        "count":  1
+    }
+}

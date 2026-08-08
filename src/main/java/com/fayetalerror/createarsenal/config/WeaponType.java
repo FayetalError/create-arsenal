@@ -1,3 +1,3 @@
 package com.fayetalerror.createarsenal.config;
 
-public enum WeaponType { SWORD }
+public enum WeaponType { SWORD, BOW }
