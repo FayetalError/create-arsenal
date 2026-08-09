@@ -1,0 +1,11 @@
+{
+    "id": "brass_bow",
+    "kind": "WEAPON",
+    "tier": "brass",
+    "weapon_type": "bow",
+    "durability": 2000,
+    "attack_damage": 0.0,
+    "attack_speed": 0.0,
+    "model": "weapons/brass_bow",
+    "animations": "weapons/brass_bow"
+}

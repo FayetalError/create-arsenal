@@ -25,6 +25,10 @@
                       "kind":  "WEAPON"
                   },
                   {
+                      "id":  "brass_bow",
+                      "kind":  "WEAPON"
+                  },
+                  {
                       "id":  "brass_pickaxe",
                       "kind":  "TOOL"
                   },
@@ -70,6 +74,10 @@
                   },
                   {
                       "id":  "andesite_bow_core",
+                      "kind":  "ITEM"
+                  },
+                  {
+                      "id":  "brass_bow_core",
                       "kind":  "ITEM"
                   },
                   {

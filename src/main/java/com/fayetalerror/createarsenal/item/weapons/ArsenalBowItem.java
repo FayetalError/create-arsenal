@@ -13,16 +13,19 @@ import software.bernie.geckolib.animation.AnimatableManager;
 
 /** Data-driven bow that retains vanilla bow behavior and GeckoLib rendering. */
 public final class ArsenalBowItem extends BowItem implements ArsenalGeoItem {
-    private static final RawAnimation DRAW_ANIMATION = RawAnimation.begin()
-            .thenPlayAndHold("andesite_bow_draw");
-    private static final RawAnimation IDLE_ANIMATION = RawAnimation.begin()
-            .thenPlayAndHold("andesite_bow_idle");
-
     private final ArsenalGeoItemSupport geoSupport;
+    private final RawAnimation drawAnimation;
+    private final RawAnimation idleAnimation;
 
-    public ArsenalBowItem(Properties properties, String modelPath) {
+    public ArsenalBowItem(Properties properties, String modelPath, String animationPath) {
         super(properties);
-        this.geoSupport = new ArsenalGeoItemSupport(this, modelPath);
+        if (animationPath == null || animationPath.isBlank()) {
+            throw new IllegalArgumentException("Bow definitions must provide an animations path");
+        }
+        this.geoSupport = new ArsenalGeoItemSupport(this, modelPath, animationPath);
+        String animationPrefix = animationPath.substring(animationPath.lastIndexOf('/') + 1);
+        this.drawAnimation = RawAnimation.begin().thenPlayAndHold(animationPrefix + "_draw");
+        this.idleAnimation = RawAnimation.begin().thenPlayAndHold(animationPrefix + "_idle");
     }
 
     @Override
@@ -48,7 +51,7 @@ public final class ArsenalBowItem extends BowItem implements ArsenalGeoItem {
                     && player.isUsingItem()
                     && player.getUseItem().is(this);
 
-            RawAnimation animation = drawing ? DRAW_ANIMATION : IDLE_ANIMATION;
+            RawAnimation animation = drawing ? drawAnimation : idleAnimation;
             if (!state.isCurrentAnimation(animation)) {
                 state.setAnimation(animation);
             }

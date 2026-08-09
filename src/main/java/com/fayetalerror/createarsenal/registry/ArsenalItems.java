@@ -50,8 +50,10 @@ public final class ArsenalItems {
             ToolType.MULTI_TOOL, new ToolFactory(ArsenalPaxelItem::new));
 
     private static final Map<WeaponType, WeaponFactory> WEAPON_FACTORIES = Map.of(
-            WeaponType.SWORD, (tier, properties, modelPath) -> new ArsenalSwordItem(tier, properties, modelPath),
-            WeaponType.BOW, (tier, properties, modelPath) -> new ArsenalBowItem(properties, modelPath));
+            WeaponType.SWORD, (tier, definition) -> new ArsenalSwordItem(
+                    tier, definition.properties(tier), definition.modelPath()),
+            WeaponType.BOW, (tier, definition) -> new ArsenalBowItem(
+                    definition.properties(tier), definition.modelPath(), definition.animationPath()));
 
     public static final Map<String, DeferredItem<? extends Item>> ITEMS_BY_ID = registerAll();
 
@@ -113,8 +115,7 @@ public final class ArsenalItems {
     private static DeferredItem<? extends Item> registerWeapon(WeaponDefinition definition) {
         Tier tier = required(TIERS, definition.tierName());
         WeaponFactory factory = required(WEAPON_FACTORIES, definition.weaponType());
-        return ITEMS.register(definition.item().id(), () -> factory.create(
-                tier, definition.properties(tier), definition.modelPath()));
+        return ITEMS.register(definition.item().id(), () -> factory.create(tier, definition));
     }
 
     /** Registers an armor definition. */
@@ -176,7 +177,7 @@ public final class ArsenalItems {
 
     @FunctionalInterface
     private interface WeaponFactory {
-        Item create(Tier tier, Item.Properties properties, String modelPath);
+        Item create(Tier tier, WeaponDefinition definition);
     }
 
     private ArsenalItems() { }

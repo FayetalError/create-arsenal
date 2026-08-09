@@ -15,11 +15,18 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 public final class ArsenalGeoItemSupport {
     private final AnimatableInstanceCache animationCache;
     private final String modelPath;
+    private final String animationPath;
 
     /** Creates shared GeckoLib state for an item with a model path. */
     public ArsenalGeoItemSupport(GeoItem owner, String modelPath) {
+        this(owner, modelPath, null);
+    }
+
+    /** Creates shared GeckoLib state for an item with configured model and animation paths. */
+    public ArsenalGeoItemSupport(GeoItem owner, String modelPath, String animationPath) {
         this.animationCache = GeckoLibUtil.createInstanceCache(owner);
         this.modelPath = modelPath;
+        this.animationPath = animationPath;
         GeoItem.registerSyncedAnimatable(owner);
     }
 
@@ -47,8 +54,8 @@ public final class ArsenalGeoItemSupport {
     /** Creates the standard data-driven GeckoLib item renderer lazily. */
     /** Installs the standard data-driven item renderer provider. */
     public <T extends Item & GeoItem> void createRenderer(
-            Consumer<GeoRenderProvider> consumer, String modelPath) {
-        createRenderer(consumer, () -> new ArsenalGeoItemRenderer<T>(modelPath));
+            Consumer<GeoRenderProvider> consumer, String modelPath, String animationPath) {
+        createRenderer(consumer, () -> new ArsenalGeoItemRenderer<T>(modelPath, animationPath));
     }
 
     /** Creates the standard renderer using this item's configured model path. */
@@ -57,7 +64,7 @@ public final class ArsenalGeoItemSupport {
         if (modelPath == null) {
             throw new IllegalStateException("No model path configured for this item");
         }
-        createRenderer(consumer, modelPath);
+        createRenderer(consumer, modelPath, animationPath);
     }
 
     /** Registers the default controller set, which is currently empty. */

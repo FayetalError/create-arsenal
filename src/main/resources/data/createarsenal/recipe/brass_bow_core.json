@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "category": "equipment",
+    "pattern": [
+        " AS",
+        "A S",
+        " AS"
+    ],
+    "key": {
+        "A": {"item": "create:sturdy_sheet"},
+        "S": {"item": "minecraft:string"}
+    },
+    "result": {
+        "id": "createarsenal:brass_bow_core",
+        "count": 1
+    }
+}

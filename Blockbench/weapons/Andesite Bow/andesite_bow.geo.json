@@ -6,7 +6,7 @@
                 "identifier": "geometry.andesite_bow",
                 "texture_width": 32,
                 "texture_height": 32,
-                "visible_bounds_width": 2,
+                "visible_bounds_width": 3,
                 "visible_bounds_height": 2.5,
                 "visible_bounds_offset": [0, 0.75, 0]
             },
@@ -390,8 +390,8 @@
                     "pivot": [-5.25, 12.25, 0],
                     "cubes": [
                         {
-                            "origin": [-10.39051, -0.55941, -0.6],
-                            "size": [0.3, 2, 1.2],
+                            "origin": [-10.39051, -0.65941, -0.6],
+                            "size": [0.3, 2.1, 1.2],
                             "pivot": [-5.25, 10, 0],
                             "rotation": [180, 0, 50],
                             "uv": {
@@ -500,8 +500,8 @@
                     "pivot": [-5.25, 7.75, 0],
                     "cubes": [
                         {
-                            "origin": [-2.03309, -1.36314, -0.6],
-                            "size": [0.3, 2, 1.2],
+                            "origin": [-2.03309, -1.46314, -0.6],
+                            "size": [0.3, 2.1, 1.2],
                             "pivot": [-1.93309, 0.63686, 0],
                             "rotation": [0, 0, -50],
                             "uv": {
@@ -542,7 +542,6 @@
                     "name": "arrow.fletching",
                     "parent": "arrow",
                     "pivot": [-2.25, 10.25, 0],
-                    "rotation": [0, 0, 0],
                     "cubes": [
                         {
                             "origin": [-1.4, 10.25, -0.15],

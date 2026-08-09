@@ -5,7 +5,7 @@ import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
 
 public record WeaponDefinition(ArsenalItemDefinition item, String tierName, WeaponType weaponType,
-        int durability, float attackDamage, float attackSpeed) implements ArsenalDefinition {
+        int durability, float attackDamage, float attackSpeed, String animationPath) implements ArsenalDefinition {
     @Override public String id() { return item.id(); }
     @Override public ItemKind kind() { return item.kind(); }
     @Override public String modelPath() { return item.modelPath(); }

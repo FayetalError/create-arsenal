@@ -33,7 +33,8 @@ public final class ArsenalDefinitionLoader {
         JsonObject json = loadJson(path);
         return new WeaponDefinition(item(json, ItemKind.WEAPON), required(json, "tier"),
                 parseEnum(WeaponType.class, json, "weapon_type"), integer(json, "durability"),
-                decimal(json, "attack_damage"), decimal(json, "attack_speed"));
+                decimal(json, "attack_damage"), decimal(json, "attack_speed"),
+                optional(json, "animations"));
     }
 
     /** Loads an armor definition from a classpath JSON resource. */
@@ -133,6 +134,11 @@ public final class ArsenalDefinitionLoader {
             throw new IllegalArgumentException("Missing definition field: " + key);
         }
         return json.get(key).getAsString();
+    }
+
+    /** Returns an optional string field, or null when the definition omits it. */
+    private static String optional(JsonObject json, String key) {
+        return json.has(key) && json.get(key).isJsonPrimitive() ? json.get(key).getAsString() : null;
     }
 
     private static int integer(JsonObject json, String key) { return json.get(key).getAsInt(); }

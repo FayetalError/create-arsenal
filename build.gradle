@@ -278,6 +278,17 @@ tasks.register('validateArsenalDefinitions') {
                 }
             }
 
+            if (kind == 'WEAPON' && json.weapon_type?.toString()?.equalsIgnoreCase('BOW')) {
+                if (!json.animations) {
+                    throw new GradleException("${definitionFile.name}: bow definitions require an animations path")
+                }
+                def animationFile = new File(assetsDir,
+                        "animations/item/${json.animations}.animation.json")
+                if (!animationFile.isFile()) {
+                    throw new GradleException("${definitionFile.name}: missing animation ${animationFile}")
+                }
+            }
+
             if (kind == 'ARMOR' && json.equipped_model) {
                 def equippedModel = json.equipped_model.toString()
                 def equippedGeo = new File(assetsDir, "geo/item/${equippedModel}.geo.json")
