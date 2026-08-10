@@ -1,5 +1,6 @@
 {
     "id":  "andesite_hoe_core",
     "kind":  "ITEM",
-    "model":  "tools/andesite_hoe_core"
+    "model":  "tools/andesite_hoe_core",
+    "max_stack_size": 1
 }

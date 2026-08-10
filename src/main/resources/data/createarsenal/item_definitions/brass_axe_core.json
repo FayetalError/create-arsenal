@@ -1,5 +1,6 @@
 {
     "id":  "brass_axe_core",
     "kind":  "ITEM",
-    "model":  "tools/brass_axe_core"
+    "model":  "tools/brass_axe_core",
+    "max_stack_size": 1
 }

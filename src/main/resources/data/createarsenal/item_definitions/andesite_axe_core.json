@@ -1,5 +1,6 @@
 {
     "id":  "andesite_axe_core",
     "kind":  "ITEM",
-    "model":  "tools/andesite_axe_core"
+    "model":  "tools/andesite_axe_core",
+    "max_stack_size": 1
 }

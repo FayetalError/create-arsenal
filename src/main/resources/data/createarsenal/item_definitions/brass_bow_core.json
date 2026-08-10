@@ -1,5 +1,6 @@
 {
     "id": "brass_bow_core",
     "kind": "ITEM",
-    "model": "weapons/brass_bow_core"
+    "model": "weapons/brass_bow_core",
+    "max_stack_size": 1
 }

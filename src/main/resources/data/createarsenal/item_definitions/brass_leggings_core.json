@@ -1,5 +1,6 @@
 {
   "id": "brass_leggings_core",
   "kind": "ITEM",
-  "model": "armor/brass_leggings_core"
+  "model": "armor/brass_leggings_core",
+  "max_stack_size": 1
 }

@@ -1,5 +1,6 @@
 {
   "id": "brass_helmet_core",
   "kind": "ITEM",
-  "model": "armor/brass_helmet_core"
+  "model": "armor/brass_helmet_core",
+  "max_stack_size": 1
 }

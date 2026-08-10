@@ -1,6 +1,22 @@
 {
     "items":  [
                   {
+                      "id": "coal_dust",
+                      "kind": "ITEM"
+                  },
+                  {
+                      "id": "charcoal_dust",
+                      "kind": "ITEM"
+                  },
+                  {
+                      "id": "steel_ingot",
+                      "kind": "ITEM"
+                  },
+                  {
+                      "id": "steel_sheet",
+                      "kind": "ITEM"
+                  },
+                  {
                       "id":  "andesite_pickaxe",
                       "kind":  "TOOL"
                   },

@@ -1,5 +1,6 @@
 {
     "id":  "andesite_sword_core",
     "kind":  "ITEM",
-    "model":  "weapons/andesite_sword_core"
+    "model":  "weapons/andesite_sword_core",
+    "max_stack_size": 1
 }

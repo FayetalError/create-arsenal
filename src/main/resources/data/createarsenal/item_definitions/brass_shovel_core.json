@@ -1,5 +1,6 @@
 {
     "id":  "brass_shovel_core",
     "kind":  "ITEM",
-    "model":  "tools/brass_shovel_core"
+    "model":  "tools/brass_shovel_core",
+    "max_stack_size": 1
 }

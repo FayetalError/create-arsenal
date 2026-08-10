@@ -41,6 +41,11 @@
         "brass_helmet_core",
         "brass_chestplate_core",
         "brass_leggings_core",
-        "brass_boots_core"
+        "brass_boots_core",
+        "coal_dust",
+        "charcoal_dust",
+        "steel_ingot",
+        "steel_sheet",
+        "steel_block"
     ]
 }

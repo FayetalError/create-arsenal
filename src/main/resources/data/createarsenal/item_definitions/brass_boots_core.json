@@ -1,5 +1,6 @@
 {
   "id": "brass_boots_core",
   "kind": "ITEM",
-  "model": "armor/brass_boots_core"
+  "model": "armor/brass_boots_core",
+  "max_stack_size": 1
 }

@@ -1,5 +1,10 @@
 {
   "itemGroup.createarsenal": "Create: Arsenal",
+  "item.createarsenal.coal_dust": "Coal Dust",
+  "item.createarsenal.charcoal_dust": "Charcoal Dust",
+  "item.createarsenal.steel_ingot": "Steel Ingot",
+  "item.createarsenal.steel_sheet": "Steel Sheet",
+  "block.createarsenal.steel_block": "Steel Block",
   "item.createarsenal.andesite_pickaxe_core": "Andesite Pickaxe Core",
   "item.createarsenal.andesite_pickaxe": "Andesite Pickaxe",
   "item.createarsenal.andesite_axe_core": "Andesite Axe Core",

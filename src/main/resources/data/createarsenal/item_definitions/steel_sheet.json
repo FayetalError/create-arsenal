@@ -1,0 +1,6 @@
+{
+    "id": "steel_sheet",
+    "kind": "ITEM",
+    "model": "items/steel_sheet",
+    "max_stack_size": 64
+}

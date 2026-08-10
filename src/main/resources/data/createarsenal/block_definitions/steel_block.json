@@ -1,0 +1,8 @@
+{
+  "id": "steel_block",
+  "model": "steel_block",
+  "strength": 5.0,
+  "explosion_resistance": 6.0,
+  "sound": "METAL",
+  "requires_correct_tool": true
+}

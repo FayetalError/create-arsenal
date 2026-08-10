@@ -1,0 +1,9 @@
+{
+    "type": "create:pressing",
+    "ingredients": [
+        {"tag": "c:ingots/steel"}
+    ],
+    "results": [
+        {"id": "createarsenal:steel_sheet", "count": 1}
+    ]
+}

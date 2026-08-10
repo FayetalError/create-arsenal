@@ -1,0 +1,6 @@
+{
+    "id": "coal_dust",
+    "kind": "ITEM",
+    "model": "items/coal_dust",
+    "max_stack_size": 64
+}

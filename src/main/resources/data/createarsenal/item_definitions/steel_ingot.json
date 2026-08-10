@@ -1,0 +1,6 @@
+{
+    "id": "steel_ingot",
+    "kind": "ITEM",
+    "model": "items/steel_ingot",
+    "max_stack_size": 64
+}

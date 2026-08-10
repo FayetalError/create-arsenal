@@ -1,0 +1,9 @@
+{
+    "type": "create:crushing",
+    "ingredients": [
+        {"item": "minecraft:coal"}
+    ],
+    "results": [
+        {"id": "createarsenal:coal_dust", "count": 1}
+    ]
+}

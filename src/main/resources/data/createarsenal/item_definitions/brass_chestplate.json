@@ -3,7 +3,7 @@
   "kind": "ARMOR",
   "material": "brass",
   "slot": "chestplate",
-  "durability_modifier": 30,
+  "durability_modifier": 40,
   "model": "armor/brass_chestplate",
   "equipped_model": "armor/brass_armor"
 }

@@ -205,10 +205,17 @@ tasks.register('validateArsenalDefinitions') {
         exclude 'registrations.json'
     }.files
     def assetsDir = file('src/main/resources/assets/createarsenal')
+    def blockDefinitionsDir = file('src/main/resources/data/createarsenal/block_definitions')
+    def blockDefinitionFiles = fileTree(blockDefinitionsDir).matching {
+        include '*.json'
+        exclude 'registrations.json'
+    }.files
     def recipeFiles = fileTree('src/main/resources/data/createarsenal/recipe').matching { include '*.json' }.files
     def tagFiles = fileTree('src/main/resources/data').matching { include '**/tags/item/*.json'; include '**/tags/item/**/*.json' }.files
-    inputs.files(recipeFiles, tagFiles)
+    def blockStateFiles = fileTree('src/main/resources/assets/createarsenal/blockstates').matching { include '*.json' }.files
+    inputs.files(recipeFiles, tagFiles, blockStateFiles)
     inputs.dir(definitionsDir)
+    inputs.dir(blockDefinitionsDir)
     doLast {
         def requiredByKind = [
                 'TOOL'      : ['id', 'kind', 'tier', 'tool_type', 'durability', 'attack_damage', 'attack_speed', 'model'],
@@ -221,6 +228,11 @@ tasks.register('validateArsenalDefinitions') {
         ]
         def files = definitionFiles
         def knownIds = files.collect { new groovy.json.JsonSlurper().parse(it).id?.toString() }.findAll { it }
+        def knownBlockIds = blockDefinitionFiles.collect {
+            new groovy.json.JsonSlurper().parse(it).id?.toString()
+        }.findAll { it }
+        def knownContentIds = knownIds + knownBlockIds
+        def knownTagIds = tagFiles.collect { it.name.replaceFirst(/\.json$/, '') }
         def walkJson
         walkJson = { value, sourceFile ->
             if (value instanceof Map) {
@@ -229,7 +241,7 @@ tasks.register('validateArsenalDefinitions') {
                 value.each { walkJson(it, sourceFile) }
             } else if (value?.toString()?.startsWith('createarsenal:')) {
                 def id = value.toString().substring('createarsenal:'.length())
-                if (!knownIds.contains(id)) {
+                if (!knownContentIds.contains(id) && !knownTagIds.contains(id)) {
                     throw new GradleException("${sourceFile.name}: unknown Create: Arsenal reference createarsenal:${id}")
                 }
             }
@@ -246,7 +258,7 @@ tasks.register('validateArsenalDefinitions') {
                 else if (value instanceof Collection) value.each { scanTag(it) }
                 else if (value?.toString()?.startsWith('createarsenal:')) {
                     def id = value.toString().substring('createarsenal:'.length())
-                    if (!knownIds.contains(id)) unresolved << id
+                    if (!knownContentIds.contains(id)) unresolved << id
                 }
             }
             scanTag(tagJson)
@@ -295,6 +307,25 @@ tasks.register('validateArsenalDefinitions') {
                 if (!equippedGeo.isFile()) {
                     throw new GradleException("${definitionFile.name}: missing equipped geo model ${equippedGeo}")
                 }
+            }
+        }
+        def requiredBlockFields = ['id', 'model', 'strength', 'explosion_resistance', 'sound', 'requires_correct_tool']
+        if (blockDefinitionFiles.isEmpty()) {
+            throw new GradleException('No Arsenal block definition JSON files found')
+        }
+        blockDefinitionFiles.each { definitionFile ->
+            def json = new groovy.json.JsonSlurper().parse(definitionFile)
+            def missing = requiredBlockFields.findAll { !json.containsKey(it) }
+            if (!missing.isEmpty()) {
+                throw new GradleException("${definitionFile.name}: missing fields ${missing}")
+            }
+            def id = json.id.toString()
+            if (!blockStateFiles.any { it.name == "${id}.json" }) {
+                throw new GradleException("${definitionFile.name}: missing blockstate for ${id}")
+            }
+            def modelFile = new File(assetsDir, "models/block/${json.model}.json")
+            if (!modelFile.isFile()) {
+                throw new GradleException("${definitionFile.name}: missing block model ${modelFile}")
             }
         }
         logger.lifecycle("Validated ${files.size()} Create: Arsenal definition JSON files")

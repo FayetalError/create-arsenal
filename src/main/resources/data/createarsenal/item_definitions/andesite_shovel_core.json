@@ -1,5 +1,6 @@
 {
     "id":  "andesite_shovel_core",
     "kind":  "ITEM",
-    "model":  "tools/andesite_shovel_core"
+    "model":  "tools/andesite_shovel_core",
+    "max_stack_size": 1
 }

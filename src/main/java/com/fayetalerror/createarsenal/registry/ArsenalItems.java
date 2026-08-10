@@ -60,8 +60,11 @@ public final class ArsenalItems {
     /** Resolves a registered item by its data-defined registry ID. */
     public static Item item(String id) {
         DeferredItem<? extends Item> holder = ITEMS_BY_ID.get(id);
-        if (holder == null) throw new IllegalArgumentException("Unknown registered item: " + id);
-        return holder.get();
+        if (holder != null) return holder.get();
+
+        Item blockItem = ArsenalBlocks.findItem(id);
+        if (blockItem != null) return blockItem;
+        throw new IllegalArgumentException("Unknown registered item: " + id);
     }
 
     /** Registers every item described by the registrations JSON file. */
@@ -100,7 +103,8 @@ public final class ArsenalItems {
     /** Registers a regular item definition. */
     private static DeferredItem<ArsenalItem> registerItem(ArsenalItemDefinition definition) {
         return ITEMS.register(definition.id(),
-                () -> new ArsenalItem(definition.modelPath(), new Item.Properties().stacksTo(1)));
+                () -> new ArsenalItem(definition.modelPath(),
+                        new Item.Properties().stacksTo(definition.maxStackSize())));
     }
 
     /** Registers a tool or multitool definition. */

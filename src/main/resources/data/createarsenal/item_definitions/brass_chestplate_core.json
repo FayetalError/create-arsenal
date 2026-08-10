@@ -1,5 +1,6 @@
 {
   "id": "brass_chestplate_core",
   "kind": "ITEM",
-  "model": "armor/brass_chestplate_core"
+  "model": "armor/brass_chestplate_core",
+  "max_stack_size": 1
 }

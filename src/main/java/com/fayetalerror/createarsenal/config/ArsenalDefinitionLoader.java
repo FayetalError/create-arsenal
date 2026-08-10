@@ -108,8 +108,28 @@ public final class ArsenalDefinitionLoader {
         return List.copyOf(registrations);
     }
 
+    /** Loads the ordered IDs of all ordinary blocks registered by the mod. */
+    public static List<String> loadBlockRegistrations(String path) {
+        JsonObject json = loadJson(path);
+        if (!json.has("blocks") || !json.get("blocks").isJsonArray()) {
+            throw new IllegalArgumentException("Missing block registrations array: " + path);
+        }
+        return json.getAsJsonArray("blocks").asList().stream()
+                .map(element -> required(element.getAsJsonObject(), "id"))
+                .toList();
+    }
+
+    /** Loads one ordinary block definition from a classpath JSON resource. */
+    public static BlockDefinition loadBlock(String path) {
+        JsonObject json = loadJson(path);
+        return new BlockDefinition(required(json, "id"), required(json, "model"),
+                decimal(json, "strength"), decimal(json, "explosion_resistance"),
+                parseEnum(BlockSound.class, json, "sound"), bool(json, "requires_correct_tool"));
+    }
+
     private static ArsenalItemDefinition item(JsonObject json, ItemKind kind) {
-        return new ArsenalItemDefinition(required(json, "id"), kind, required(json, "model"));
+        return new ArsenalItemDefinition(required(json, "id"), kind, required(json, "model"),
+                integerOrDefault(json, "max_stack_size", 1));
     }
 
     private static JsonObject loadJson(String path) {
@@ -142,7 +162,11 @@ public final class ArsenalDefinitionLoader {
     }
 
     private static int integer(JsonObject json, String key) { return json.get(key).getAsInt(); }
+    private static int integerOrDefault(JsonObject json, String key, int defaultValue) {
+        return json.has(key) ? integer(json, key) : defaultValue;
+    }
     private static float decimal(JsonObject json, String key) { return json.get(key).getAsFloat(); }
+    private static boolean bool(JsonObject json, String key) { return json.get(key).getAsBoolean(); }
 
     private static <T extends Enum<T>> T parseEnum(Class<T> type, JsonObject json, String key) {
         String value = required(json, key);

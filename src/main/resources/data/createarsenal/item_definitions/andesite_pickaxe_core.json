@@ -1,5 +1,6 @@
 {
     "id":  "andesite_pickaxe_core",
     "kind":  "ITEM",
-    "model":  "tools/andesite_pickaxe_core"
+    "model":  "tools/andesite_pickaxe_core",
+    "max_stack_size": 1
 }

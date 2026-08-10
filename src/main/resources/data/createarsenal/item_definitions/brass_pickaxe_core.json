@@ -1,5 +1,6 @@
 {
     "id":  "brass_pickaxe_core",
     "kind":  "ITEM",
-    "model":  "tools/brass_pickaxe_core"
+    "model":  "tools/brass_pickaxe_core",
+    "max_stack_size": 1
 }

@@ -1,5 +1,6 @@
 {
     "id":  "andesite_chestplate_core",
     "kind":  "ITEM",
-    "model":  "armor/andesite_chestplate_core"
+    "model":  "armor/andesite_chestplate_core",
+    "max_stack_size": 1
 }
