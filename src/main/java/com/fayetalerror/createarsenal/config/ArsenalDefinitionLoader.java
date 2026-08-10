@@ -42,7 +42,7 @@ public final class ArsenalDefinitionLoader {
         JsonObject json = loadJson(path);
         return new ArmorDefinition(item(json, ItemKind.ARMOR), required(json, "material"),
                 parseEnum(ArmorSlot.class, json, "slot"), integer(json, "durability_modifier"),
-                required(json, "equipped_model"));
+                required(json, "equipped_model"), booleanOrDefault(json, "belt_immune", false));
     }
 
     /** Loads one tool tier definition from a classpath JSON resource. */
@@ -167,6 +167,9 @@ public final class ArsenalDefinitionLoader {
     }
     private static float decimal(JsonObject json, String key) { return json.get(key).getAsFloat(); }
     private static boolean bool(JsonObject json, String key) { return json.get(key).getAsBoolean(); }
+    private static boolean booleanOrDefault(JsonObject json, String key, boolean defaultValue) {
+        return json.has(key) ? bool(json, key) : defaultValue;
+    }
 
     private static <T extends Enum<T>> T parseEnum(Class<T> type, JsonObject json, String key) {
         String value = required(json, key);

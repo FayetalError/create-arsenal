@@ -128,7 +128,7 @@ public final class ArsenalItems {
         return ITEMS.register(definition.item().id(), () -> new ArsenalArmorItem(
                 ArsenalArmorMaterials.byId(definition.material()), type,
                 new Item.Properties().durability(type.getDurability(definition.durabilityModifier())),
-                definition.item().modelPath(), definition.equippedModel()));
+                definition.item().modelPath(), definition.equippedModel(), definition.beltImmune()));
     }
 
     /** Loads all item definitions into one polymorphic lookup map. */

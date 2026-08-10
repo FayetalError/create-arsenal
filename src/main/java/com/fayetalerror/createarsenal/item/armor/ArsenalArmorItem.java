@@ -21,13 +21,21 @@ public final class ArsenalArmorItem extends ArmorItem implements ArsenalGeoItem 
     private final ArsenalGeoItemSupport geoSupport;
     private final String itemModelPath;
     private final String equippedModelPath;
+    private final boolean beltImmune;
 
+    /** Creates armor with the configured rendering paths and optional belt immunity. */
     public ArsenalArmorItem(Holder<ArmorMaterial> material, Type type, Properties properties,
-            String itemModelPath, String equippedModelPath) {
+            String itemModelPath, String equippedModelPath, boolean beltImmune) {
         super(material, type, properties);
         this.itemModelPath = itemModelPath;
         this.equippedModelPath = equippedModelPath;
+        this.beltImmune = beltImmune;
         this.geoSupport = new ArsenalGeoItemSupport(this);
+    }
+
+    /** Returns whether this armor item prevents belts from transporting its wearer. */
+    public boolean isBeltImmune() {
+        return beltImmune;
     }
 
     @Override

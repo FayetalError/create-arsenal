@@ -1,0 +1,11 @@
+{
+  "required": true,
+  "package": "com.fayetalerror.createarsenal.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "BeltBlockMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
