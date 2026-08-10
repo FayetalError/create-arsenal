@@ -6,6 +6,7 @@ import net.minecraft.resources.ResourceLocation;
 import software.bernie.geckolib.model.DefaultedItemGeoModel;
 import software.bernie.geckolib.renderer.GeoItemRenderer;
 import software.bernie.geckolib.animatable.GeoAnimatable;
+import software.bernie.geckolib.animatable.GeoItem;
 
 /** Generic GeckoLib item renderer paired with a definition-provided model path. */
 public class ArsenalGeoItemRenderer<T extends Item & GeoAnimatable> extends GeoItemRenderer<T> {
@@ -25,5 +26,12 @@ public class ArsenalGeoItemRenderer<T extends Item & GeoAnimatable> extends GeoI
                                 "animations/item/" + animationPath + ".animation.json");
             }
         });
+    }
+
+    /** Uses an object-local fallback until GeckoLib has assigned a synchronized stack ID. */
+    @Override
+    public long getInstanceId(T animatable) {
+        long stackId = GeoItem.getId(getCurrentItemStack());
+        return stackId == Long.MAX_VALUE ? System.identityHashCode(getCurrentItemStack()) : stackId;
     }
 }
