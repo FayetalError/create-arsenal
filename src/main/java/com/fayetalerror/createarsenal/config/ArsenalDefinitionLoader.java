@@ -34,7 +34,7 @@ public final class ArsenalDefinitionLoader {
         return new WeaponDefinition(item(json, ItemKind.WEAPON), required(json, "tier"),
                 parseEnum(WeaponType.class, json, "weapon_type"), integer(json, "durability"),
                 decimal(json, "attack_damage"), decimal(json, "attack_speed"),
-                optional(json, "animations"));
+                optional(json, "animations"), decimalOrDefault(json, "arrow_damage_bonus", 0.0F));
     }
 
     /** Loads an armor definition from a classpath JSON resource. */
@@ -166,6 +166,9 @@ public final class ArsenalDefinitionLoader {
         return json.has(key) ? integer(json, key) : defaultValue;
     }
     private static float decimal(JsonObject json, String key) { return json.get(key).getAsFloat(); }
+    private static float decimalOrDefault(JsonObject json, String key, float defaultValue) {
+        return json.has(key) ? decimal(json, key) : defaultValue;
+    }
     private static boolean bool(JsonObject json, String key) { return json.get(key).getAsBoolean(); }
     private static boolean booleanOrDefault(JsonObject json, String key, boolean defaultValue) {
         return json.has(key) ? bool(json, key) : defaultValue;

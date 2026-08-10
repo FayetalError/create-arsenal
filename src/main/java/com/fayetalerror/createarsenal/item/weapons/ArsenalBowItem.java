@@ -7,6 +7,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.BowItem;
 import net.minecraft.world.item.UseAnim;
@@ -22,8 +23,11 @@ public final class ArsenalBowItem extends BowItem implements ArsenalGeoItem {
     private final ArsenalGeoItemSupport geoSupport;
     private final RawAnimation drawAnimation;
     private final RawAnimation idleAnimation;
+    private final float arrowDamageBonus;
 
-    public ArsenalBowItem(Properties properties, String modelPath, String animationPath) {
+    /** Creates a bow with its model, animation, and projectile damage configuration. */
+    public ArsenalBowItem(Properties properties, String modelPath, String animationPath,
+            float arrowDamageBonus) {
         super(properties);
         if (animationPath == null || animationPath.isBlank()) {
             throw new IllegalArgumentException("Bow definitions must provide an animations path");
@@ -32,6 +36,7 @@ public final class ArsenalBowItem extends BowItem implements ArsenalGeoItem {
         String animationPrefix = animationPath.substring(animationPath.lastIndexOf('/') + 1);
         this.drawAnimation = RawAnimation.begin().thenPlayAndHold(animationPrefix + "_draw");
         this.idleAnimation = RawAnimation.begin().thenPlayAndHold(animationPrefix + "_idle");
+        this.arrowDamageBonus = arrowDamageBonus;
     }
 
     @Override
@@ -52,6 +57,14 @@ public final class ArsenalBowItem extends BowItem implements ArsenalGeoItem {
             GeoItem.getOrAssignId(player.getItemInHand(hand), serverLevel);
         }
         return super.use(level, player, hand);
+    }
+
+    /** Adds this bow's configured damage bonus to vanilla-created arrows. */
+    @Override
+    public AbstractArrow customArrow(AbstractArrow arrow, ItemStack projectile, ItemStack weapon) {
+        AbstractArrow result = super.customArrow(arrow, projectile, weapon);
+        result.setBaseDamage(result.getBaseDamage() + arrowDamageBonus);
+        return result;
     }
 
     /** Plays and holds the draw pose while this bow is being used. */

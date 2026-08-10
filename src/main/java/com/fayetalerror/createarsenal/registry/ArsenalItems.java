@@ -53,7 +53,8 @@ public final class ArsenalItems {
             WeaponType.SWORD, (tier, definition) -> new ArsenalSwordItem(
                     tier, definition.properties(tier), definition.modelPath()),
             WeaponType.BOW, (tier, definition) -> new ArsenalBowItem(
-                    definition.properties(tier), definition.modelPath(), definition.animationPath()));
+                    definition.properties(tier), definition.modelPath(), definition.animationPath(),
+                    definition.arrowDamageBonus()));
 
     public static final Map<String, DeferredItem<? extends Item>> ITEMS_BY_ID = registerAll();
 

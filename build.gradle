@@ -294,6 +294,9 @@ tasks.register('validateArsenalDefinitions') {
                 if (!json.animations) {
                     throw new GradleException("${definitionFile.name}: bow definitions require an animations path")
                 }
+                if (!json.containsKey('arrow_damage_bonus') || json.arrow_damage_bonus < 0) {
+                    throw new GradleException("${definitionFile.name}: bow definitions require a non-negative arrow_damage_bonus")
+                }
                 def animationFile = new File(assetsDir,
                         "animations/item/${json.animations}.animation.json")
                 if (!animationFile.isFile()) {

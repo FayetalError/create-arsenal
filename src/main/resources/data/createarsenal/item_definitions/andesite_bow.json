@@ -7,5 +7,6 @@
     "attack_damage":  0.0,
     "attack_speed":  0.0,
     "model":  "weapons/andesite_bow",
-    "animations": "weapons/andesite_bow"
+    "animations": "weapons/andesite_bow",
+    "arrow_damage_bonus": 0.667
 }

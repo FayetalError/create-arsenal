@@ -6,6 +6,7 @@
                    "createarsenal:andesite_shovel",
                    "createarsenal:andesite_hoe",
                    "createarsenal:andesite_sword",
+                   "createarsenal:andesite_bow",
                    "createarsenal:andesite_helmet",
                    "createarsenal:andesite_chestplate",
                    "createarsenal:andesite_leggings",
@@ -19,6 +20,7 @@
                    "createarsenal:brass_shovel",
                    "createarsenal:brass_hoe",
                    "createarsenal:brass_sword",
+                   "createarsenal:brass_bow",
                    "createarsenal:brass_paxel"
                ]
 }
