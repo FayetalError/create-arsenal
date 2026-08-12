@@ -34,6 +34,10 @@ final class ItemDefinitionValidator {
             ValidationContext.requireFile(new File(assetsDirectory, "geo/item/${modelPath}.geo.json"), file, 'geo model')
             ValidationContext.requireFile(new File(assetsDirectory, "textures/item/${modelPath}.png"), file, 'texture')
         }
+        if (json.animations) {
+            ValidationContext.requireFile(new File(assetsDirectory,
+                    "animations/item/${json.animations}.animation.json"), file, 'animation')
+        }
         if (kind == 'WEAPON' && json.weapon_type?.toString()?.equalsIgnoreCase('BOW')) {
             ItemDefinitionValidator.validateBow(json, file, assetsDirectory)
         }
@@ -49,7 +53,5 @@ final class ItemDefinitionValidator {
         if (!json.containsKey('arrow_damage_bonus') || json.arrow_damage_bonus < 0) {
             throw new GradleException("${file.name}: bow definitions require a non-negative arrow_damage_bonus")
         }
-        ValidationContext.requireFile(new File(assetsDirectory, "animations/item/${json.animations}.animation.json"), file,
-                'animation')
     }
 }

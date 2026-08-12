@@ -43,11 +43,16 @@ public final class ArsenalItems {
     private static final Map<String, Tier> TIERS = loadTierDefinitions();
 
     private static final Map<ToolType, ToolFactory> TOOL_FACTORIES = Map.of(
-            ToolType.PICKAXE, new ToolFactory(ArsenalPickaxeItem::new),
-            ToolType.AXE, new ToolFactory(ArsenalAxeItem::new),
-            ToolType.SHOVEL, new ToolFactory(ArsenalShovelItem::new),
-            ToolType.HOE, new ToolFactory(ArsenalHoeItem::new),
-            ToolType.MULTI_TOOL, new ToolFactory(ArsenalPaxelItem::new));
+            ToolType.PICKAXE, new ToolFactory((tier, definition) -> new ArsenalPickaxeItem(
+                    tier, definition.properties(tier), definition.modelPath(), definition.animationPath())),
+            ToolType.AXE, new ToolFactory((tier, definition) -> new ArsenalAxeItem(
+                    tier, definition.properties(tier), definition.modelPath())),
+            ToolType.SHOVEL, new ToolFactory((tier, definition) -> new ArsenalShovelItem(
+                    tier, definition.properties(tier), definition.modelPath())),
+            ToolType.HOE, new ToolFactory((tier, definition) -> new ArsenalHoeItem(
+                    tier, definition.properties(tier), definition.modelPath())),
+            ToolType.MULTI_TOOL, new ToolFactory((tier, definition) -> new ArsenalPaxelItem(
+                    tier, definition.properties(tier), definition.modelPath())));
 
     private static final Map<WeaponType, WeaponFactory> WEAPON_FACTORIES = Map.of(
             WeaponType.SWORD, (tier, definition) -> new ArsenalSwordItem(
@@ -112,8 +117,7 @@ public final class ArsenalItems {
     private static DeferredItem<? extends Item> registerTool(ToolDefinition definition) {
         Tier tier = required(TIERS, definition.tierName());
         ToolFactory factory = required(TOOL_FACTORIES, definition.toolType());
-        return ITEMS.register(definition.item().id(), () -> factory.create(
-                tier, definition.properties(tier), definition.modelPath()));
+        return ITEMS.register(definition.item().id(), () -> factory.create(tier, definition));
     }
 
     /** Registers a weapon definition. */
@@ -170,14 +174,14 @@ public final class ArsenalItems {
     }
 
     private record ToolFactory(ToolConstructor constructor) {
-        Item create(Tier tier, Item.Properties properties, String modelPath) {
-            return constructor.create(tier, properties, modelPath);
+        Item create(Tier tier, ToolDefinition definition) {
+            return constructor.create(tier, definition);
         }
     }
 
     @FunctionalInterface
     private interface ToolConstructor {
-        Item create(Tier tier, Item.Properties properties, String modelPath);
+        Item create(Tier tier, ToolDefinition definition);
     }
 
     @FunctionalInterface

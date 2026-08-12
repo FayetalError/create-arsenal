@@ -24,7 +24,8 @@ public record ToolDefinition(
         ToolType toolType,
         int durability,
         float attackDamage,
-        float attackSpeed
+        float attackSpeed,
+        String animationPath
 ) implements ArsenalDefinition {
     @Override
     public String id() { return item.id(); }

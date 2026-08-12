@@ -38,3 +38,6 @@ run/
 **/src/generated/**/.cache/
 repo/
 !**/src/**/repo/
+
+# Local reference extraction of Create's dependency assets.
+tmp/create-assets/

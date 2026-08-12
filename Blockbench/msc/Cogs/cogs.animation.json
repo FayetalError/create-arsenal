@@ -1,0 +1,71 @@
+{
+    "format_version": "1.8.0",
+    "animations": {
+        "animation": {
+            "loop": true,
+            "animation_length": 1,
+            "bones": {
+                "planet": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "1.0": {
+                            "vector": [0, 0, -90]
+                        }
+                    }
+                },
+                "planet.teeth": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "1.0": {
+                            "vector": [0, 0, -360]
+                        }
+                    }
+                },
+                "planet.shaft": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "1.0": {
+                            "vector": [0, 0, -360]
+                        }
+                    }
+                },
+                "planet.gear": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "1.0": {
+                            "vector": [0, 0, -360]
+                        }
+                    }
+                },
+                "sun": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "1.0": {
+                            "vector": [0, 0, 90]
+                        }
+                    }
+                },
+                "ring": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, "-"]
+                        },
+                        "1.0": {
+                            "vector": [0, 0, -180]
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

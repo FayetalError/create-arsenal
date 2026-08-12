@@ -13,7 +13,7 @@ final class BlockDefinitionValidator {
                 ValidationContext.parse(file) as Map, file, context) }
     }
 
-    /** Validates fields, blockstate presence, and the configured block model. */
+    /** Validates fields, blockstate presence, block model, and self-drop loot table. */
     private static void validateDefinition(Map json, File file, ValidationContext context) {
         List<String> missing = REQUIRED_FIELDS.findAll { !json.containsKey(it) }
         if (!missing.isEmpty()) throw new GradleException("${file.name}: missing fields ${missing}")
@@ -23,5 +23,7 @@ final class BlockDefinitionValidator {
         }
         ValidationContext.requireFile(new File(context.assetsDirectory, "models/block/${json.model}.json"), file,
                 'block model')
+        ValidationContext.requireFile(new File(context.dataDirectory, "createarsenal/loot_table/blocks/${id}.json"),
+                file, 'block loot table')
     }
 }

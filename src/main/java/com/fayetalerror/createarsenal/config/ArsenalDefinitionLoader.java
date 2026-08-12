@@ -20,7 +20,7 @@ public final class ArsenalDefinitionLoader {
         return new ToolDefinition(item(json, ItemKind.valueOf(
                         required(json, "kind").toUpperCase(java.util.Locale.ROOT))), required(json, "tier"),
                 parseEnum(ToolType.class, json, "tool_type"), integer(json, "durability"),
-                decimal(json, "attack_damage"), decimal(json, "attack_speed"));
+                decimal(json, "attack_damage"), decimal(json, "attack_speed"), optional(json, "animations"));
     }
 
     /** Loads a regular item definition from a classpath JSON resource. */

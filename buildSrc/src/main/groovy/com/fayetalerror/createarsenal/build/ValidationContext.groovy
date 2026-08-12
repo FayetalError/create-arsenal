@@ -5,6 +5,7 @@ import groovy.json.JsonSlurper
 
 /** Discovers the resource files and IDs shared by all Arsenal definition validators. */
 final class ValidationContext {
+    final File dataDirectory
     final File assetsDirectory
     final Set<File> itemDefinitions
     final Set<File> blockDefinitions
@@ -14,9 +15,10 @@ final class ValidationContext {
     final Set<String> contentIds
     final Set<String> tagIds
 
-    private ValidationContext(File assetsDirectory, Set<File> itemDefinitions, Set<File> blockDefinitions,
+    private ValidationContext(File dataDirectory, File assetsDirectory, Set<File> itemDefinitions, Set<File> blockDefinitions,
             Set<File> recipes, Set<File> itemTags, Set<File> blockStates, Set<String> contentIds,
             Set<String> tagIds) {
+        this.dataDirectory = dataDirectory
         this.assetsDirectory = assetsDirectory
         this.itemDefinitions = itemDefinitions
         this.blockDefinitions = blockDefinitions
@@ -40,7 +42,7 @@ final class ValidationContext {
             ValidationContext.parse(it).id?.toString()
         }.findAll { it } as Set<String>
         Set<String> tagIds = itemTags.collect { it.name.replaceFirst(/\.json$/, '') } as Set<String>
-        return new ValidationContext(assetsDirectory, itemDefinitions, blockDefinitions,
+        return new ValidationContext(dataDirectory, assetsDirectory, itemDefinitions, blockDefinitions,
                 ValidationContext.jsonFiles(new File(dataDirectory, 'createarsenal/recipe')), itemTags,
                 ValidationContext.jsonFiles(new File(assetsDirectory, 'blockstates')), contentIds, tagIds)
     }

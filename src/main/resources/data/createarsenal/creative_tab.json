@@ -1,5 +1,5 @@
 {
-    "icon": "brass_paxel",
+    "icon": "clockwork_pickaxe",
     "items": [
         "andesite_sword",
         "andesite_bow",
@@ -14,6 +14,7 @@
         "brass_shovel",
         "brass_hoe",
         "brass_paxel",
+        "clockwork_pickaxe",
         "andesite_helmet",
         "andesite_chestplate",
         "andesite_leggings",

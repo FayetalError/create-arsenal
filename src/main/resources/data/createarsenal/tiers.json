@@ -16,5 +16,14 @@
         "attack_bonus": 4.0,
         "enchantability": 16,
         "repair_item": "create:brass_sheet"
+    },
+    {
+        "id": "clockwork",
+        "mining_tag": "minecraft:incorrect_for_diamond_tool",
+        "durability": 3000,
+        "speed": 10.0,
+        "attack_bonus": 5.0,
+        "enchantability": 16,
+        "repair_item": "create:cogwheel"
     }
 ]

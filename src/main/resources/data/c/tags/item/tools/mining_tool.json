@@ -2,6 +2,7 @@
     "replace":  false,
     "values":  [
                    "createarsenal:andesite_pickaxe",
+                   "createarsenal:clockwork_pickaxe",
                    "createarsenal:brass_pickaxe",
                    "createarsenal:brass_paxel"
                ]
