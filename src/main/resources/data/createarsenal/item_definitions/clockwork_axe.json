@@ -1,0 +1,11 @@
+{
+  "id": "clockwork_axe",
+  "kind": "TOOL",
+  "tier": "clockwork",
+  "tool_type": "axe",
+  "durability": 3000,
+  "attack_damage": 7.0,
+  "attack_speed": -3.0,
+  "model": "tools/clockwork_axe",
+  "animations": "tools/clockwork_axe"
+}

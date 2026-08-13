@@ -46,7 +46,7 @@ public final class ArsenalItems {
             ToolType.PICKAXE, new ToolFactory((tier, definition) -> new ArsenalPickaxeItem(
                     tier, definition.properties(tier), definition.modelPath(), definition.animationPath())),
             ToolType.AXE, new ToolFactory((tier, definition) -> new ArsenalAxeItem(
-                    tier, definition.properties(tier), definition.modelPath())),
+                    tier, definition.properties(tier), definition.modelPath(), definition.animationPath())),
             ToolType.SHOVEL, new ToolFactory((tier, definition) -> new ArsenalShovelItem(
                     tier, definition.properties(tier), definition.modelPath())),
             ToolType.HOE, new ToolFactory((tier, definition) -> new ArsenalHoeItem(

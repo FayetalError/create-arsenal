@@ -25,6 +25,10 @@
                       "kind": "TOOL"
                   },
                   {
+                      "id": "clockwork_axe",
+                      "kind": "TOOL"
+                  },
+                  {
                       "id":  "andesite_axe",
                       "kind":  "TOOL"
                   },
