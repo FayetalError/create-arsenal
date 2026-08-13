@@ -20,7 +20,7 @@ public final class ArsenalToolTiers {
                 Registries.BLOCK, ResourceLocation.parse(definition.miningTag()));
         return new SimpleTier(
                 miningTag,
-                definition.durability(), definition.speed(), definition.attackBonus(),
+                definition.durability(), definition.speed(), 0.0F,
                 definition.enchantability(), () -> Ingredient.of(BuiltInRegistries.ITEM.get(
                         ResourceLocation.parse(definition.repairItem()))));
     }

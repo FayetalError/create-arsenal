@@ -4,7 +4,7 @@
     "tier":  "brass",
     "weapon_type":  "sword",
     "durability":  2000,
-    "attack_damage":  2.5,
-    "attack_speed":  -2.4,
+    "attack_damage":  8.0,
+    "attack_speed":  1.6,
     "model":  "weapons/brass_sword"
 }

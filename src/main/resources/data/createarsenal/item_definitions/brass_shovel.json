@@ -4,7 +4,7 @@
     "tier":  "brass",
     "tool_type":  "shovel",
     "durability":  2000,
-    "attack_damage":  1.5,
-    "attack_speed":  -3.0,
+    "attack_damage":  6.5,
+    "attack_speed":  1.0,
     "model":  "tools/brass_shovel"
 }

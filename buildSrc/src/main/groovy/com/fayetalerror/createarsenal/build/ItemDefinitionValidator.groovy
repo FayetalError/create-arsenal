@@ -10,7 +10,7 @@ final class ItemDefinitionValidator {
             'MULTI_TOOL'    : ['id', 'kind', 'tier', 'tool_type', 'durability', 'attack_damage', 'attack_speed', 'model'],
             'ITEM'          : ['id', 'kind', 'model'],
             'ARMOR'         : ['id', 'kind', 'material', 'slot', 'durability_modifier', 'model', 'equipped_model'],
-            'TIER'          : ['id', 'kind', 'mining_tag', 'durability', 'speed', 'attack_bonus', 'enchantability', 'repair_item'],
+            'TIER'          : ['id', 'kind', 'mining_tag', 'durability', 'speed', 'enchantability', 'repair_item'],
             'ARMOR_MATERIAL': ['kind', 'helmet_defense', 'chestplate_defense', 'leggings_defense', 'boots_defense', 'enchantability', 'toughness', 'knockback_resistance']
     ]
 

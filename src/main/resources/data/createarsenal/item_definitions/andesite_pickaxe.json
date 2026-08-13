@@ -4,7 +4,7 @@
     "tier":  "andesite",
     "tool_type":  "pickaxe",
     "durability":  650,
-    "attack_damage":  1.0,
-    "attack_speed":  -2.8,
+    "attack_damage":  4.5,
+    "attack_speed":  1.2,
     "model":  "tools/andesite_pickaxe"
 }

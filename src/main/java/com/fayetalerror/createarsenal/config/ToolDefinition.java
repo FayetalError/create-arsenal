@@ -1,11 +1,11 @@
 package com.fayetalerror.createarsenal.config;
 
-import net.minecraft.world.item.AxeItem;
-import net.minecraft.world.item.DiggerItem;
-import net.minecraft.world.item.HoeItem;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.EquipmentSlotGroup;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.PickaxeItem;
-import net.minecraft.world.item.ShovelItem;
+import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.item.Tier;
 
 /**
@@ -15,7 +15,7 @@ import net.minecraft.world.item.Tier;
  * @param tierName the logical tier name, such as {@code andesite} or {@code brass}
  * @param toolType the vanilla tool behavior, such as {@code pickaxe} or {@code axe}
  * @param durability maximum durability of the tool
- * @param attackDamage additional attack damage supplied by the tool
+ * @param attackDamage total attack damage shown for the tool in game
  * @param attackSpeed attack speed modifier supplied by the tool
  */
 public record ToolDefinition(
@@ -36,14 +36,20 @@ public record ToolDefinition(
     @Override
     public String modelPath() { return item.modelPath(); }
 
-    /** Creates the Minecraft properties using this definition's balance values. */
+    /**
+     * Creates tool properties whose combat attributes come solely from this definition.
+     * Minecraft gives every attacker one base attack damage and four base attack speed, so the
+     * modifiers are reduced by those base values to make the definition values match the values
+     * shown in game.
+     */
     public Item.Properties properties(Tier tier) {
-        return new Item.Properties().attributes(switch (toolType) {
-            case PICKAXE -> PickaxeItem.createAttributes(tier, attackDamage, attackSpeed);
-            case AXE -> AxeItem.createAttributes(tier, attackDamage, attackSpeed);
-            case SHOVEL -> ShovelItem.createAttributes(tier, attackDamage, attackSpeed);
-            case HOE -> HoeItem.createAttributes(tier, attackDamage, attackSpeed);
-            case MULTI_TOOL -> DiggerItem.createAttributes(tier, attackDamage, attackSpeed);
-        });
+        return new Item.Properties().attributes(ItemAttributeModifiers.builder()
+                .add(Attributes.ATTACK_DAMAGE, new AttributeModifier(
+                        ResourceLocation.withDefaultNamespace("base_attack_damage"), attackDamage - 1.0F,
+                        AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND)
+                .add(Attributes.ATTACK_SPEED, new AttributeModifier(
+                        ResourceLocation.withDefaultNamespace("base_attack_speed"), attackSpeed - 4.0F,
+                        AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND)
+                .build());
     }
 }

@@ -4,7 +4,7 @@
     "tier":  "brass",
     "tool_type":  "axe",
     "durability":  2000,
-    "attack_damage":  6.0,
-    "attack_speed":  -3.1,
+    "attack_damage":  10.0,
+    "attack_speed":  1.0,
     "model":  "tools/brass_axe"
 }

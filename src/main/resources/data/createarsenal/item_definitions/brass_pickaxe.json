@@ -4,7 +4,7 @@
     "tier":  "brass",
     "tool_type":  "pickaxe",
     "durability":  2000,
-    "attack_damage":  1.0,
-    "attack_speed":  -2.8,
+    "attack_damage":  6.0,
+    "attack_speed":  1.2,
     "model":  "tools/brass_pickaxe"
 }

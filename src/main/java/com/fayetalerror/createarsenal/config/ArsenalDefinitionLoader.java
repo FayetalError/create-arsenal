@@ -50,8 +50,7 @@ public final class ArsenalDefinitionLoader {
         JsonObject json = loadJson(path);
         return new TierDefinition(required(json, "id"), required(json, "mining_tag"),
                 integer(json, "durability"), decimal(json, "speed"),
-                decimal(json, "attack_bonus"), integer(json, "enchantability"),
-                required(json, "repair_item"));
+                integer(json, "enchantability"), required(json, "repair_item"));
     }
 
     /** Loads all tool tier definitions from a JSON array resource. */
@@ -62,8 +61,8 @@ public final class ArsenalDefinitionLoader {
                     JsonObject json = element.getAsJsonObject();
                     TierDefinition definition = new TierDefinition(required(json, "id"),
                             required(json, "mining_tag"), integer(json, "durability"),
-                            decimal(json, "speed"), decimal(json, "attack_bonus"),
-                            integer(json, "enchantability"), required(json, "repair_item"));
+                            decimal(json, "speed"), integer(json, "enchantability"),
+                            required(json, "repair_item"));
                     result.put(definition.id(), definition);
                 });
         return Map.copyOf(result);

@@ -4,7 +4,7 @@
     "tier":  "andesite",
     "tool_type":  "hoe",
     "durability":  650,
-    "attack_damage":  -2.0,
-    "attack_speed":  -1.0,
+    "attack_damage":  1.0,
+    "attack_speed":  3.5,
     "model":  "tools/andesite_hoe"
 }
