@@ -1,0 +1,11 @@
+{
+  "id": "clockwork_shovel",
+  "kind": "TOOL",
+  "tier": "clockwork",
+  "tool_type": "shovel",
+  "durability": 3000,
+  "attack_damage": 8.5,
+  "attack_speed": 1.0,
+  "model": "tools/clockwork_shovel",
+  "animations": "tools/clockwork_shovel"
+}
