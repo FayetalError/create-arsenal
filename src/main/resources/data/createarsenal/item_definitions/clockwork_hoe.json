@@ -1,0 +1,11 @@
+{
+  "id": "clockwork_hoe",
+  "kind": "TOOL",
+  "tier": "clockwork",
+  "tool_type": "hoe",
+  "durability": 3000,
+  "attack_damage": 1.0,
+  "attack_speed": 5.0,
+  "model": "tools/clockwork_hoe",
+  "animations": "tools/clockwork_hoe"
+}

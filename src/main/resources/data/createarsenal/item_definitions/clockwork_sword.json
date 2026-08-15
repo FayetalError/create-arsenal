@@ -1,0 +1,11 @@
+{
+  "id": "clockwork_sword",
+  "kind": "WEAPON",
+  "tier": "clockwork",
+  "weapon_type": "sword",
+  "durability": 3000,
+  "attack_damage": 10.0,
+  "attack_speed": 1.6,
+  "model": "weapons/clockwork_sword",
+  "animations": "weapons/clockwork_sword"
+}

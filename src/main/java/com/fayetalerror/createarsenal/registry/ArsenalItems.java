@@ -50,13 +50,13 @@ public final class ArsenalItems {
             ToolType.SHOVEL, new ToolFactory((tier, definition) -> new ArsenalShovelItem(
                     tier, definition.properties(tier), definition.modelPath(), definition.animationPath())),
             ToolType.HOE, new ToolFactory((tier, definition) -> new ArsenalHoeItem(
-                    tier, definition.properties(tier), definition.modelPath())),
+                    tier, definition.properties(tier), definition.modelPath(), definition.animationPath())),
             ToolType.MULTI_TOOL, new ToolFactory((tier, definition) -> new ArsenalPaxelItem(
                     tier, definition.properties(tier), definition.modelPath())));
 
     private static final Map<WeaponType, WeaponFactory> WEAPON_FACTORIES = Map.of(
             WeaponType.SWORD, (tier, definition) -> new ArsenalSwordItem(
-                    tier, definition.properties(tier), definition.modelPath()),
+                    tier, definition.properties(tier), definition.modelPath(), definition.animationPath()),
             WeaponType.BOW, (tier, definition) -> new ArsenalBowItem(
                     definition.properties(tier), definition.modelPath(), definition.animationPath(),
                     definition.arrowDamageBonus()));

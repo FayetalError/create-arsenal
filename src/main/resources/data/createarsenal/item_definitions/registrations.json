@@ -33,6 +33,10 @@
                       "kind": "TOOL"
                   },
                   {
+                      "id": "clockwork_hoe",
+                      "kind": "TOOL"
+                  },
+                  {
                       "id":  "andesite_axe",
                       "kind":  "TOOL"
                   },
@@ -79,6 +83,10 @@
                   {
                       "id":  "brass_sword",
                       "kind":  "WEAPON"
+                  },
+                  {
+                      "id": "clockwork_sword",
+                      "kind": "WEAPON"
                   },
                   {
                       "id":  "andesite_pickaxe_core",

@@ -1,0 +1,191 @@
+{
+    "format_version": "1.8.0",
+    "animations": {
+        "clockwork_hoe": {
+            "loop": true,
+            "animation_length": 16,
+            "bones": {
+                "clock.front.planets.1": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "16.0": {
+                            "vector": [0, 0, -1440]
+                        }
+                    }
+                },
+                "clock.front.ring": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "16.0": {
+                            "vector": [0, 0, -720]
+                        }
+                    }
+                },
+                "clock.front.sun": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "16.0": {
+                            "vector": [0, 0, 360]
+                        }
+                    }
+                },
+                "clock.front.planets": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "16.0": {
+                            "vector": [0, 0, -360]
+                        }
+                    }
+                },
+                "clock.front.planets.2": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "16.0": {
+                            "vector": [0, 0, -1440]
+                        }
+                    }
+                },
+                "clock.front.planets.3": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "16.0": {
+                            "vector": [0, 0, -1440]
+                        }
+                    }
+                },
+                "clock.front.planets.4": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "16.0": {
+                            "vector": [0, 0, -1440]
+                        }
+                    }
+                },
+                "clock.front.carrier": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "16.0": {
+                            "vector": [0, 0, -360]
+                        }
+                    }
+                },
+                "clock.front.face": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "16.0": {
+                            "vector": [0, 0, 360]
+                        }
+                    }
+                },
+                "clock.back.ring": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "16.0": {
+                            "vector": [0, 0, -720]
+                        }
+                    }
+                },
+                "clock.back.sun": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "16.0": {
+                            "vector": [0, 0, 360]
+                        }
+                    }
+                },
+                "clock.back.planets": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "16.0": {
+                            "vector": [0, 0, -360]
+                        }
+                    }
+                },
+                "clock.back.planets.1": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "16.0": {
+                            "vector": [0, 0, -1440]
+                        }
+                    }
+                },
+                "clock.back.planets.2": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "16.0": {
+                            "vector": [0, 0, -1440]
+                        }
+                    }
+                },
+                "clock.back.planets.3": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "16.0": {
+                            "vector": [0, 0, -1440]
+                        }
+                    }
+                },
+                "clock.back.planets.4": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "16.0": {
+                            "vector": [0, 0, -1440]
+                        }
+                    }
+                },
+                "clock.back.carrier": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "16.0": {
+                            "vector": [0, 0, -360]
+                        }
+                    }
+                },
+                "clock.back.face": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "16.0": {
+                            "vector": [0, 0, 360]
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
