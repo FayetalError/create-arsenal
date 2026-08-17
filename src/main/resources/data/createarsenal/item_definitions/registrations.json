@@ -61,6 +61,10 @@
                       "kind":  "WEAPON"
                   },
                   {
+                      "id": "clockwork_bow",
+                      "kind": "WEAPON"
+                  },
+                  {
                       "id":  "brass_pickaxe",
                       "kind":  "TOOL"
                   },
@@ -79,6 +83,10 @@
                   {
                       "id":  "brass_paxel",
                       "kind":  "MULTI_TOOL"
+                  },
+                  {
+                      "id": "clockwork_paxel",
+                      "kind": "MULTI_TOOL"
                   },
                   {
                       "id":  "brass_sword",

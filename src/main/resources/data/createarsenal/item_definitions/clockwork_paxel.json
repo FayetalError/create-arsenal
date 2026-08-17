@@ -1,0 +1,11 @@
+{
+  "id": "clockwork_paxel",
+  "kind": "MULTI_TOOL",
+  "tier": "clockwork",
+  "tool_type": "multi_tool",
+  "durability": 3000,
+  "attack_damage": 12.0,
+  "attack_speed": 1.0,
+  "model": "tools/clockwork_paxel",
+  "animations": "tools/clockwork_paxel"
+}

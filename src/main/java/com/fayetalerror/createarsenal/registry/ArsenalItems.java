@@ -52,7 +52,7 @@ public final class ArsenalItems {
             ToolType.HOE, new ToolFactory((tier, definition) -> new ArsenalHoeItem(
                     tier, definition.properties(tier), definition.modelPath(), definition.animationPath())),
             ToolType.MULTI_TOOL, new ToolFactory((tier, definition) -> new ArsenalPaxelItem(
-                    tier, definition.properties(tier), definition.modelPath())));
+                    tier, definition.properties(tier), definition.modelPath(), definition.animationPath())));
 
     private static final Map<WeaponType, WeaponFactory> WEAPON_FACTORIES = Map.of(
             WeaponType.SWORD, (tier, definition) -> new ArsenalSwordItem(

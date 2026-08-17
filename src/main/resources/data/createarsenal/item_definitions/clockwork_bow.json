@@ -1,0 +1,12 @@
+{
+  "id": "clockwork_bow",
+  "kind": "WEAPON",
+  "tier": "clockwork",
+  "weapon_type": "bow",
+  "durability": 3000,
+  "attack_damage": 0.0,
+  "attack_speed": 0.0,
+  "model": "weapons/clockwork_bow",
+  "animations": "weapons/clockwork_bow",
+  "arrow_damage_bonus": 1.333
+}

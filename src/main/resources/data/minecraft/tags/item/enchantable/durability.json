@@ -26,6 +26,8 @@
                    "createarsenal:brass_sword",
                    "createarsenal:clockwork_sword",
                    "createarsenal:brass_bow",
-                   "createarsenal:brass_paxel"
+                   "createarsenal:clockwork_bow",
+                   "createarsenal:brass_paxel",
+                   "createarsenal:clockwork_paxel"
                ]
 }

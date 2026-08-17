@@ -26,6 +26,10 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.neoforged.neoforge.common.ItemAbilities;
 import net.neoforged.neoforge.common.ItemAbility;
+import software.bernie.geckolib.animation.AnimatableManager;
+import software.bernie.geckolib.animation.AnimationController;
+import software.bernie.geckolib.animation.PlayState;
+import software.bernie.geckolib.animation.RawAnimation;
 
 /** Combined pickaxe, axe, and shovel with GeckoLib rendering. */
 public final class ArsenalPaxelItem extends DiggerItem implements ArsenalGeoItem {
@@ -41,11 +45,14 @@ public final class ArsenalPaxelItem extends DiggerItem implements ArsenalGeoItem
             new ToolModification(ItemAbilities.SHOVEL_DOUSE, null, 1009));
 
     private final ArsenalGeoItemSupport geoSupport;
+    private final RawAnimation idleAnimation;
 
-    public ArsenalPaxelItem(Tier tier, Properties properties, String modelPath) {
+    /** Creates a multi-tool with optional looping GeckoLib animation data. */
+    public ArsenalPaxelItem(Tier tier, Properties properties, String modelPath, String animationPath) {
         // The combined block tag supplies mining speed and correct-drop behavior for all three tools.
         super(tier, ArsenalBlockTags.MINEABLE_WITH_PAXEL, properties);
-        this.geoSupport = new ArsenalGeoItemSupport(this, modelPath);
+        this.geoSupport = new ArsenalGeoItemSupport(this, modelPath, animationPath);
+        this.idleAnimation = animationPath == null ? null : RawAnimation.begin().thenLoop(animationName(animationPath));
     }
 
     /** Advertises every standard pickaxe, axe, and shovel ability to NeoForge integrations. */
@@ -138,5 +145,21 @@ public final class ArsenalPaxelItem extends DiggerItem implements ArsenalGeoItem
     @Override
     public ArsenalGeoItemSupport geoSupport() {
         return geoSupport;
+    }
+
+    /** Adds an always-looping controller only when the definition supplies an animation path. */
+    @Override
+    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
+        if (idleAnimation != null) {
+            controllers.add(new AnimationController<>(this, "paxel_idle", 0, state -> {
+                state.setAnimation(idleAnimation);
+                return PlayState.CONTINUE;
+            }));
+        }
+    }
+
+    /** Extracts the animation name from its data-defined resource path. */
+    private static String animationName(String animationPath) {
+        return animationPath.substring(animationPath.lastIndexOf('/') + 1);
     }
 }

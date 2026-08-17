@@ -8,5 +8,5 @@
     "attack_speed": 0.0,
     "model": "weapons/brass_bow",
     "animations": "weapons/brass_bow",
-    "arrow_damage_bonus": 1.333
+    "arrow_damage_bonus": 1.0
 }

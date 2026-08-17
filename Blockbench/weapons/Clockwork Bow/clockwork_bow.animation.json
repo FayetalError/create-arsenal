@@ -1,0 +1,1054 @@
+{
+    "format_version": "1.8.0",
+    "animations": {
+        "clockwork_bow_idle": {
+            "loop": true,
+            "animation_length": 16,
+            "bones": {
+                "gears.top.planets.1": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "16.0": {
+                            "vector": [0, 0, 1440]
+                        }
+                    },
+                    "position": {
+                        "vector": [0, 0, 0]
+                    },
+                    "scale": {
+                        "vector": [1, 1, 1]
+                    }
+                },
+                "gears.top.ring": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "16.0": {
+                            "vector": [0, 0, 720]
+                        }
+                    },
+                    "position": {
+                        "vector": [0, 0, 0]
+                    },
+                    "scale": {
+                        "vector": [1, 1, 1]
+                    }
+                },
+                "gears.top.sun": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "16.0": {
+                            "vector": [0, 0, -360]
+                        }
+                    },
+                    "position": {
+                        "vector": [0, 0, 0]
+                    },
+                    "scale": {
+                        "vector": [1, 1, 1]
+                    }
+                },
+                "gears.top.planets": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "16.0": {
+                            "vector": [0, 0, 360]
+                        }
+                    },
+                    "position": {
+                        "vector": [0, 0, 0]
+                    },
+                    "scale": {
+                        "vector": [1, 1, 1]
+                    }
+                },
+                "gears.top.planets.2": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "16.0": {
+                            "vector": [0, 0, 1440]
+                        }
+                    },
+                    "position": {
+                        "vector": [0, 0, 0]
+                    },
+                    "scale": {
+                        "vector": [1, 1, 1]
+                    }
+                },
+                "gears.top.planets.3": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "16.0": {
+                            "vector": [0, 0, 1440]
+                        }
+                    },
+                    "position": {
+                        "vector": [0, 0, 0]
+                    },
+                    "scale": {
+                        "vector": [1, 1, 1]
+                    }
+                },
+                "gears.top.planets.4": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "16.0": {
+                            "vector": [0, 0, 1440]
+                        }
+                    },
+                    "position": {
+                        "vector": [0, 0, 0]
+                    },
+                    "scale": {
+                        "vector": [1, 1, 1]
+                    }
+                },
+                "gears.top.face": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "16.0": {
+                            "vector": [0, 0, -360]
+                        }
+                    },
+                    "position": {
+                        "vector": [0, 0, 0]
+                    },
+                    "scale": {
+                        "vector": [1, 1, 1]
+                    }
+                },
+                "strings": {
+                    "rotation": {
+                        "vector": [0, 0, 0]
+                    },
+                    "position": {
+                        "vector": [0, 0, 0]
+                    },
+                    "scale": {
+                        "vector": [1, 1, 1]
+                    }
+                },
+                "riser": {
+                    "rotation": {
+                        "vector": [0, 0, 0]
+                    },
+                    "position": {
+                        "vector": [0, 0, 0]
+                    },
+                    "scale": {
+                        "vector": [1, 1, 1]
+                    }
+                },
+                "limbs": {
+                    "rotation": {
+                        "vector": [0, 0, 0]
+                    },
+                    "position": {
+                        "vector": [0, 0, 0]
+                    },
+                    "scale": {
+                        "vector": [1, 1, 1]
+                    }
+                },
+                "limbs.top": {
+                    "rotation": {
+                        "vector": [0, 0, 0]
+                    },
+                    "position": {
+                        "vector": [0, 0, 0]
+                    },
+                    "scale": {
+                        "vector": [1, 1, 1]
+                    }
+                },
+                "gears": {
+                    "rotation": {
+                        "vector": [0, 0, 0]
+                    },
+                    "position": {
+                        "vector": [0, 0, 0]
+                    },
+                    "scale": {
+                        "vector": [1, 1, 1]
+                    }
+                },
+                "gears.top": {
+                    "rotation": {
+                        "vector": [0, 0, 0]
+                    },
+                    "position": {
+                        "vector": [0, 0, 0]
+                    },
+                    "scale": {
+                        "vector": [1, 1, 1]
+                    }
+                },
+                "limbs.top.1": {
+                    "rotation": {
+                        "vector": [0, 0, 0]
+                    },
+                    "position": {
+                        "vector": [0, 0, 0]
+                    },
+                    "scale": {
+                        "vector": [1, 1, 1]
+                    }
+                },
+                "limbs.top.2": {
+                    "rotation": {
+                        "vector": [0, 0, 0]
+                    },
+                    "position": {
+                        "vector": [0, 0, 0]
+                    },
+                    "scale": {
+                        "vector": [1, 1, 1]
+                    }
+                },
+                "limbs.top.3": {
+                    "rotation": {
+                        "vector": [0, 0, 0]
+                    },
+                    "position": {
+                        "vector": [0, 0, 0]
+                    },
+                    "scale": {
+                        "vector": [1, 1, 1]
+                    }
+                },
+                "limbs.top.3.brass": {
+                    "rotation": {
+                        "vector": [0, 0, 0]
+                    },
+                    "position": {
+                        "vector": [0, 0, 0]
+                    },
+                    "scale": {
+                        "vector": [1, 1, 1]
+                    }
+                },
+                "limbs.bottom": {
+                    "rotation": {
+                        "vector": [0, 0, 0]
+                    },
+                    "position": {
+                        "vector": [0, 0, 0]
+                    },
+                    "scale": {
+                        "vector": [1, 1, 1]
+                    }
+                },
+                "limbs.bottom.1": {
+                    "rotation": {
+                        "vector": [0, 0, 0]
+                    },
+                    "position": {
+                        "vector": [0, 0, 0]
+                    },
+                    "scale": {
+                        "vector": [1, 1, 1]
+                    }
+                },
+                "limbs.bottom.2": {
+                    "rotation": {
+                        "vector": [0, 0, 0]
+                    },
+                    "position": {
+                        "vector": [0, 0, 0]
+                    },
+                    "scale": {
+                        "vector": [1, 1, 1]
+                    }
+                },
+                "limbs.bottom.3": {
+                    "rotation": {
+                        "vector": [0, 0, 0]
+                    },
+                    "position": {
+                        "vector": [0, 0, 0]
+                    },
+                    "scale": {
+                        "vector": [1, 1, 1]
+                    }
+                },
+                "limbs.bottom.3.brass": {
+                    "rotation": {
+                        "vector": [0, 0, 0]
+                    },
+                    "position": {
+                        "vector": [0, 0, 0]
+                    },
+                    "scale": {
+                        "vector": [1, 1, 1]
+                    }
+                },
+                "gears.bottom": {
+                    "rotation": {
+                        "vector": [0, 0, 0]
+                    },
+                    "position": {
+                        "vector": [0, 0, 0]
+                    },
+                    "scale": {
+                        "vector": [1, 1, 1]
+                    }
+                },
+                "gears.bottom.ring": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "16.0": {
+                            "vector": [0, 0, 720]
+                        }
+                    },
+                    "position": {
+                        "vector": [0, 0, 0]
+                    },
+                    "scale": {
+                        "vector": [1, 1, 1]
+                    }
+                },
+                "gears.bottom.sun": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "16.0": {
+                            "vector": [0, 0, -360]
+                        }
+                    },
+                    "position": {
+                        "vector": [0, 0, 0]
+                    },
+                    "scale": {
+                        "vector": [1, 1, 1]
+                    }
+                },
+                "gears.bottom.planets": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "16.0": {
+                            "vector": [0, 0, 360]
+                        }
+                    },
+                    "position": {
+                        "vector": [0, 0, 0]
+                    },
+                    "scale": {
+                        "vector": [1, 1, 1]
+                    }
+                },
+                "gears.bottom.planets.1": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "16.0": {
+                            "vector": [0, 0, 1440]
+                        }
+                    },
+                    "position": {
+                        "vector": [0, 0, 0]
+                    },
+                    "scale": {
+                        "vector": [1, 1, 1]
+                    }
+                },
+                "gears.bottom.planets.2": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "16.0": {
+                            "vector": [0, 0, 1440]
+                        }
+                    },
+                    "position": {
+                        "vector": [0, 0, 0]
+                    },
+                    "scale": {
+                        "vector": [1, 1, 1]
+                    }
+                },
+                "gears.bottom.planets.3": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "16.0": {
+                            "vector": [0, 0, 1440]
+                        }
+                    },
+                    "position": {
+                        "vector": [0, 0, 0]
+                    },
+                    "scale": {
+                        "vector": [1, 1, 1]
+                    }
+                },
+                "gears.bottom.planets.4": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "16.0": {
+                            "vector": [0, 0, 1440]
+                        }
+                    },
+                    "position": {
+                        "vector": [0, 0, 0]
+                    },
+                    "scale": {
+                        "vector": [1, 1, 1]
+                    }
+                },
+                "gears.bottom.face": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "16.0": {
+                            "vector": [0, 0, -360]
+                        }
+                    },
+                    "position": {
+                        "vector": [0, 0, 0]
+                    },
+                    "scale": {
+                        "vector": [1, 1, 1]
+                    }
+                },
+                "strings.1": {
+                    "rotation": {
+                        "vector": [0, 0, 0]
+                    },
+                    "position": {
+                        "vector": [0, 0, 0]
+                    },
+                    "scale": {
+                        "vector": [1, 1, 1]
+                    }
+                },
+                "strings.1.top": {
+                    "rotation": {
+                        "vector": [0, 0, 0]
+                    },
+                    "position": {
+                        "vector": [0, 0, 0]
+                    },
+                    "scale": {
+                        "vector": [1, 1, 1]
+                    }
+                },
+                "strings.1.bottom": {
+                    "rotation": {
+                        "vector": [0, 0, 0]
+                    },
+                    "position": {
+                        "vector": [0, 0, 0]
+                    },
+                    "scale": {
+                        "vector": [1, 1, 1]
+                    }
+                },
+                "strings.2": {
+                    "rotation": {
+                        "vector": [0, 0, 0]
+                    },
+                    "position": {
+                        "vector": [0, 0, 0]
+                    },
+                    "scale": {
+                        "vector": [1, 1, 1]
+                    }
+                },
+                "strings.3": {
+                    "rotation": {
+                        "vector": [0, 0, 0]
+                    },
+                    "position": {
+                        "vector": [0, 0, 0]
+                    },
+                    "scale": {
+                        "vector": [1, 1, 1]
+                    }
+                },
+                "strings.2.top": {
+                    "rotation": {
+                        "vector": [0, 0, 0]
+                    },
+                    "position": {
+                        "vector": [0, 0, 0]
+                    },
+                    "scale": {
+                        "vector": [1, 1, 1]
+                    }
+                },
+                "strings.2.middle": {
+                    "rotation": {
+                        "vector": [0, 0, 0]
+                    },
+                    "position": {
+                        "vector": [0, 0, 0]
+                    },
+                    "scale": {
+                        "vector": [1, 1, 1]
+                    }
+                },
+                "strings.2.bottom": {
+                    "rotation": {
+                        "vector": [0, 0, 0]
+                    },
+                    "position": {
+                        "vector": [0, 0, 0]
+                    },
+                    "scale": {
+                        "vector": [1, 1, 1]
+                    }
+                },
+                "strings.3.bottom": {
+                    "rotation": {
+                        "vector": [0, 0, 0]
+                    },
+                    "position": {
+                        "vector": [0, 0, 0]
+                    },
+                    "scale": {
+                        "vector": [1, 1, 1]
+                    }
+                },
+                "strings.3.top": {
+                    "rotation": {
+                        "vector": [0, 0, 0]
+                    },
+                    "position": {
+                        "vector": [0, 0, 0]
+                    },
+                    "scale": {
+                        "vector": [1, 1, 1]
+                    }
+                },
+                "arrow": {
+                    "scale": {
+                        "vector": [0, 0, 0]
+                    }
+                },
+                "strings.3.middle": {
+                    "rotation": {
+                        "vector": [0, 0, 0]
+                    },
+                    "position": {
+                        "vector": [0, 0, 0]
+                    },
+                    "scale": {
+                        "vector": [1, 1, 1]
+                    }
+                }
+            }
+        },
+        "clockwork_bow_draw": {
+            "loop": "hold_on_last_frame",
+            "animation_length": 1,
+            "bones": {
+                "gears.top.planets.1": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "1.0": {
+                            "vector": [0, 0, -720]
+                        }
+                    },
+                    "position": {
+                        "vector": [0, 0, 0]
+                    },
+                    "scale": {
+                        "vector": [1, 1, 1]
+                    }
+                },
+                "gears.top.ring": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "1.0": {
+                            "vector": [0, 0, -360]
+                        }
+                    },
+                    "position": {
+                        "vector": [0, 0, 0]
+                    },
+                    "scale": {
+                        "vector": [1, 1, 1]
+                    }
+                },
+                "gears.top.sun": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "1.0": {
+                            "vector": [0, 0, 180]
+                        }
+                    },
+                    "position": {
+                        "vector": [0, 0, 0]
+                    },
+                    "scale": {
+                        "vector": [1, 1, 1]
+                    }
+                },
+                "gears.top.planets": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "1.0": {
+                            "vector": [0, 0, -180]
+                        }
+                    },
+                    "position": {
+                        "vector": [0, 0, 0]
+                    },
+                    "scale": {
+                        "vector": [1, 1, 1]
+                    }
+                },
+                "gears.top.planets.2": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "1.0": {
+                            "vector": [0, 0, -720]
+                        }
+                    },
+                    "position": {
+                        "vector": [0, 0, 0]
+                    },
+                    "scale": {
+                        "vector": [1, 1, 1]
+                    }
+                },
+                "gears.top.planets.3": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "1.0": {
+                            "vector": [0, 0, -720]
+                        }
+                    },
+                    "position": {
+                        "vector": [0, 0, 0]
+                    },
+                    "scale": {
+                        "vector": [1, 1, 1]
+                    }
+                },
+                "gears.top.planets.4": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "1.0": {
+                            "vector": [0, 0, -720]
+                        }
+                    },
+                    "position": {
+                        "vector": [0, 0, 0]
+                    },
+                    "scale": {
+                        "vector": [1, 1, 1]
+                    }
+                },
+                "gears.top.face": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "1.0": {
+                            "vector": [0, 0, 180]
+                        }
+                    },
+                    "position": {
+                        "vector": [0, 0, 0]
+                    },
+                    "scale": {
+                        "vector": [1, 1, 1]
+                    }
+                },
+                "gears.top": {
+                    "position": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "1.0": {
+                            "vector": [2.025, -2.575, 0]
+                        }
+                    }
+                },
+                "limbs.top.2": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "1.0": {
+                            "vector": [0, 0, 10]
+                        }
+                    }
+                },
+                "limbs.top.3": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "1.0": {
+                            "vector": [0, 0, 20]
+                        }
+                    },
+                    "position": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "1.0": {
+                            "vector": [0.83441, -0.63843, 0]
+                        }
+                    }
+                },
+                "limbs.bottom.2": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "1.0": {
+                            "vector": [0, 0, 10]
+                        }
+                    }
+                },
+                "limbs.bottom.3": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "1.0": {
+                            "vector": [0, 0, 20]
+                        }
+                    },
+                    "position": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "1.0": {
+                            "vector": [0.83555, -0.64015, 0]
+                        }
+                    }
+                },
+                "gears.bottom": {
+                    "position": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "1.0": {
+                            "vector": [2.025, 2.575, 0]
+                        }
+                    }
+                },
+                "gears.bottom.ring": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "1.0": {
+                            "vector": [0, 0, -360]
+                        }
+                    },
+                    "position": {
+                        "vector": [0, 0, 0]
+                    },
+                    "scale": {
+                        "vector": [1, 1, 1]
+                    }
+                },
+                "gears.bottom.sun": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "1.0": {
+                            "vector": [0, 0, -180]
+                        }
+                    },
+                    "position": {
+                        "vector": [0, 0, 0]
+                    },
+                    "scale": {
+                        "vector": [1, 1, 1]
+                    }
+                },
+                "gears.bottom.planets": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "1.0": {
+                            "vector": [0, 0, -180]
+                        }
+                    },
+                    "position": {
+                        "vector": [0, 0, 0]
+                    },
+                    "scale": {
+                        "vector": [1, 1, 1]
+                    }
+                },
+                "gears.bottom.planets.1": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "1.0": {
+                            "vector": [0, 0, -720]
+                        }
+                    },
+                    "position": {
+                        "vector": [0, 0, 0]
+                    },
+                    "scale": {
+                        "vector": [1, 1, 1]
+                    }
+                },
+                "gears.bottom.planets.2": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "1.0": {
+                            "vector": [0, 0, -720]
+                        }
+                    },
+                    "position": {
+                        "vector": [0, 0, 0]
+                    },
+                    "scale": {
+                        "vector": [1, 1, 1]
+                    }
+                },
+                "gears.bottom.planets.3": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "1.0": {
+                            "vector": [0, 0, -720]
+                        }
+                    },
+                    "position": {
+                        "vector": [0, 0, 0]
+                    },
+                    "scale": {
+                        "vector": [1, 1, 1]
+                    }
+                },
+                "gears.bottom.planets.4": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "1.0": {
+                            "vector": [0, 0, -720]
+                        }
+                    },
+                    "position": {
+                        "vector": [0, 0, 0]
+                    },
+                    "scale": {
+                        "vector": [1, 1, 1]
+                    }
+                },
+                "gears.bottom.face": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "1.0": {
+                            "vector": [0, 0, 180]
+                        }
+                    },
+                    "position": {
+                        "vector": [0, 0, 0]
+                    },
+                    "scale": {
+                        "vector": [1, 1, 1]
+                    }
+                },
+                "strings.1": {
+                    "position": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "1.0": {
+                            "vector": [2.025, 0, 0]
+                        }
+                    },
+                    "scale": {
+                        "0.0": {
+                            "vector": [1, 1, 1]
+                        },
+                        "1.0": {
+                            "vector": [1, 0.9, 1]
+                        }
+                    }
+                },
+                "strings.1.top": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "1.0": {
+                            "vector": [0, 0, -22.5]
+                        }
+                    },
+                    "position": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "1.0": {
+                            "vector": [-0.03979, 2.12124, 0]
+                        }
+                    },
+                    "scale": {
+                        "0.0": {
+                            "vector": [1, 1, 1]
+                        },
+                        "0.4": {
+                            "vector": [1, 1.045, 1]
+                        },
+                        "0.7": {
+                            "vector": [1, 1.1, 1]
+                        },
+                        "1.0": {
+                            "vector": [1, 1.175, 1]
+                        }
+                    }
+                },
+                "strings.1.bottom": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "1.0": {
+                            "vector": [0, 0, 22.5]
+                        }
+                    },
+                    "position": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "1.0": {
+                            "vector": [-0.03979, -2.12124, 0]
+                        }
+                    },
+                    "scale": {
+                        "0.0": {
+                            "vector": [1, 1, 1]
+                        },
+                        "0.4": {
+                            "vector": [1, 1.045, 1]
+                        },
+                        "0.7": {
+                            "vector": [1, 1.1, 1]
+                        },
+                        "1.0": {
+                            "vector": [1, 1.175, 1]
+                        }
+                    }
+                },
+                "strings.2": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "1.0": {
+                            "vector": [0, 0, 1]
+                        }
+                    },
+                    "position": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "1.0": {
+                            "vector": [2.025, 0, 0]
+                        }
+                    },
+                    "scale": {
+                        "0.0": {
+                            "vector": [1, 1, 1]
+                        },
+                        "1.0": {
+                            "vector": [0.9, 0.9, 1]
+                        }
+                    }
+                },
+                "strings.3": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "1.0": {
+                            "vector": [0, 0, -1]
+                        }
+                    },
+                    "position": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "1.0": {
+                            "vector": [2.025, 0, 0]
+                        }
+                    },
+                    "scale": {
+                        "0.0": {
+                            "vector": [1, 1, 1]
+                        },
+                        "1.0": {
+                            "vector": [0.9, 0.9, 1]
+                        }
+                    }
+                },
+                "arrow": {
+                    "position": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "1.0": {
+                            "vector": [13.5, 0, 0]
+                        }
+                    },
+                    "scale": {
+                        "vector": [1, 1, 1]
+                    }
+                }
+            }
+        }
+    }
+}

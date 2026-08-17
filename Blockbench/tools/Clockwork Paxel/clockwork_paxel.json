@@ -1,10 +1,6 @@
 {
   "credit": "Made with Blockbench",
   "parent": "builtin/entity",
-  "texture_size": [
-    32,
-    32
-  ],
   "display": {
     "thirdperson_righthand": {
       "rotation": [
@@ -14,8 +10,13 @@
       ],
       "translation": [
         0,
-        -12,
-        4.5
+        -5,
+        1.5
+      ],
+      "scale": [
+        0.3,
+        0.3,
+        0.3
       ]
     },
     "thirdperson_lefthand": {
@@ -26,8 +27,13 @@
       ],
       "translation": [
         0,
-        -12,
-        4.5
+        -5,
+        1.5
+      ],
+      "scale": [
+        0.3,
+        0.3,
+        0.3
       ]
     },
     "firstperson_righthand": {
@@ -37,14 +43,14 @@
         0
       ],
       "translation": [
-        3.25,
-        -3.5,
-        1
+        0,
+        -6.75,
+        1.5
       ],
       "scale": [
-        0.8,
-        0.8,
-        0.8
+        0.35,
+        0.35,
+        0.35
       ]
     },
     "firstperson_lefthand": {
@@ -54,55 +60,55 @@
         0
       ],
       "translation": [
-        3.25,
-        -3.5,
-        1
+        0,
+        -6.75,
+        1.5
       ],
       "scale": [
-        0.8,
-        0.8,
-        0.8
+        0.35,
+        0.35,
+        0.35
       ]
     },
     "ground": {
-      "translation": [
-        0,
-        0.75,
-        0
-      ],
       "scale": [
-        0.75,
-        0.75,
-        0.75
+        0.3,
+        0.3,
+        0.3
       ]
     },
     "gui": {
       "rotation": [
-        10,
+        20,
         -160,
         45
       ],
       "translation": [
-        -4,
-        -5.75,
+        -5.5,
+        -7.5,
         0
       ],
       "scale": [
-        0.7,
-        0.7,
-        0.7
+        0.325,
+        0.325,
+        0.325
       ]
     },
     "head": {
       "rotation": [
         0,
         0,
-        90
+        60
       ],
       "translation": [
-        10,
-        4.5,
+        17.25,
+        1,
         0
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
       ]
     },
     "fixed": {
@@ -112,14 +118,14 @@
         45
       ],
       "translation": [
-        5.25,
-        -6.75,
+        7.25,
+        -8.5,
         0
       ],
       "scale": [
-        0.85,
-        0.85,
-        0.85
+        0.375,
+        0.375,
+        0.375
       ]
     },
     "on_shelf": {
@@ -129,18 +135,18 @@
         0
       ],
       "translation": [
-        3,
-        -3.75,
+        3.5,
+        -3,
         0
       ],
       "scale": [
-        0.9,
-        0.9,
-        0.9
+        0.5,
+        0.5,
+        0.5
       ]
     }
   },
   "textures": {
-    "particle": "createarsenal:item/brass_bow"
+    "particle": "createarsenal:item/clockwork_paxel"
   }
 }
